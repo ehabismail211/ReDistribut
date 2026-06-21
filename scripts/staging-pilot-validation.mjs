@@ -149,6 +149,9 @@ function appUrl(path) {
 async function fetchApp(path, options = {}) {
   const headers = new Headers(options.headers ?? {});
   if (options.token) headers.set("authorization", `Bearer ${options.token}`);
+  if (process.env.VERCEL_AUTOMATION_BYPASS_SECRET) {
+    headers.set("x-vercel-protection-bypass", process.env.VERCEL_AUTOMATION_BYPASS_SECRET);
+  }
   if (options.body && !headers.has("content-type")) headers.set("content-type", "application/json");
 
   return fetch(appUrl(path), {
