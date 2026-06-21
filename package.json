@@ -1,0 +1,21 @@
+{
+  "name": "redistribution",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ReDist circular inventory exchange platform.",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev": "./.tools/pnpm --filter @redist/web dev",
+    "build": "./.tools/pnpm --filter @redist/shared build && ./.tools/pnpm --filter @redist/web build",
+    "lint": "./.tools/pnpm --filter @redist/web lint",
+    "start": "./.tools/pnpm --filter @redist/web start",
+    "staging:provision": "node scripts/provision-staging-pilot-auth.mjs",
+    "staging:validate": "node scripts/staging-pilot-validation.mjs",
+    "test": "node --test scripts/*.test.mjs",
+    "typecheck": "./.tools/pnpm --filter @redist/shared typecheck && ./.tools/pnpm --filter @redist/web typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.0"
+  }
+}
