@@ -3,8 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import { Workspace } from "./workspace";
 
 export const metadata = {
-  title: "ReDist Workspace | Local MVP Preview",
-  description: "Local preview workspace for publishing, requesting, reserving, and completing surplus inventory handovers.",
+  title: "ReDist Workspace | Private Pilot Preview",
+  description: "Private pilot workspace for publishing, requesting, reserving, and completing surplus inventory handovers.",
 };
 
 export default function AppWorkspacePage() {
@@ -16,10 +16,10 @@ export default function AppWorkspacePage() {
           Public site
         </Link>
         <div>
-          <span className="eyebrow">Local MVP preview</span>
+          <span className="eyebrow">Private pilot preview</span>
           <h1>ReDist workspace</h1>
         </div>
-        <span className="environment-pill">Local only</span>
+        <span className="environment-pill">Protected staging</span>
       </header>
       <Workspace />
     </main>
