@@ -6,6 +6,19 @@ const localization = readFileSync("apps/web/src/app/components/public-language.t
 const marketing = readFileSync("apps/web/src/app/components/marketing.tsx", "utf8");
 const css = readFileSync("apps/web/src/app/globals.css", "utf8");
 
+function quotedKey(value) {
+  return `${JSON.stringify(value)}:`;
+}
+
+function extractQuotedStrings(source, startToken, endToken) {
+  const start = source.indexOf(startToken);
+  const end = source.indexOf(endToken, start);
+  assert.ok(start >= 0, `missing source section ${startToken}`);
+  assert.ok(end > start, `missing section end ${endToken}`);
+  const section = source.slice(start, end);
+  return [...section.matchAll(/"([^"\\]*(?:\\.[^"\\]*)*)"/g)].map((match) => JSON.parse(`"${match[1]}"`));
+}
+
 test("public website exposes Arabic language switching and RTL support", () => {
   for (const token of [
     '"use client"',
@@ -37,6 +50,19 @@ test("public Arabic dictionary covers customer-facing routes and lead capture", 
     "Submit inquiry",
     "Pilot interest",
     "Hotel / hospitality",
+    "Supplier approval control",
+    "General",
+    "Trust and verification",
+    "Impact, pilot, and launch",
+    "What is ReDist?",
+    "Does ReDist have real impact results yet?",
+    "Can organizations use ReDist for ESG reporting?",
+    "ReDist home",
+    "Primary navigation",
+    "Footer navigation",
+    "Pilot status",
+    "Common redistribution questions",
+    "Language",
   ]) {
     assert.ok(localization.includes(token), `missing dictionary source text: ${token}`);
   }
@@ -48,7 +74,24 @@ test("public Arabic dictionary covers customer-facing routes and lead capture", 
     "للمستفيدين",
     "الأسئلة الشائعة",
     "إرسال الاستفسار",
+    "ما هي ReDist؟",
+    "الثقة والتحقق",
+    "الصفحة الرئيسية لـ ReDist",
   ]) {
     assert.ok(localization.includes(token), `missing Arabic text: ${token}`);
+  }
+});
+
+test("public Arabic dictionary covers shared marketing workflow, cards, and FAQ details", () => {
+  const sharedMarketingStrings = [
+    ...extractQuotedStrings(marketing, "export const siteNav", "export const workflowSteps"),
+    ...extractQuotedStrings(marketing, "export const workflowSteps", "export const featureCards"),
+    ...extractQuotedStrings(marketing, "export const featureCards", "export const faqGroups"),
+    ...extractQuotedStrings(marketing, "export const faqGroups", "export function MarketingShell"),
+  ];
+
+  for (const sourceText of sharedMarketingStrings) {
+    if (sourceText === "/" || sourceText.startsWith("/")) continue;
+    assert.ok(localization.includes(quotedKey(sourceText)), `missing Arabic dictionary key: ${sourceText}`);
   }
 });
