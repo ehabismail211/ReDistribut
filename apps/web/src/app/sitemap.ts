@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/recipients", 0.86],
     ["/faq", 0.74],
     ["/contact", 0.8],
+    ["/terms", 0.44],
+    ["/privacy", 0.44],
   ] as const;
 
   return pages.map(([path, priority]) => ({

@@ -27,6 +27,11 @@ export const siteNav = [
   { href: "/contact", label: "Contact" },
 ];
 
+export const legalNav = [
+  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy" },
+];
+
 export const workflowSteps = [
   {
     icon: PackagePlus,
@@ -193,6 +198,9 @@ export function MarketingFooter() {
       </div>
       <nav aria-label="Footer navigation">
         {siteNav.map((item) => (
+          <a href={item.href} key={item.href}>{item.label}</a>
+        ))}
+        {legalNav.map((item) => (
           <a href={item.href} key={item.href}>{item.label}</a>
         ))}
         <a href="/app">Workspace</a>
