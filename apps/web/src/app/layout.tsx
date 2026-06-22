@@ -3,17 +3,20 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://redistribut.com"),
-  title: "ReDist | Redistribute surplus inventory",
-  description: "ReDist helps organizations redistribute excess, near-expiry, and slow-moving stock before it becomes waste.",
+  title: {
+    default: "ReDist | Trusted surplus redistribution for UAE organizations",
+    template: "%s | ReDist",
+  },
+  description: "ReDist helps verified UAE organizations move usable surplus from listing to request, handover, certificate, and impact tracking.",
   applicationName: "ReDist",
   keywords: [
     "Redistribut",
     "ReDist",
-    "surplus inventory",
-    "circular economy",
-    "waste reduction",
-    "inventory exchange",
-    "near expiry stock",
+    "surplus redistribution UAE",
+    "circular economy UAE",
+    "verified resource redistribution",
+    "surplus resource handover",
+    "ESG redistribution evidence",
   ],
   authors: [{ name: "Redistribut" }],
   creator: "Redistribut",
@@ -25,8 +28,8 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://redistribut.com",
     siteName: "ReDist",
-    title: "ReDist | Redistribute surplus inventory",
-    description: "Move excess, near-expiry, and slow-moving stock to organizations that can use it.",
+    title: "ReDist | Trusted surplus redistribution for UAE organizations",
+    description: "Move usable surplus through verified organization workflows with handover evidence and impact visibility.",
     images: [
       {
         url: "/brand/redistribut-mark.png",
@@ -38,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "ReDist | Redistribute surplus inventory",
-    description: "Move excess, near-expiry, and slow-moving stock before it becomes waste.",
+    title: "ReDist | Trusted surplus redistribution for UAE organizations",
+    description: "Move usable surplus through verified organization workflows with handover evidence and impact visibility.",
     images: ["/brand/redistribut-mark.png"],
   },
   icons: {

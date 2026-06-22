@@ -2,31 +2,20 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://redistribut.com";
+  const now = new Date();
+  const pages = [
+    ["", 1],
+    ["/how-it-works", 0.9],
+    ["/suppliers", 0.86],
+    ["/recipients", 0.86],
+    ["/faq", 0.74],
+    ["/contact", 0.8],
+  ] as const;
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/#discover`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#workflow`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#platform`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-  ];
+  return pages.map(([path, priority]) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority,
+  }));
 }
