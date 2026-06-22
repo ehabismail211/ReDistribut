@@ -1531,7 +1531,11 @@ function mergeCategories(savedCategories?: Category[]) {
 
 export function Workspace() {
   const [state, setState] = useWorkspaceState();
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === "undefined") return "en";
+    const stored = window.localStorage.getItem(languageStorageKey);
+    return stored === "ar" || stored === "en" ? stored : "en";
+  });
   const [section, setSection] = useState<Section>("dashboard");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
@@ -1545,13 +1549,6 @@ export function Workspace() {
   const [requestMessage, setRequestMessage] = useState("We can collect today between 4-6 PM.");
   const [messageDraft, setMessageDraft] = useState("Confirmed, our team can bring insulated boxes.");
   const dir = locale === "ar" ? "rtl" : "ltr";
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(languageStorageKey);
-    if (stored === "ar" || stored === "en") {
-      setLocaleState(stored);
-    }
-  }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale;
