@@ -98,6 +98,41 @@
   background: #ffffff;
 }
 
+.mkt-header-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mkt-language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 4px;
+  background: #ffffff;
+  border: 1px solid #d9ded8;
+  border-radius: 8px;
+}
+
+.mkt-language-switcher button {
+  min-width: 44px;
+  min-height: 32px;
+  padding: 0 10px;
+  color: #53605a;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mkt-language-switcher button.active {
+  color: #ffffff;
+  background: #2f6b4f;
+}
+
 .mkt-button {
   display: inline-flex;
   align-items: center;
@@ -541,12 +576,71 @@
   font-weight: 800;
 }
 
+.mkt-page[lang="ar"] {
+  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Inter, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+.mkt-page[dir="rtl"] {
+  text-align: right;
+}
+
+.mkt-page[dir="rtl"] .mkt-header,
+.mkt-page[dir="rtl"] .mkt-hero,
+.mkt-page[dir="rtl"] .mkt-split,
+.mkt-page[dir="rtl"] .mkt-two-column,
+.mkt-page[dir="rtl"] .mkt-contact-layout,
+.mkt-page[dir="rtl"] .mkt-cta-band,
+.mkt-page[dir="rtl"] .mkt-footer {
+  direction: rtl;
+}
+
+.mkt-page[dir="rtl"] .mkt-nav,
+.mkt-page[dir="rtl"] .mkt-header-actions {
+  justify-content: flex-start;
+}
+
+.mkt-page[dir="rtl"] .mkt-actions,
+.mkt-page[dir="rtl"] .mkt-button,
+.mkt-page[dir="rtl"] .mkt-link-card strong,
+.mkt-page[dir="rtl"] .mkt-check-list div,
+.mkt-page[dir="rtl"] .mkt-notice {
+  flex-direction: row-reverse;
+}
+
+.mkt-page[dir="rtl"] .mkt-copy-card ul,
+.mkt-page[dir="rtl"] .mkt-copy-card ol {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+.mkt-page[dir="rtl"] .mkt-faq-list summary {
+  flex-direction: row-reverse;
+}
+
+.mkt-page[dir="rtl"] .mkt-contact-form input,
+.mkt-page[dir="rtl"] .mkt-contact-form select,
+.mkt-page[dir="rtl"] .mkt-contact-form textarea {
+  text-align: right;
+}
+
+.mkt-page[dir="rtl"] .mkt-contact-form input[type="email"],
+.mkt-page[dir="rtl"] .mkt-contact-form input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+}
+
 @media (max-width: 980px) {
   .mkt-header {
     grid-template-columns: 1fr;
   }
 
   .mkt-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .mkt-header-actions {
     justify-content: flex-start;
     flex-wrap: wrap;
   }

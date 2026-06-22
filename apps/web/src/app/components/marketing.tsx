@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
+import { PublicLanguageController } from "./public-language";
 
 type Icon = ComponentType<{ size?: number; strokeWidth?: number; "aria-hidden"?: boolean }>;
 
@@ -172,7 +173,10 @@ export function MarketingHeader() {
           <a href={item.href} key={item.href}>{item.label}</a>
         ))}
       </nav>
-      <a className="mkt-button mkt-button-primary" href="/contact?intent=pilot">Request pilot conversation</a>
+      <div className="mkt-header-actions">
+        <PublicLanguageController />
+        <a className="mkt-button mkt-button-primary" href="/contact?intent=pilot">Request pilot conversation</a>
+      </div>
     </header>
   );
 }
