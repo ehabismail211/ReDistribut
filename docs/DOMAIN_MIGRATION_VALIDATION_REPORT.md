@@ -3,13 +3,13 @@
 Date: 2026-06-22  
 Domain: `redistribut.com`  
 Target platform: Vercel project `re-distribut-web`  
-Current recommendation: **Go after metadata redeploy confirmation**
+Current recommendation: **Go**
 
 ## Executive Summary
 
 The Redistribut brand domain has been connected to the Vercel project and Hostinger DNS has been updated from the previous Hostinger CDN records to Vercel routing records.
 
-DNS is resolving to Vercel, HTTPS is active, the apex domain redirects to `www.redistribut.com`, and the ReDist marketing website is reachable on the brand domain. Lead creation from the brand domain returned a successful `201` response.
+DNS is resolving to Vercel, HTTPS is active, the apex domain redirects to `www.redistribut.com`, and the ReDist marketing website is reachable on the brand domain. Brand-domain metadata now uses `https://www.redistribut.com`, sitemap entries use the brand host, and lead creation from the brand domain returned a successful `201` response.
 
 No product features were added.
 
@@ -80,6 +80,14 @@ https://www.redistribut.com
 
 `NEXT_PUBLIC_APP_URL` remains supported and should be set to `https://www.redistribut.com` in Vercel production for explicit environment control.
 
+Validation after redeploy:
+
+```text
+canonical: https://www.redistribut.com
+og:url: https://www.redistribut.com
+sitemap URLs: https://www.redistribut.com/...
+```
+
 ## Lead Capture Validation
 
 Lead capture was validated on the brand domain:
@@ -103,7 +111,7 @@ Remaining authenticated founder check:
 
 ## Mobile Validation
 
-Mobile browser validation should be completed by the founder on the final brand-domain deployment. Previous production validation on the Vercel URL passed basic mobile layout checks, and HTTPS now works on the brand domain.
+Mobile browser access was checked with a mobile Safari user agent against `https://www.redistribut.com/contact`; the route returned `200` from Vercel. Founder device review is still recommended before a large campaign, but there is no technical mobile-access blocker from this validation.
 
 Required recheck after HTTPS is available:
 
@@ -117,16 +125,16 @@ Required recheck after HTTPS is available:
 
 ## Remaining Gates
 
-### Required Before Outreach
+### Recommended Operational Follow-Up
 
-1. **Production redeploy must publish updated brand-domain metadata**
-   - The source now defaults metadata to `https://www.redistribut.com`.
-   - Vercel should redeploy after the code change is pushed.
-
-2. **Set explicit Vercel environment variable**
+1. **Set explicit Vercel environment variable**
    - Recommended value:
      - `NEXT_PUBLIC_APP_URL=https://www.redistribut.com`
    - This is not a code feature; it makes the production URL explicit in deployment settings.
+
+2. **Archive the test lead**
+   - Test lead ID: `aa43c852-78ca-46c3-8180-ffdae5a016df`
+   - Recommended founder action: open `/app/leads` while authenticated and archive or mark the test lead.
 
 ## Post-Propagation Checklist
 
@@ -153,6 +161,6 @@ Expected result:
 
 ## Recommendation
 
-**Go after metadata redeploy confirmation** for brand-domain migration.
+**Go** for brand-domain migration.
 
-DNS, HTTPS, routing, and lead creation are working on the brand domain. Public outreach can use `https://www.redistribut.com` after the metadata redeploy is confirmed and the founder performs one authenticated review of the new test lead in `/app/leads`.
+DNS, HTTPS, routing, metadata, sitemap, robots, public pages, mobile access, and lead creation are working on `https://www.redistribut.com`. Public outreach can use the brand domain. The founder should archive the internal test lead during the next authenticated lead-dashboard review.
