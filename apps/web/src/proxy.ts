@@ -14,6 +14,11 @@ const protectedRoutes: Array<{ pattern: RegExp; permission: Permission; label: s
     label: "founder lead review route",
   },
   {
+    pattern: /^\/app\/founder(?:\/)?$/,
+    permission: "founder.route.access",
+    label: "founder revenue dashboard route",
+  },
+  {
     pattern: /^\/api\/v1\/organizations\/[^/]+\/trust-score\/recalculate(?:\/)?$/,
     permission: "trust.recalculate",
     label: "trust recalculation API",
@@ -59,6 +64,7 @@ export const config = {
   matcher: [
     "/app/pilot-monitoring",
     "/app/leads",
+    "/app/founder",
     "/api/v1/audit",
     "/api/v1/verifications/:path*/review",
     "/api/v1/organizations/:path*/trust-score/recalculate",

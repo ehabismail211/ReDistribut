@@ -4313,6 +4313,117 @@ code {
   grid-column: 1 / -1;
 }
 
+.founder-revenue-shell {
+  background:
+    linear-gradient(180deg, rgba(224, 249, 240, 0.46), transparent 300px),
+    var(--dashboard-bg);
+}
+
+.founder-revenue-dashboard {
+  max-width: 1440px;
+  margin: 0 auto;
+  gap: 18px;
+}
+
+.founder-revenue-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.28fr);
+}
+
+.founder-revenue-snapshot {
+  display: grid;
+  gap: 8px;
+  align-self: stretch;
+  padding: 20px;
+  background: var(--dashboard-card);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+}
+
+.founder-revenue-snapshot strong {
+  color: var(--dashboard-text);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.founder-revenue-snapshot small {
+  color: var(--dashboard-muted);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.founder-dashboard-section {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  background: var(--dashboard-card);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+  box-shadow: var(--dashboard-shadow);
+}
+
+.founder-revenue-kpi {
+  align-items: start;
+  min-height: 170px;
+}
+
+.founder-pipeline-grid,
+.founder-funnel-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.founder-segment-card,
+.founder-funnel-step {
+  display: grid;
+  gap: 10px;
+  min-height: 170px;
+  padding: 16px;
+  background: var(--dashboard-card-soft);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+}
+
+.founder-segment-card svg,
+.founder-funnel-step > span {
+  color: var(--green);
+}
+
+.founder-segment-card span,
+.founder-funnel-step h3 {
+  color: var(--dashboard-text);
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.founder-segment-card strong,
+.founder-funnel-step strong {
+  color: var(--dashboard-text);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.founder-segment-card p,
+.founder-funnel-step p {
+  color: var(--dashboard-muted);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.founder-funnel-step > span {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  color: var(--green-dark);
+  background: rgba(16, 185, 129, 0.13);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 950;
+}
+
 .monthly-impact-summary > div {
   display: grid;
   gap: 6px;
@@ -5082,6 +5193,7 @@ body[data-locale="ar"],
   .pilot-dashboard-grid,
   .pilot-monitor-hero,
   .pilot-monitor-columns,
+  .founder-revenue-hero,
   .verification-card-grid,
   .document-card-grid,
   .admin-review-grid,
@@ -5132,7 +5244,9 @@ body[data-locale="ar"],
   }
 
   .pilot-monitor-grid,
-  .founder-feedback-list {
+  .founder-feedback-list,
+  .founder-pipeline-grid,
+  .founder-funnel-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -5297,6 +5411,8 @@ body[data-locale="ar"],
   .founder-monitor-grid,
   .pilot-monitor-grid,
   .pilot-monitor-columns,
+  .founder-pipeline-grid,
+  .founder-funnel-grid,
   .founder-feedback-list,
   .pilot-issue-summary,
   .pilot-feedback-form,
