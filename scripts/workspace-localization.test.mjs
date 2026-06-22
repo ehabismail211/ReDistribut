@@ -27,3 +27,29 @@ test("workspace initializes language from storage before writing locale preferen
     "workspace should apply RTL direction to the document",
   );
 });
+
+test("workspace Arabic dictionary covers Sprint 1 operational workspace labels", () => {
+  for (const token of [
+    '"Dashboard action center": "مركز إجراءات لوحة التحكم"',
+    '"What should move today?": "ما الذي يجب تحريكه اليوم؟"',
+    '"Create a listing": "إنشاء عرض"',
+    '"Discover resources": "اكتشاف الموارد"',
+    '"Review requests": "مراجعة الطلبات"',
+    '"View transfers": "عرض التحويلات"',
+    '"Needs attention": "يحتاج إلى اهتمام"',
+    '"Recent listings": "أحدث العروض"',
+    '"Recent requests": "أحدث الطلبات"',
+    '"Operational request queue": "قائمة الطلبات التشغيلية"',
+    '"Handover and verification workspace": "مساحة التسليم والتحقق"',
+    '"Resource discovery": "اكتشاف الموارد"',
+    '"Prepared chicken meals": "وجبات دجاج جاهزة"',
+    '"Double-wall cardboard boxes": "كراتين شحن مزدوجة الجدار"',
+  ]) {
+    assert.ok(workspace.includes(token), `missing workspace Arabic coverage for ${token}`);
+  }
+
+  assert.ok(
+    workspace.includes("const dayMatch = value.match"),
+    "workspace translator should handle dynamic expiry labels such as 3 days left",
+  );
+});

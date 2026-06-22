@@ -284,14 +284,318 @@ const arabicTranslations: Record<string, string> = {
   "Courier coordination": "تنسيق شحن",
   "Food and beverage": "الأغذية والمشروبات",
   "Packaging and containers": "التغليف والحاويات",
+  "Packaging materials": "مواد التغليف",
   "Furniture and fixtures": "الأثاث والتجهيزات",
+  "Furniture & Fixtures": "الأثاث والتجهيزات",
   "Warehouse Materials": "مواد المستودعات",
+  "Food & Beverage": "الأغذية والمشروبات",
   "Community supplies": "مستلزمات مجتمعية",
+  "Community Supplies": "مستلزمات مجتمعية",
+  "Office supplies": "مستلزمات مكتبية",
   "Dubai": "دبي",
   "Abu Dhabi": "أبوظبي",
   "Sharjah": "الشارقة",
   "Jebel Ali": "جبل علي",
   "Dubai Marina": "دبي مارينا",
+  "Industrial Area": "المنطقة الصناعية",
+  "Mussafah": "مصفح",
+  "Dashboard action center": "مركز إجراءات لوحة التحكم",
+  "What should move today?": "ما الذي يجب تحريكه اليوم؟",
+  "Start with surplus listings, resource requests, handovers, and review queues.": "ابدأ بعروض الفائض وطلبات الموارد والتسليمات وقوائم المراجعة.",
+  "Dashboard status summary": "ملخص حالة لوحة التحكم",
+  "Action center": "مركز الإجراءات",
+  "Supplier": "المورد",
+  "Recipient": "المستفيد",
+  "Workflow": "سير العمل",
+  "Operations": "العمليات",
+  "Create a listing": "إنشاء عرض",
+  "Discover resources": "اكتشاف الموارد",
+  "Review requests": "مراجعة الطلبات",
+  "View transfers": "عرض التحويلات",
+  "Publish surplus inventory for controlled redistribution.": "انشر المخزون الفائض لإعادة توزيع مضبوطة.",
+  "Find available stock by category, location, and urgency.": "اعثر على المخزون المتاح حسب الفئة والموقع والأولوية.",
+  "Respond to requests and move accepted items forward.": "استجب للطلبات وحرّك العناصر المقبولة إلى المرحلة التالية.",
+  "Track accepted handovers and completed transfers.": "تابع التسليمات المقبولة والتحويلات المكتملة.",
+  "Needs attention": "يحتاج إلى اهتمام",
+  "Queues that should be handled before reviewing analytics.": "قوائم يجب التعامل معها قبل مراجعة التحليلات.",
+  "Requests awaiting response": "طلبات بانتظار الرد",
+  "Supplier queue for accepting or declining resource requests.": "قائمة المورد لقبول طلبات الموارد أو رفضها.",
+  "Transfers awaiting verification": "تحويلات بانتظار التحقق",
+  "Accepted handovers ready to be completed and certified.": "تسليمات مقبولة جاهزة للإكمال وإصدار الشهادة.",
+  "Expiring or urgent listings": "عروض عاجلة أو قاربت الانتهاء",
+  "Surplus inventory that should move soon or be reviewed.": "مخزون فائض يجب تحريكه قريبا أو مراجعته.",
+  "Admin review items": "عناصر مراجعة إدارية",
+  "Documents, verification records, and reports needing operations review.": "مستندات وسجلات تحقق وبلاغات تحتاج إلى مراجعة تشغيلية.",
+  "Recent listings": "أحدث العروض",
+  "Supplier inventory currently available or reserved.": "مخزون المورد المتاح أو المحجوز حاليا.",
+  "Recent requests": "أحدث الطلبات",
+  "Recipient demand and supplier response status.": "حالة طلب المستفيد واستجابة المورد.",
+  "Accepted and completed transfers": "التحويلات المقبولة والمكتملة",
+  "Handover status for requests that have moved past review.": "حالة التسليم للطلبات التي تجاوزت مرحلة المراجعة.",
+  "Accepted transfers appear after requests are approved.": "تظهر التحويلات المقبولة بعد الموافقة على الطلبات.",
+  "Admin operating context": "سياق تشغيل المشرف",
+  "Verification readiness, trust, reports, and saved recipient interest.": "جاهزية التحقق والثقة والبلاغات واهتمام المستفيدين المحفوظ.",
+  "Documents needing review:": "مستندات تحتاج إلى مراجعة:",
+  "Workspace context": "سياق مساحة العمل",
+  "Pilot organization and city used by the local workflow preview.": "المؤسسة والمدينة التجريبيتان المستخدمتان في معاينة سير العمل المحلية.",
+  "City": "المدينة",
+  "Unread alerts": "تنبيهات غير مقروءة",
+  "Impact snapshot": "لمحة الأثر",
+  "Visible proof from completed redistribution work.": "إثبات واضح من أعمال إعادة التوزيع المكتملة.",
+  "Open impact": "فتح الأثر",
+  "Units completed through controlled transfers.": "وحدات مكتملة عبر تحويلات مضبوطة.",
+  "Estimated material kept out of disposal.": "مواد تقديرية تم إبقاؤها بعيدا عن التخلص منها.",
+  "completed handovers": "تسليمات مكتملة",
+  "Resource discovery": "اكتشاف الموارد",
+  "Find available surplus for redistribution by urgency, location, and handover readiness.": "اعثر على الفائض المتاح لإعادة التوزيع حسب الأولوية والموقع وجاهزية التسليم.",
+  "Search resources": "البحث عن الموارد",
+  "Prepared meals, cartons, fixtures...": "وجبات جاهزة، كراتين، تجهيزات...",
+  "Discovery summary": "ملخص الاكتشاف",
+  "Available resources": "الموارد المتاحة",
+  "Urgent resources": "موارد عاجلة",
+  "Nearby resources": "موارد قريبة",
+  "Categories available": "الفئات المتاحة",
+  "Listing filters": "فلاتر العروض",
+  "Operational filters": "فلاتر تشغيلية",
+  "Narrow available surplus by resource fit and handover conditions.": "ضيّق نطاق الفائض المتاح حسب ملاءمة المورد وشروط التسليم.",
+  "Category": "الفئة",
+  "Location": "الموقع",
+  "Availability status": "حالة التوفر",
+  "Available for request": "متاح للطلب",
+  "Expiry and urgency": "الانتهاء والأولوية",
+  "All urgency levels": "كل مستويات الأولوية",
+  "Urgent or near expiry": "عاجل أو قريب الانتهاء",
+  "Standard timing": "توقيت عادي",
+  "Pickup readiness": "جاهزية الاستلام",
+  "Organization type": "نوع المؤسسة",
+  "Verified supplier organizations": "مؤسسات موردة موثقة",
+  "Saved resource search": "بحث موارد محفوظ",
+  "Keep this sourcing view for recurring redistribution needs.": "احتفظ بمنظور التوريد هذا لاحتياجات إعادة التوزيع المتكررة.",
+  "Resource": "المورد",
+  "Urgency": "الأولوية",
+  "Action": "الإجراء",
+  "No available resources match this filter.": "لا توجد موارد متاحة تطابق هذا الفلتر.",
+  "Available surplus": "الفائض المتاح",
+  "Handover location": "موقع التسليم",
+  "Handover note": "ملاحظة التسليم",
+  "No expiry date": "لا يوجد تاريخ انتهاء",
+  "Expired": "منتهي",
+  "Expires today": "ينتهي اليوم",
+  "1 day left": "متبق يوم واحد",
+  "Operational request queue": "قائمة الطلبات التشغيلية",
+  "Approve new requests, track handovers, and close redistribution work without mixing active and completed queues.": "وافق على الطلبات الجديدة، وتتبع التسليمات، وأغلق أعمال إعادة التوزيع دون خلط القوائم النشطة بالمكتملة.",
+  "Request queue summary": "ملخص قائمة الطلبات",
+  "Awaiting approval": "بانتظار الموافقة",
+  "Awaiting my action": "بانتظار إجرائي",
+  "New requests that need approval, rejection, scheduling, or handover verification.": "طلبات جديدة تحتاج إلى موافقة أو رفض أو جدولة أو تحقق من التسليم.",
+  "No requests need your action. New resource requests from Discover will appear here.": "لا توجد طلبات تحتاج إلى إجراء منك. ستظهر هنا طلبات الموارد الجديدة من الاكتشاف.",
+  "Awaiting other party": "بانتظار الطرف الآخر",
+  "Requests that are waiting for supplier response, recipient confirmation, or external transfer verification.": "طلبات تنتظر رد المورد أو تأكيد المستفيد أو تحقق تحويل خارجي.",
+  "Nothing is waiting on another party right now.": "لا يوجد شيء ينتظر الطرف الآخر حاليا.",
+  "Active transfers": "التحويلات النشطة",
+  "Approved requests moving toward handover completion.": "طلبات معتمدة تتحرك نحو إكمال التسليم.",
+  "Approved handovers will move here after a request is accepted.": "ستنتقل التسليمات المعتمدة إلى هنا بعد قبول الطلب.",
+  "Completed and closed": "مكتملة ومغلقة",
+  "Completed, rejected, or cancelled requests kept separate from active operations.": "طلبات مكتملة أو مرفوضة أو ملغاة محفوظة بعيدا عن العمليات النشطة.",
+  "Closed requests and certificate-ready handovers will appear here.": "ستظهر هنا الطلبات المغلقة والتسليمات الجاهزة للشهادات.",
+  "Closed requests": "طلبات مغلقة",
+  "Open": "مفتوح",
+  "Clear": "واضح",
+  "Request ref": "مرجع الطلب",
+  "Approve": "موافقة",
+  "Decline": "رفض",
+  "Schedule handover": "جدولة التسليم",
+  "Certificate ready": "الشهادة جاهزة",
+  "Request declined": "تم رفض الطلب",
+  "Request cancelled": "تم إلغاء الطلب",
+  "Approve or decline this resource request.": "وافق على طلب المورد هذا أو ارفضه.",
+  "Schedule handover and verify transfer completion.": "جدول التسليم وتحقق من اكتمال التحويل.",
+  "Certificate ready for audit and sharing.": "الشهادة جاهزة للتدقيق والمشاركة.",
+  "Completed handover recorded.": "تم تسجيل التسليم المكتمل.",
+  "Closed after supplier declined the request.": "أُغلق بعد رفض المورد للطلب.",
+  "Closed after cancellation.": "أُغلق بعد الإلغاء.",
+  "Review request status.": "راجع حالة الطلب.",
+  "Unknown supplier": "مورد غير معروف",
+  "Requesting organization": "المؤسسة الطالبة",
+  "Pending location": "موقع قيد التأكيد",
+  "units": "وحدات",
+  "Verify transfer": "تحقق من التحويل",
+  "Handover and verification workspace": "مساحة التسليم والتحقق",
+  "Track accepted handovers, verify completed transfers, and find certificates without mixing active work with closed records.": "تابع التسليمات المقبولة، وتحقق من التحويلات المكتملة، واعثر على الشهادات دون خلط العمل النشط بالسجلات المغلقة.",
+  "Transfer workspace summary": "ملخص مساحة التحويلات",
+  "Ready for handover": "جاهز للتسليم",
+  "Accepted requests ready for pickup, drop-off, or coordinated handover.": "طلبات مقبولة جاهزة للاستلام أو التسليم أو التسليم المنسق.",
+  "No accepted handovers are ready yet. Approved requests from Requests will appear here.": "لا توجد تسليمات مقبولة جاهزة بعد. ستظهر هنا الطلبات المعتمدة من صفحة الطلبات.",
+  "Verification required": "التحقق مطلوب",
+  "Transfers waiting for completion confirmation and certificate generation.": "تحويلات بانتظار تأكيد الإكمال وإنشاء الشهادة.",
+  "No transfers currently require verification.": "لا توجد تحويلات تتطلب التحقق حاليا.",
+  "Completed transfers": "التحويلات المكتملة",
+  "Closed handovers with certificate status shown when available.": "تسليمات مغلقة مع عرض حالة الشهادة عند توفرها.",
+  "Completed transfers and certificates will appear after handover verification.": "ستظهر التحويلات المكتملة والشهادات بعد التحقق من التسليم.",
+  "Exceptions and delays": "الاستثناءات والتأخيرات",
+  "Exceptions or delays": "استثناءات أو تأخيرات",
+  "Declined, cancelled, expired, or blocked handovers supported by the current request states.": "تسليمات مرفوضة أو ملغاة أو منتهية أو محظورة مدعومة بحالات الطلب الحالية.",
+  "No transfer exceptions or delays are recorded.": "لا توجد استثناءات أو تأخيرات مسجلة للتحويلات.",
+  "Completed transfer": "تحويل مكتمل",
+  "Declined handover": "تسليم مرفوض",
+  "Cancelled handover": "تسليم ملغى",
+  "Confirm handover completion to issue the transfer certificate.": "أكد اكتمال التسليم لإصدار شهادة التحويل.",
+  "Certificate is available for audit and verification.": "الشهادة متاحة للتدقيق والتحقق.",
+  "Completed transfer recorded.": "تم تسجيل التحويل المكتمل.",
+  "No handover required after request rejection.": "لا يلزم تسليم بعد رفض الطلب.",
+  "No handover required after cancellation.": "لا يلزم تسليم بعد الإلغاء.",
+  "Review transfer status.": "راجع حالة التحويل.",
+  "Transfer ref": "مرجع التحويل",
+  "Handover method": "طريقة التسليم",
+  "Certificate status": "حالة الشهادة",
+  "Not issued yet": "لم تصدر بعد",
+  "Impact summary": "ملخص الأثر",
+  "Redistributed value and environmental indicators from completed transfer activity.": "القيمة المعاد توزيعها والمؤشرات البيئية من نشاط التحويلات المكتملة.",
+  "Estimated redistributed value retained through completed handovers.": "قيمة معاد توزيعها تقديرية احتُفظ بها عبر التسليمات المكتملة.",
+  "Total units completed through verified transfer workflows.": "إجمالي الوحدات المكتملة عبر مسارات تحويل موثقة.",
+  "Estimated material diverted from disposal through reuse.": "مواد تقديرية تم تحويلها عن التخلص منها عبر إعادة الاستخدام.",
+  "Estimated emissions avoided from redistribution activity.": "انبعاثات تقديرية تم تجنبها من نشاط إعادة التوزيع.",
+  "Recipient impact": "أثر المستفيد",
+  "Recipient organizations represented by completed requests and certificates.": "مؤسسات مستفيدة ممثلة بطلبات وشهادات مكتملة.",
+  "Transfer outcomes": "نتائج التحويلات",
+  "Completed redistribution activity supporting the impact claims.": "نشاط إعادة توزيع مكتمل يدعم ادعاءات الأثر.",
+  "Resources by category": "الموارد حسب الفئة",
+  "Redistributed resources grouped by completed category contribution.": "موارد معاد توزيعها مجمعة حسب مساهمة الفئة المكتملة.",
+  "Resources by location": "الموارد حسب الموقع",
+  "Redistributed resources grouped by handover geography.": "موارد معاد توزيعها مجمعة حسب جغرافيا التسليم.",
+  "Organization contribution": "مساهمة المؤسسة",
+  "Supplier contribution": "مساهمة المورد",
+  "Recipient contribution": "مساهمة المستفيد",
+  "Combined ecosystem impact": "الأثر المشترك للمنظومة",
+  "Supplier, recipient, and ecosystem contribution using existing workspace data.": "مساهمة المورد والمستفيد والمنظومة باستخدام بيانات مساحة العمل الحالية.",
+  "Impact evidence": "إثبات الأثر",
+  "Certificates, completed handovers, verification, and trust context behind the results.": "الشهادات والتسليمات المكتملة والتحقق وسياق الثقة خلف النتائج.",
+  "Certificate references": "مراجع الشهادات",
+  "QR-verifiable certificate records generated from completed transfers.": "سجلات شهادات قابلة للتحقق عبر QR صادرة من تحويلات مكتملة.",
+  "Verification and trust context": "سياق التحقق والثقة",
+  "Organization credibility indicators supporting impact evidence.": "مؤشرات مصداقية المؤسسة التي تدعم إثبات الأثر.",
+  "Founder and pilot view": "منظور المؤسس والتجربة",
+  "UAE pilot impact snapshot": "لمحة أثر تجربة الإمارات",
+  "Pilot-based platform snapshot from existing simulation fixtures.": "لمحة منصة مبنية على التجربة من بيانات المحاكاة الحالية.",
+  "Pilot-based calculation": "حساب مبني على التجربة",
+  "Pilot AED recovered": "القيمة المستردة في التجربة",
+  "Pilot resources redistributed": "موارد معاد توزيعها في التجربة",
+  "Pilot organizations": "مؤسسات التجربة",
+  "Prepared chicken meals": "وجبات دجاج جاهزة",
+  "Double-wall cardboard boxes": "كراتين شحن مزدوجة الجدار",
+  "Freshly prepared and packed meals. Pickup window today from 4-7 PM.": "وجبات طازجة ومعبأة. نافذة الاستلام اليوم من 4 إلى 7 مساء.",
+  "Unused shipping boxes in three common sizes, ready for collection.": "كراتين شحن غير مستخدمة بثلاثة أحجام شائعة وجاهزة للاستلام.",
+  "North Warehouse": "مستودع نورث",
+  "Prepared meals": "وجبات جاهزة",
+  "Cartons and boxes": "كراتين وصناديق",
+  "meals": "وجبات",
+  "boxes": "كراتين",
+  "Workspace ready": "مساحة العمل جاهزة",
+  "Create listings, request stock, follow groups, and review reports locally.": "أنشئ عروضا، واطلب المخزون، وتابع المجموعات، وراجع البلاغات محليا.",
+  "workspace.created": "تم إنشاء مساحة العمل",
+  "System": "النظام",
+  "Local ReDist preview initialized.": "تم تهيئة معاينة ReDist المحلية.",
+  "Now": "الآن",
+  "Current account": "الحساب الحالي",
+  "Local preview of the organization identity attached to this workspace.": "معاينة محلية لهوية المؤسسة المرتبطة بمساحة العمل هذه.",
+  "Verification records": "سجلات التحقق",
+  "Licenses and supporting records currently attached to the account.": "الرخص والسجلات الداعمة المرتبطة حاليا بالحساب.",
+  "Sign in": "تسجيل الدخول",
+  "Use email and password now; Supabase Auth will replace this local preview step.": "استخدم البريد الإلكتروني وكلمة المرور الآن؛ سيحل Supabase Auth محل خطوة المعاينة المحلية هذه.",
+  "Sign up company or supplier": "تسجيل مؤسسة أو مورد",
+  "Collect the minimum details needed before license verification.": "اجمع الحد الأدنى من التفاصيل المطلوبة قبل التحقق من الرخصة.",
+  "Publish inventory": "نشر المخزون",
+  "Create a safe, non-regulated item listing.": "أنشئ عرضا آمنا لعنصر غير منظم.",
+  "UAE category control": "إدارة فئات الإمارات",
+  "Suggested starter categories for UAE redistribution. Arrange or hide categories any time.": "فئات بداية مقترحة لإعادة التوزيع في الإمارات. يمكنك ترتيب الفئات أو إخفاؤها في أي وقت.",
+  "Request conversation": "محادثة الطلب",
+  "Follow category/location groups for matching inventory alerts.": "تابع مجموعات الفئات والمواقع لتنبيهات المخزون المطابق.",
+  "Saved searches": "عمليات البحث المحفوظة",
+  "Local saved filters for notification rules later.": "فلاتر محفوظة محليا لقواعد التنبيه لاحقا.",
+  "Local notification center for important workflow activity.": "مركز إشعارات محلي لنشاط سير العمل المهم.",
+  "Review reports and flagged listings before production admin tools.": "راجع البلاغات والعروض المعلّمة قبل أدوات الإدارة الإنتاجية.",
+  "Audit trail": "سجل التدقيق",
+  "Local activity history for controlled workflow decisions.": "سجل نشاط محلي لقرارات سير العمل المضبوطة.",
+  "Add document metadata": "إضافة بيانات وصفية للمستند",
+  "Local preview only. Upload screens and private storage policies remain future work.": "معاينة محلية فقط. شاشات الرفع وسياسات التخزين الخاص ما زالت عملا مستقبليا.",
+  "Document readiness": "جاهزية المستندات",
+  "Required UAE verification documents and current review states.": "مستندات التحقق المطلوبة في الإمارات وحالات المراجعة الحالية.",
+  "Verification summary": "ملخص التحقق",
+  "Public-safe organization trust context for listings and workspace decisions.": "سياق ثقة آمن للعرض العام للمؤسسة والعروض وقرارات مساحة العمل.",
+  "Branches and members": "الفروع والأعضاء",
+  "Operational context used for future country, branch, and role scoping.": "سياق تشغيلي يُستخدم مستقبلا لتحديد نطاق الدولة والفرع والدور.",
+  "Certificate readiness": "جاهزية الشهادة",
+  "Completed transfers create immutable QR-verifiable proof.": "تنشئ التحويلات المكتملة إثباتا ثابتا قابلا للتحقق عبر QR.",
+  "Attached records": "السجلات المرفقة",
+  "Current review queue for the company profile.": "قائمة المراجعة الحالية لملف المؤسسة.",
+  "Review audit timeline": "جدول تدقيق المراجعة",
+  "Verification events visible to authorized reviewers.": "أحداث التحقق المرئية للمراجعين المخولين.",
+  "Highest current trust scores across the platform preview.": "أعلى درجات ثقة حالية عبر معاينة المنصة.",
+  "Lowest trust organizations": "أدنى المؤسسات في الثقة",
+  "Organizations needing review, support, or risk intervention.": "مؤسسات تحتاج إلى مراجعة أو دعم أو تدخل مخاطر.",
+  "Score history": "سجل الدرجة",
+  "Recent score movements and levels for review context.": "حركات ومستويات الدرجة الأخيرة لسياق المراجعة.",
+  "Maintain the company or supplier details required for approval.": "حافظ على تفاصيل المؤسسة أو المورد المطلوبة للاعتماد.",
+  "Licenses and permits": "الرخص والتصاريح",
+  "Add trade, food, municipality, warehouse, or charity approvals.": "أضف موافقات التجارة أو الغذاء أو البلدية أو المستودع أو الجمعية الخيرية.",
+  "UAE locations": "مواقع الإمارات",
+  "Manage pickup and handover points for listings.": "إدارة نقاط الاستلام والتسليم للعروض.",
+  "Team and roles": "الفريق والأدوار",
+  "Preview organization permissions before Supabase auth.": "معاينة صلاحيات المؤسسة قبل Supabase Auth.",
+  "Founder monitoring workspace": "مساحة متابعة المؤسس",
+  "Operational view for onboarding the first UAE pilot organizations, tracking feedback, issues, trust, impact, and transaction readiness.": "منظور تشغيلي لإدخال أول مؤسسات تجربة في الإمارات وتتبع الملاحظات والمشكلات والثقة والأثر وجاهزية التحويلات.",
+  "UAE pilot platform": "منصة تجربة الإمارات",
+  "Organizations invited into the UAE founder-led pilot.": "مؤسسات مدعوة إلى تجربة الإمارات بقيادة المؤسس.",
+  "Listings created": "العروض المنشأة",
+  "First supply-side listings across restaurant, hotel, warehouse, and NGO pilots.": "أول عروض جانب التوريد عبر تجارب المطاعم والفنادق والمستودعات والجهات غير الربحية.",
+  "Requests created": "الطلبات المنشأة",
+  "Demand-side requests generated in the pilot workflow.": "طلبات جانب الطلب المنشأة في مسار التجربة.",
+  "Transactions completed": "التحويلات المكتملة",
+  "Completed request and handover flows validated by scenario automation.": "مسارات طلب وتسليم مكتملة تم التحقق منها عبر أتمتة السيناريوهات.",
+  "Verification completion": "اكتمال التحقق",
+  "Pilot organizations with approved verification status.": "مؤسسات التجربة ذات حالة تحقق معتمدة.",
+  "Feedback submitted": "الملاحظات المقدمة",
+  "Suggestions, bugs, and feature requests captured from pilot users.": "اقتراحات وأخطاء وطلبات ميزات مسجلة من مستخدمي التجربة.",
+  "Founder monitoring dashboard": "لوحة متابعة المؤسس",
+  "Single view of pilot activity, verification readiness, trust, impact, and issue health.": "منظور واحد لنشاط التجربة وجاهزية التحقق والثقة والأثر وصحة المشكلات.",
+  "Feedback center": "مركز الملاحظات",
+  "Capture suggestions, bugs, and feature requests from UAE pilot users.": "سجل الاقتراحات والأخطاء وطلبات الميزات من مستخدمي تجربة الإمارات.",
+  "Issue tracking": "تتبع المشكلات",
+  "Open, resolved, and critical pilot issues requiring founder attention.": "مشكلات تجربة مفتوحة ومحلولة وحرجة تتطلب انتباه المؤسس.",
+  "Issue": "مشكلة",
+  "Issues": "المشكلات",
+  "Priority": "الأولوية",
+  "Type": "النوع",
+  "Title": "العنوان",
+  "Details": "التفاصيل",
+  "Short feedback title": "عنوان ملاحظة قصير",
+  "What happened, who was affected, and what should improve?": "ماذا حدث، ومن تأثر، وما الذي يجب تحسينه؟",
+  "Submit feedback": "إرسال الملاحظة",
+  "Invited": "تمت الدعوة",
+  "Registration": "التسجيل",
+  "Verification submitted": "تم تقديم التحقق",
+  "Verification approved": "تم اعتماد التحقق",
+  "First listing": "أول عرض",
+  "First request": "أول طلب",
+  "First transaction": "أول تحويل",
+  "Cohort readiness": "جاهزية المجموعة",
+  "Active pilot organizations": "مؤسسات تجربة نشطة",
+  "Open issues": "مشكلات مفتوحة",
+  "Resolved issues": "مشكلات محلولة",
+  "Critical issues": "مشكلات حرجة",
+  "Impact results": "نتائج الأثر",
+  "Based on listed quantity reserved or completed through request workflows.": "استنادا إلى الكمية المعروضة المحجوزة أو المكتملة عبر مسارات الطلب.",
+  "Based on completed request quantities already recorded in the workspace.": "استنادا إلى كميات الطلبات المكتملة المسجلة بالفعل في مساحة العمل.",
+  "Estimated redistributed value supported by completed transfers and evidence.": "قيمة معاد توزيعها تقديرية مدعومة بتحويلات وإثباتات مكتملة.",
+  "Completed units": "وحدات مكتملة",
+  "Certificates generated": "الشهادات المنشأة",
+  "Certificates appear after completed handovers are verified.": "تظهر الشهادات بعد التحقق من التسليمات المكتملة.",
+  "Top cities": "أعلى المدن",
+  "Items redistributed": "العناصر المعاد توزيعها",
+  "Waste diverted": "النفايات المحولة عن الهدر",
+  "AED value recovered": "القيمة المستردة بالدرهم",
+  "CO2 impact": "أثر CO2",
+  "Transfer": "التحويل",
 };
 
 const LocalizationContext = createContext<LocalizationContextValue>({
@@ -306,6 +610,12 @@ const LocalizationContext = createContext<LocalizationContextValue>({
 
 function translateText(locale: Locale, value: string) {
   if (locale !== "ar") return value;
+  const dayMatch = value.match(/^(\d+) days left$/);
+  if (dayMatch) return `متبق ${Number(dayMatch[1]).toLocaleString("ar-AE")} أيام`;
+  const resourcesReadyMatch = value.match(/^(\d+) resources ready for redistribution review\\.$/);
+  if (resourcesReadyMatch) return `${Number(resourcesReadyMatch[1]).toLocaleString("ar-AE")} موارد جاهزة لمراجعة إعادة التوزيع.`;
+  const singleResourceReadyMatch = value.match(/^(\d+) resource ready for redistribution review\\.$/);
+  if (singleResourceReadyMatch) return `${Number(singleResourceReadyMatch[1]).toLocaleString("ar-AE")} مورد جاهز لمراجعة إعادة التوزيع.`;
   return arabicTranslations[value] ?? value;
 }
 
@@ -2908,10 +3218,10 @@ function DashboardSection({
             {recentListings.length ? recentListings.map((listing) => (
               <div className="dashboard-table-row" role="row" key={listing.id}>
                 <span role="cell">
-                  <strong>{listing.title}</strong>
+                  <strong>{t(listing.title)}</strong>
                   <small>{t(listing.category)} · {t(listing.city)}</small>
                 </span>
-                <span role="cell">{n(listing.quantityAvailable)} {listing.unit}</span>
+                <span role="cell">{n(listing.quantityAvailable)} {t(listing.unit)}</span>
                 <span role="cell" className={`status-pill ${listing.status === "published" ? "success" : "info"}`}>{t(listing.status)}</span>
               </div>
             )) : (
@@ -2936,10 +3246,10 @@ function DashboardSection({
               return (
                 <div className="dashboard-table-row" role="row" key={request.id}>
                   <span role="cell">
-                    <strong>{listing?.title ?? "Listing"}</strong>
+                    <strong>{listing ? t(listing.title) : t("Listing")}</strong>
                     <small>{t(request.handoverMethod)}</small>
                   </span>
-                  <span role="cell">{n(request.quantity)} {listing?.unit ?? "units"}</span>
+                  <span role="cell">{n(request.quantity)} {listing ? t(listing.unit) : t("units")}</span>
                   <span role="cell" className={`status-pill ${request.status === "completed" ? "success" : request.status === "declined" ? "danger" : "warning"}`}>{t(request.status)}</span>
                 </div>
               );
@@ -2965,10 +3275,10 @@ function DashboardSection({
               return (
                 <div className="dashboard-table-row" role="row" key={request.id}>
                   <span role="cell">
-                    <strong>{listing?.title ?? "Listing"}</strong>
+                    <strong>{listing ? t(listing.title) : t("Listing")}</strong>
                     <small>{t(request.handoverMethod)}</small>
                   </span>
-                  <span role="cell">{n(request.quantity)} {listing?.unit ?? "units"}</span>
+                  <span role="cell">{n(request.quantity)} {listing ? t(listing.unit) : t("units")}</span>
                   <span role="cell" className={`status-pill ${request.status === "completed" ? "success" : "warning"}`}>{t(request.status)}</span>
                 </div>
               );
@@ -3015,8 +3325,8 @@ function DashboardSection({
           <div className="dashboard-feed">
             {notifications.slice(0, 3).map((notification) => (
               <article className={notification.read ? "dashboard-feed-item read" : "dashboard-feed-item"} key={notification.id}>
-                <strong>{notification.title}</strong>
-                <p>{notification.body}</p>
+                <strong>{t(notification.title)}</strong>
+                <p>{t(notification.body)}</p>
               </article>
             ))}
           </div>
@@ -3027,9 +3337,9 @@ function DashboardSection({
           <div className="dashboard-feed">
             {auditEvents.slice(0, 3).map((event) => (
               <article className="dashboard-feed-item" key={event.id}>
-                <strong>{event.action}</strong>
-                <p>{event.detail}</p>
-                <span>{event.actor} · {event.at}</span>
+                <strong>{t(event.action)}</strong>
+                <p>{t(event.detail)}</p>
+                <span>{t(event.actor)} · {t(event.at)}</span>
               </article>
             ))}
           </div>
@@ -4017,14 +4327,14 @@ function DiscoverSection(props: {
                 type="button"
               >
                 <span role="cell" className="resource-cell-main">
-                  <strong>{listing.title}</strong>
+                  <strong>{t(listing.title)}</strong>
                   <small>{t(listing.category)} / {t(listing.subcategory)}</small>
-                  <em>{listing.owner}</em>
+                  <em>{t(listing.owner)}</em>
                 </span>
-                <span role="cell">{n(listing.quantityAvailable)} {listing.unit}</span>
+                <span role="cell">{n(listing.quantityAvailable)} {t(listing.unit)}</span>
                 <span role="cell">{t(listing.city)} / {t(listing.area)}</span>
                 <span role="cell" className={expiryStatus(listing.expiryDate).urgent ? "expiry-pill urgent" : "expiry-pill"}>
-                  {expiryStatus(listing.expiryDate).label}
+                  {t(expiryStatus(listing.expiryDate).label)}
                 </span>
                 <span role="cell" className="resource-row-action">
                   {t("Request")}
@@ -4039,12 +4349,12 @@ function DiscoverSection(props: {
           <div className="listing-verification-strip">
             <VerificationBadge level={props.account.verificationLevel} status={props.account.verificationStatus} />
             <TrustBadge score={props.trustScore} />
-            <span>{props.selectedListing.owner}</span>
+            <span>{t(props.selectedListing.owner)}</span>
           </div>
           <div className="resource-detail-summary">
             <div>
               <span>{t("Available surplus")}</span>
-              <strong>{n(props.selectedListing.quantityAvailable)} {props.selectedListing.unit}</strong>
+              <strong>{n(props.selectedListing.quantityAvailable)} {t(props.selectedListing.unit)}</strong>
             </div>
             <div>
               <span>{t("Handover location")}</span>
@@ -4052,7 +4362,7 @@ function DiscoverSection(props: {
             </div>
             <div>
               <span>{t("Urgency")}</span>
-              <strong>{expiryStatus(props.selectedListing.expiryDate).label}</strong>
+              <strong>{t(expiryStatus(props.selectedListing.expiryDate).label)}</strong>
             </div>
           </div>
           <div className="detail-tags">
@@ -4062,7 +4372,7 @@ function DiscoverSection(props: {
             <span>{t(props.selectedListing.city)} / {t(props.selectedListing.area)}</span>
             <span>{t(props.selectedListing.status)}</span>
             <span className={expiryStatus(props.selectedListing.expiryDate).urgent ? "expiry-pill urgent" : "expiry-pill"}>
-              {expiryStatus(props.selectedListing.expiryDate).label}
+              {t(expiryStatus(props.selectedListing.expiryDate).label)}
             </span>
           </div>
           <div className="handover-strip">
@@ -4482,12 +4792,12 @@ function RequestQueueSection({
                   <span>{t("Request ref")} {request.id}</span>
                   <em className={`status-pill ${statusTone}`}>{t(requestStatusLabel(request.status))}</em>
                 </div>
-                <h3>{listing?.title ?? t("Listing")}</h3>
+                <h3>{listing ? t(listing.title) : t("Listing")}</h3>
                 <p>{t(requestNextStep(request.status, certificate))}</p>
                 <div className="request-meta-grid">
-                  <div><span>{t("Supplier")}</span><strong>{listing?.owner ?? t("Unknown supplier")}</strong></div>
+                  <div><span>{t("Supplier")}</span><strong>{listing ? t(listing.owner) : t("Unknown supplier")}</strong></div>
                   <div><span>{t("Recipient")}</span><strong>{request.receiverOrganization ?? t("Requesting organization")}</strong></div>
-                  <div><span>{t("Quantity")}</span><strong>{n(request.quantity)} {listing?.unit ?? t("units")}</strong></div>
+                  <div><span>{t("Quantity")}</span><strong>{n(request.quantity)} {listing ? t(listing.unit) : t("units")}</strong></div>
                   <div><span>{t("Location")}</span><strong>{listing ? `${t(listing.city)} / ${t(listing.area)}` : t("Pending location")}</strong></div>
                 </div>
                 <ol className="request-timeline">
@@ -4666,12 +4976,12 @@ function TransferQueueSection({
                   <span>{t("Transfer ref")} {request.id}</span>
                   <em className={`status-pill ${statusTone}`}>{t(transferStatusLabel(request.status, certificate))}</em>
                 </div>
-                <h3>{listing?.title ?? t("Listing")}</h3>
+                <h3>{listing ? t(listing.title) : t("Listing")}</h3>
                 <p>{t(transferNextStep(request.status, certificate))}</p>
                 <div className="request-meta-grid">
-                  <div><span>{t("Supplier")}</span><strong>{listing?.owner ?? t("Unknown supplier")}</strong></div>
+                  <div><span>{t("Supplier")}</span><strong>{listing ? t(listing.owner) : t("Unknown supplier")}</strong></div>
                   <div><span>{t("Recipient")}</span><strong>{request.receiverOrganization ?? t("Requesting organization")}</strong></div>
-                  <div><span>{t("Quantity")}</span><strong>{n(request.quantity)} {listing?.unit ?? t("units")}</strong></div>
+                  <div><span>{t("Quantity")}</span><strong>{n(request.quantity)} {listing ? t(listing.unit) : t("units")}</strong></div>
                   <div><span>{t("Handover location")}</span><strong>{listing ? `${t(listing.city)} / ${t(listing.area)}` : t("Pending location")}</strong></div>
                   <div><span>{t("Handover method")}</span><strong>{t(request.handoverMethod)}</strong></div>
                   <div><span>{t("Certificate status")}</span><strong>{certificate ? t("Certificate ready") : t("Not issued yet")}</strong></div>
