@@ -44,6 +44,16 @@ test("workspace Arabic dictionary covers Sprint 1 operational workspace labels",
     '"Resource discovery": "اكتشاف الموارد"',
     '"Prepared chicken meals": "وجبات دجاج جاهزة"',
     '"Double-wall cardboard boxes": "كراتين شحن مزدوجة الجدار"',
+    '"Protected staging": "بيئة تجريبية محمية"',
+    '"ReDist workspace": "مساحة عمل ReDist"',
+    '"Trade License": "الرخصة التجارية"',
+    '"Pending Review": "قيد المراجعة"',
+    '"Publish local listing": "نشر عرض محلي"',
+    '"Reset UAE list": "إعادة ضبط قائمة الإمارات"',
+    '"Verification review": "مراجعة التحقق"',
+    '"Trust score monitoring": "متابعة درجة الثقة"',
+    '"Company access": "وصول المؤسسة"',
+    '"Save verification profile": "حفظ ملف التحقق"',
   ]) {
     assert.ok(workspace.includes(token), `missing workspace Arabic coverage for ${token}`);
   }
@@ -51,5 +61,13 @@ test("workspace Arabic dictionary covers Sprint 1 operational workspace labels",
   assert.ok(
     workspace.includes("const dayMatch = value.match"),
     "workspace translator should handle dynamic expiry labels such as 3 days left",
+  );
+  assert.ok(
+    workspace.includes("documentRecordMatch"),
+    "workspace translator should handle dynamic document record labels",
+  );
+  assert.ok(
+    workspace.includes("linkedListingsMatch"),
+    "workspace translator should handle dynamic group listing counts",
   );
 });

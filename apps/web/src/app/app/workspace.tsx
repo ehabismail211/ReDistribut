@@ -1,8 +1,10 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import Link from "next/link";
 import {
   Archive,
+  ArrowLeft,
   Award,
   BarChart3,
   Bell,
@@ -502,7 +504,6 @@ const arabicTranslations: Record<string, string> = {
   "Licenses and supporting records currently attached to the account.": "الرخص والسجلات الداعمة المرتبطة حاليا بالحساب.",
   "Sign in": "تسجيل الدخول",
   "Use email and password now; Supabase Auth will replace this local preview step.": "استخدم البريد الإلكتروني وكلمة المرور الآن؛ سيحل Supabase Auth محل خطوة المعاينة المحلية هذه.",
-  "Sign up company or supplier": "تسجيل مؤسسة أو مورد",
   "Collect the minimum details needed before license verification.": "اجمع الحد الأدنى من التفاصيل المطلوبة قبل التحقق من الرخصة.",
   "Publish inventory": "نشر المخزون",
   "Create a safe, non-regulated item listing.": "أنشئ عرضا آمنا لعنصر غير منظم.",
@@ -596,6 +597,285 @@ const arabicTranslations: Record<string, string> = {
   "AED value recovered": "القيمة المستردة بالدرهم",
   "CO2 impact": "أثر CO2",
   "Transfer": "التحويل",
+  "Protected staging": "بيئة تجريبية محمية",
+  "Private pilot preview": "معاينة تجربة خاصة",
+  "Public site": "الموقع العام",
+  "ReDist workspace": "مساحة عمل ReDist",
+  "Sign in or create a verified ReDist company profile.": "سجل الدخول أو أنشئ ملف مؤسسة موثقا في ReDist.",
+  "Companies and suppliers must provide license, contact, and authorized representative details before production publishing.": "يجب على الشركات والموردين تقديم بيانات الرخصة والتواصل والممثل المخول قبل النشر التشغيلي.",
+  "is signed in.": "مسجل الدخول.",
+  "Sign out locally": "تسجيل الخروج محليا",
+  "Sign in locally": "تسجيل الدخول محليا",
+  "Sign up company or supplier": "تسجيل مؤسسة أو مورد",
+  "Account type": "نوع الحساب",
+  "Company": "شركة",
+  "Legal name": "الاسم القانوني",
+  "Trade name": "الاسم التجاري",
+  "Email": "البريد الإلكتروني",
+  "Password": "كلمة المرور",
+  "Phone": "الهاتف",
+  "Website": "الموقع الإلكتروني",
+  "Emirate": "الإمارة",
+  "TRN": "الرقم الضريبي",
+  "Business category": "فئة النشاط",
+  "Business subcategory": "الفئة الفرعية للنشاط",
+  "Business activity": "النشاط التجاري",
+  "Address": "العنوان",
+  "Registered address": "العنوان المسجل",
+  "License type": "نوع الرخصة",
+  "License or permit type": "نوع الرخصة أو التصريح",
+  "License number": "رقم الرخصة",
+  "Issuing authority": "جهة الإصدار",
+  "Issue date": "تاريخ الإصدار",
+  "Expiry date": "تاريخ الانتهاء",
+  "Document type": "نوع المستند",
+  "Document reference": "مرجع المستند",
+  "Document file": "ملف المستند",
+  "Authorized person": "الشخص المخول",
+  "Role": "الدور",
+  "Authorized email": "البريد المخول",
+  "Authorized phone": "هاتف المخول",
+  "Create company profile": "إنشاء ملف المؤسسة",
+  "Save verification profile": "حفظ ملف التحقق",
+  "Add license for review": "إضافة رخصة للمراجعة",
+  "Add document for review": "إضافة مستند للمراجعة",
+  "Add location": "إضافة موقع",
+  "Invite locally": "دعوة محلية",
+  "Location label": "اسم الموقع",
+  "Name": "الاسم",
+  "Number": "الرقم",
+  "Registered company name": "اسم الشركة المسجل",
+  "Public supplier name": "اسم المورد الظاهر",
+  "Minimum 8 characters": "8 أحرف على الأقل",
+  "VAT TRN if applicable": "الرقم الضريبي إن وجد",
+  "Food supplier, hotel operator, warehouse distributor...": "مورد أغذية، مشغل فندق، موزع مستودعات...",
+  "Registered UAE address": "عنوان مسجل في الإمارات",
+  "DED, ADDED, SEDD...": "دائرة الاقتصاد، بلدية، هيئة ضريبية...",
+  "DED, Municipality, FTA...": "دائرة الاقتصاد، البلدية، الهيئة الضريبية...",
+  "Full name": "الاسم الكامل",
+  "Owner, GM, operations manager": "المالك، المدير العام، مدير العمليات",
+  "Optional if same as account email": "اختياري إذا كان مطابقا لبريد الحساب",
+  "Use when a file is not attached in local preview": "استخدمه عند عدم إرفاق ملف في المعاينة المحلية",
+  "Dubai central warehouse": "مستودع دبي المركزي",
+  "Al Quoz, Mussafah, JLT...": "القوز، مصفح، أبراج بحيرات جميرا...",
+  "Team member name": "اسم عضو الفريق",
+  "Trade License": "الرخصة التجارية",
+  "VAT/TRN": "الضريبة/الرقم الضريبي",
+  "Food Permit": "تصريح الغذاء",
+  "Storage Permit": "تصريح التخزين",
+  "NGO License": "رخصة جمعية خيرية",
+  "Government Authorization": "تفويض حكومي",
+  "Other": "أخرى",
+  "Approved": "معتمد",
+  "Pending Review": "قيد المراجعة",
+  "Rejected": "مرفوض",
+  "Uploaded": "مرفوع",
+  "No license records yet.": "لا توجد سجلات رخص بعد.",
+  "not set": "غير محدد",
+  "profile fields": "حقول الملف",
+  "license records": "سجلات الرخص",
+  "documents": "المستندات",
+  "approved documents": "مستندات معتمدة",
+  "pending reviews": "مراجعات قيد الانتظار",
+  "issued certificates": "شهادات صادرة",
+  "PDF layout ready": "تخطيط PDF جاهز",
+  "Public QR verification": "تحقق QR عام",
+  "Audit history enabled": "سجل التدقيق مفعل",
+  "Restaurant and catering surplus redistribution": "إعادة توزيع فائض المطاعم والتموين",
+  "Food and hospitality": "الأغذية والضيافة",
+  "Restaurants and coffee shops": "المطاعم والمقاهي",
+  "Business profile is verified. Food permit renewal is pending review before category expansion.": "تم توثيق ملف المؤسسة. تجديد تصريح الغذاء قيد المراجعة قبل توسيع الفئات.",
+  "Owner admin": "مشرف مالك",
+  "Inventory manager": "مدير المخزون",
+  "Requester": "طالب موارد",
+  "Moderator": "مشرف مراجعة",
+  "Operations owner": "مسؤول العمليات",
+  "Inventory coordinator": "منسق المخزون",
+  "Safety reviewer": "مراجع السلامة",
+  "active": "نشط",
+  "invited": "مدعو",
+  "onboarding": "قيد الانضمام",
+  "attention": "يحتاج متابعة",
+  "Item name": "اسم العنصر",
+  "Prepared meals, boxes, chairs...": "وجبات جاهزة، كراتين، كراسي...",
+  "Excess stock": "فائض مخزون",
+  "Near expiry": "قريب الانتهاء",
+  "Slow moving": "بطيء الحركة",
+  "Area": "المنطقة",
+  "Unit": "الوحدة",
+  "Description": "الوصف",
+  "Condition, pickup time, storage notes, and handover details.": "الحالة، وقت الاستلام، ملاحظات التخزين، وتفاصيل التسليم.",
+  "Handover methods": "طرق التسليم",
+  "Publish local listing": "نشر عرض محلي",
+  "Show at least one category first": "أظهر فئة واحدة على الأقل أولا",
+  "Reset UAE list": "إعادة ضبط قائمة الإمارات",
+  "visible MVP categories": "فئات MVP ظاهرة",
+  "hidden or restricted": "مخفية أو مقيدة",
+  "total suggested": "إجمالي المقترح",
+  "Medicines, pharmaceuticals, hazardous materials, and other regulated items stay hidden for the MVP until UAE-specific licensing, storage, transport, verification, and audit controls are ready.": "تبقى الأدوية والمواد الخطرة والمواد المنظمة الأخرى مخفية في نسخة MVP إلى حين جاهزية ضوابط الترخيص والتخزين والنقل والتحقق والتدقيق الخاصة بالإمارات.",
+  "Restricted": "مقيدة",
+  "Hidden": "مخفية",
+  "Show": "إظهار",
+  "Hide": "إخفاء",
+  "Add": "إضافة",
+  "Add subcategory": "إضافة فئة فرعية",
+  "Prepared meals, packaged food, beverages, pantry stock, and catering surplus.": "وجبات جاهزة، أغذية معبأة، مشروبات، مخزون مؤن، وفائض تموين.",
+  "Meals, rice, canned goods, bottled drinks": "وجبات، أرز، معلبات، مشروبات معبأة",
+  "Packaged food": "أغذية معبأة",
+  "Beverages": "مشروبات",
+  "Bakery": "مخبوزات",
+  "Catering surplus": "فائض تموين",
+  "Pantry staples": "مؤن أساسية",
+  "Boxes, cartons, bags, labels, wrapping, pallets, and shipping consumables.": "صناديق وكراتين وأكياس وملصقات ومواد تغليف ومنصات ومستهلكات شحن.",
+  "Cartons, paper bags, bubble wrap, pallets": "كراتين، أكياس ورقية، تغليف فقاعي، منصات",
+  "Bags and pouches": "أكياس وحافظات",
+  "Labels": "ملصقات",
+  "Wrapping": "تغليف",
+  "Pallets": "منصات",
+  "Shipping consumables": "مستهلكات الشحن",
+  "Stationery, consumables, printers, small office tools, and workplace supplies.": "قرطاسية ومستهلكات وطابعات وأدوات مكتبية صغيرة ومستلزمات عمل.",
+  "Paper, files, ink, desk accessories": "ورق، ملفات، حبر، ملحقات مكتبية",
+  "Stationery": "قرطاسية",
+  "Printer supplies": "مستلزمات الطابعات",
+  "Files and folders": "ملفات ومجلدات",
+  "Desk accessories": "ملحقات المكاتب",
+  "Office tools": "أدوات مكتبية",
+  "Office, retail, hospitality, and warehouse furniture or removable fixtures.": "أثاث وتجهيزات قابلة للنقل للمكاتب والتجزئة والضيافة والمستودعات.",
+  "Chairs, tables, shelving, display stands": "كراسي، طاولات، رفوف، حوامل عرض",
+  "Office furniture": "أثاث مكتبي",
+  "Retail fixtures": "تجهيزات تجزئة",
+  "Shelving": "رفوف",
+  "Storage": "تخزين",
+  "Display stands": "حوامل عرض",
+  "Hotel, restaurant, and event supplies that are safe to redistribute.": "مستلزمات فنادق ومطاعم وفعاليات آمنة لإعادة التوزيع.",
+  "Linens, uniforms, disposables, buffet tools": "مفروشات، زي موحد، مستهلكات، أدوات بوفيه",
+  "Linens": "مفروشات",
+  "Uniforms": "زي موحد",
+  "Event supplies": "مستلزمات الفعاليات",
+  "Kitchen tools": "أدوات مطبخ",
+  "Safe disposables": "مستهلكات آمنة",
+  "Slow-moving non-regulated stock from shops, distributors, and warehouses.": "مخزون غير منظم وبطيء الحركة من المتاجر والموزعين والمستودعات.",
+  "Accessories, household items, seasonal stock": "إكسسوارات، أدوات منزلية، مخزون موسمي",
+  "Household goods": "أدوات منزلية",
+  "Accessories": "إكسسوارات",
+  "Seasonal stock": "مخزون موسمي",
+  "Display stock": "مخزون عرض",
+  "General merchandise": "بضائع عامة",
+  "Non-hazardous facility maintenance materials and spare parts.": "مواد صيانة مرافق وقطع غيار غير خطرة.",
+  "Tiles, fixtures, tools, spare fittings": "بلاط، تجهيزات، أدوات، قطع تركيب",
+  "Tools": "أدوات",
+  "Fixtures": "تجهيزات",
+  "Spare parts": "قطع غيار",
+  "Tiles": "بلاط",
+  "Non-hazardous materials": "مواد غير خطرة",
+  "Working electronics, accessories, and office IT equipment.": "إلكترونيات عاملة وملحقات ومعدات تقنية مكتبية.",
+  "Monitors, cables, routers, keyboards": "شاشات، كابلات، أجهزة توجيه، لوحات مفاتيح",
+  "Computers and monitors": "أجهزة كمبيوتر وشاشات",
+  "Cables": "كابلات",
+  "Networking": "شبكات",
+  "Peripherals": "ملحقات",
+  "Non-prescription, non-medical, safe wellness and hygiene supplies.": "مستلزمات عافية ونظافة آمنة غير طبية وغير وصفية.",
+  "Sanitizers, masks, hygiene packs": "معقمات، كمامات، حزم نظافة",
+  "Hygiene supplies": "مستلزمات نظافة",
+  "Sanitizers": "معقمات",
+  "Masks": "كمامات",
+  "Wellness packs": "حزم عافية",
+  "Non-medical supplies": "مستلزمات غير طبية",
+  "Medical and pharmaceutical": "طبي وصيدلاني",
+  "Restricted until licensing, storage, transport, verification, and audit controls are ready.": "مقيد إلى حين جاهزية ضوابط الترخيص والتخزين والنقل والتحقق والتدقيق.",
+  "Medicines, prescription products, clinical supplies": "أدوية، منتجات وصفية، مستلزمات سريرية",
+  "Prescription medicines": "أدوية وصفية",
+  "OTC medicines": "أدوية دون وصفة",
+  "Clinical supplies": "مستلزمات سريرية",
+  "Medical devices": "أجهزة طبية",
+  "Hazardous or regulated materials": "مواد خطرة أو منظمة",
+  "Restricted until applicable UAE rules, approvals, transport, and disposal workflows are implemented.": "مقيد إلى حين تطبيق قواعد الإمارات والموافقات ومسارات النقل والتخلص المناسبة.",
+  "Chemicals, batteries in bulk, flammables": "مواد كيميائية، بطاريات بالجملة، مواد قابلة للاشتعال",
+  "Chemicals": "مواد كيميائية",
+  "Bulk batteries": "بطاريات بالجملة",
+  "Flammables": "مواد قابلة للاشتعال",
+  "Controlled goods": "بضائع خاضعة للرقابة",
+  "Hospitality supplies": "مستلزمات الضيافة",
+  "Retail inventory": "مخزون التجزئة",
+  "Building and maintenance": "البناء والصيانة",
+  "Electronics and IT": "الإلكترونيات وتقنية المعلومات",
+  "Health and wellness non-regulated": "الصحة والعافية غير المنظمة",
+  "Follow": "متابعة",
+  "Following": "تتم المتابعة",
+  "members": "أعضاء",
+  "linked listings": "عروض مرتبطة",
+  "Dubai food redistribution": "إعادة توزيع الأغذية في دبي",
+  "Packaging exchange UAE": "تبادل التغليف في الإمارات",
+  "Office supplies circular group": "مجموعة تدوير المستلزمات المكتبية",
+  "Food and beverage in Dubai": "الأغذية والمشروبات في دبي",
+  "Near expiry free items": "عناصر مجانية قريبة الانتهاء",
+  "Mark all read": "تحديد الكل كمقروء",
+  "No reports. Use Report from a listing detail to test moderation.": "لا توجد بلاغات. استخدم الإبلاغ من تفاصيل عرض لاختبار الإشراف.",
+  "Listing removed": "تمت إزالة العرض",
+  "Resolve": "حل",
+  "verification.submitted": "تم تقديم التحقق",
+  "Verification package submitted for review.": "تم تقديم حزمة التحقق للمراجعة.",
+  "verification.approved": "تم اعتماد التحقق",
+  "Trade license approved.": "تم اعتماد الرخصة التجارية.",
+  "verification.rejected": "تم رفض التحقق",
+  "Government authorization returned for correction.": "تمت إعادة التفويض الحكومي للتصحيح.",
+  "verification.expired": "انتهى مستند التحقق",
+  "Food permit marked expired.": "تم وضع تصريح الغذاء كمنتهي.",
+  "Verifier": "المراجع",
+  "Production-shaped verification workspace for UAE launch readiness, document review, and audit history.": "مساحة تحقق مهيأة للتشغيل لجاهزية إطلاق الإمارات ومراجعة المستندات وسجل التدقيق.",
+  "Admin review queue": "قائمة مراجعة المشرف",
+  "First review queue for pending, approved, rejected, and expired verification records.": "قائمة مراجعة أولى لسجلات التحقق المعلقة والمعتمدة والمرفوضة والمنتهية.",
+  "Reviewer preview": "معاينة المراجع",
+  "No records in this queue.": "لا توجد سجلات في هذه القائمة.",
+  "Admin trust overview": "نظرة ثقة المشرف",
+  "Trust score monitoring": "متابعة درجة الثقة",
+  "Platform-wide reputation view for top performers, lowest trust organizations, and score movement.": "منظور سمعة على مستوى المنصة لأفضل الجهات وأدنى درجات الثقة وحركة الدرجات.",
+  "Score engine preview": "معاينة محرك الدرجات",
+  "Current": "الحالي",
+  "Previous": "السابق",
+  "Last review": "آخر مراجعة",
+  "Last month": "الشهر الماضي",
+  "Organization profile": "ملف المؤسسة",
+  "Reputation summary for organization reliability.": "ملخص سمعة لموثوقية المؤسسة.",
+  "Completed Transactions": "التحويلات المكتملة",
+  "completed workflows": "مسارات مكتملة",
+  "Fast Response Time": "سرعة الاستجابة",
+  "hour average response": "ساعة متوسط الاستجابة",
+  "Acceptance Rate": "معدل القبول",
+  "Cancellation Rate": "معدل الإلغاء",
+  "Dispute Rate": "معدل النزاعات",
+  "Audit Events": "أحداث التدقيق",
+  "negative audit events": "أحداث تدقيق سلبية",
+  "Profile Completeness": "اكتمال الملف",
+  "Document Status": "حالة المستندات",
+  "approved,": "معتمدة،",
+  "expired,": "منتهية،",
+  "rejected": "مرفوضة",
+  "Verification level confirms organization identity and operating readiness.": "يؤكد مستوى التحقق هوية المؤسسة وجاهزيتها التشغيلية.",
+  "Restaurant": "مطعم",
+  "Hotel": "فندق",
+  "Warehouse": "مستودع",
+  "NGO": "جمعية خيرية",
+  "Transactions": "التحويلات",
+  "Suggestion": "اقتراح",
+  "Bug": "خلل",
+  "Feature request": "طلب ميزة",
+  "Low": "منخفضة",
+  "Medium": "متوسطة",
+  "High": "عالية",
+  "Critical": "حرجة",
+  "Reviewing": "قيد المراجعة",
+  "Resolved": "محلولة",
+  "Storage permit renewal reminder needs clearer owner": "تذكير تجديد تصريح التخزين يحتاج مالكا أوضح",
+  "Warehouse team wants reviewer notes and renewal owner visible in the same queue.": "يريد فريق المستودع ظهور ملاحظات المراجع ومالك التجديد في القائمة نفسها.",
+  "Add pickup window confirmation before completion": "إضافة تأكيد نافذة الاستلام قبل الإكمال",
+  "Restaurant operator wants a final handover time confirmation before certificate issue.": "يريد مشغل المطعم تأكيد وقت التسليم النهائي قبل إصدار الشهادة.",
+  "Show monthly impact summary for board reporting": "إظهار ملخص الأثر الشهري لتقارير المجلس",
+  "NGO team requested simple monthly exports for trustee updates.": "طلب فريق الجمعية تصديرات شهرية بسيطة لتحديثات الأمناء.",
+  "Dubai Marina Restaurant": "مطعم دبي مارينا",
+  "Abu Dhabi Hotel Group": "مجموعة فنادق أبوظبي",
+  "Jebel Ali Logistics": "خدمات جبل علي اللوجستية",
+  "Dubai Community NGO": "جمعية دبي المجتمعية",
 };
 
 const LocalizationContext = createContext<LocalizationContextValue>({
@@ -612,6 +892,30 @@ function translateText(locale: Locale, value: string) {
   if (locale !== "ar") return value;
   const dayMatch = value.match(/^(\d+) days left$/);
   if (dayMatch) return `متبق ${Number(dayMatch[1]).toLocaleString("ar-AE")} أيام`;
+  const documentRecordMatch = value.match(/^(\d+) document records?\.$/);
+  if (documentRecordMatch) return `${Number(documentRecordMatch[1]).toLocaleString("ar-AE")} سجل مستند.`;
+  const linkedListingsMatch = value.match(/^(\d+) linked listings?$/);
+  if (linkedListingsMatch) return `${Number(linkedListingsMatch[1]).toLocaleString("ar-AE")} عروض مرتبطة`;
+  const membersMatch = value.match(/^(\d+) members$/);
+  if (membersMatch) return `${Number(membersMatch[1]).toLocaleString("ar-AE")} أعضاء`;
+  const issuedCertificatesMatch = value.match(/^(\d+) issued certificates$/);
+  if (issuedCertificatesMatch) return `${Number(issuedCertificatesMatch[1]).toLocaleString("ar-AE")} شهادات صادرة`;
+  const approvedDocsMatch = value.match(/^(\d+) approved documents$/);
+  if (approvedDocsMatch) return `${Number(approvedDocsMatch[1]).toLocaleString("ar-AE")} مستندات معتمدة`;
+  const pendingReviewsMatch = value.match(/^(\d+) pending reviews$/);
+  if (pendingReviewsMatch) return `${Number(pendingReviewsMatch[1]).toLocaleString("ar-AE")} مراجعات قيد الانتظار`;
+  const surplusUnitsMatch = value.match(/^units moved from surplus (\d+)$/);
+  if (surplusUnitsMatch) return `${Number(surplusUnitsMatch[1]).toLocaleString("ar-AE")} وحدات خرجت من الفائض`;
+  const receivedUnitsMatch = value.match(/^units received through handovers (\d+)$/);
+  if (receivedUnitsMatch) return `${Number(receivedUnitsMatch[1]).toLocaleString("ar-AE")} وحدات مستلمة عبر التسليمات`;
+  const completeMatch = value.match(/^complete (\d+)%$/);
+  if (completeMatch) return `مكتمل ${Number(completeMatch[1]).toLocaleString("ar-AE")}%`;
+  const acceptedMatch = value.match(/^accepted (\d+)%$/);
+  if (acceptedMatch) return `مقبول ${Number(acceptedMatch[1]).toLocaleString("ar-AE")}%`;
+  const cancelledMatch = value.match(/^cancelled (\d+)%$/);
+  if (cancelledMatch) return `ملغى ${Number(cancelledMatch[1]).toLocaleString("ar-AE")}%`;
+  const disputedMatch = value.match(/^disputed (\d+)%$/);
+  if (disputedMatch) return `نزاعات ${Number(disputedMatch[1]).toLocaleString("ar-AE")}%`;
   const resourcesReadyMatch = value.match(/^(\d+) resources ready for redistribution review\\.$/);
   if (resourcesReadyMatch) return `${Number(resourcesReadyMatch[1]).toLocaleString("ar-AE")} موارد جاهزة لمراجعة إعادة التوزيع.`;
   const singleResourceReadyMatch = value.match(/^(\d+) resource ready for redistribution review\\.$/);
@@ -2602,6 +2906,7 @@ export function Workspace() {
 
   return (
     <LocalizationContext.Provider value={localization}>
+    <WorkspaceHeader />
     <div className={`workspace-layout ${dir === "rtl" ? "rtl" : "ltr"}`} dir={dir} lang={locale}>
       <aside className="workspace-nav" aria-label="Workspace sections">
         <div className="workspace-brand">
@@ -2842,6 +3147,24 @@ export function Workspace() {
   );
 }
 
+function WorkspaceHeader() {
+  const { t } = useI18n();
+
+  return (
+    <header className="workspace-header">
+      <Link className="back-link" href="/">
+        <ArrowLeft size={18} />
+        {t("Public site")}
+      </Link>
+      <div>
+        <span className="eyebrow">{t("Private pilot preview")}</span>
+        <h1>{t("ReDist workspace")}</h1>
+      </div>
+      <span className="environment-pill">{t("Protected staging")}</span>
+    </header>
+  );
+}
+
 function LanguageSwitcher() {
   const { locale, setLocale, t } = useI18n();
 
@@ -2871,12 +3194,14 @@ function AccountSection({
   signUpCompany: (formData: FormData) => void;
   signOutCompany: () => void;
 }) {
+  const { t } = useI18n();
+
   return (
     <section className="workspace-section-stack">
       <div className="workspace-hero-panel account-hero-panel">
-        <span className="eyebrow">Company access</span>
-        <h2>{account.signedIn ? `${account.tradeName} is signed in.` : "Sign in or create a verified ReDist company profile."}</h2>
-        <p>Companies and suppliers must provide license, contact, and authorized representative details before production publishing.</p>
+        <span className="eyebrow">{t("Company access")}</span>
+        <h2>{account.signedIn ? `${account.tradeName} ${t("is signed in.")}` : t("Sign in or create a verified ReDist company profile.")}</h2>
+        <p>{t("Companies and suppliers must provide license, contact, and authorized representative details before production publishing.")}</p>
       </div>
 
       {account.signedIn && (
@@ -2885,11 +3210,11 @@ function AccountSection({
             <PanelHeading icon={Building2} title="Current account" text="Local preview of the organization identity attached to this workspace." />
             <VerificationSummary account={account} />
             <div className="profile-facts">
-              <span>{account.accountType}</span>
+              <span>{t(account.accountType)}</span>
               <span>{account.email}</span>
-              <span>{account.emirate} / {account.city}</span>
+              <span>{t(account.emirate)} / {t(account.city)}</span>
             </div>
-            <button className="button warning" onClick={signOutCompany} type="button">Sign out locally</button>
+            <button className="button warning" onClick={signOutCompany} type="button">{t("Sign out locally")}</button>
           </section>
 
           <section className="workspace-panel">
@@ -2904,16 +3229,16 @@ function AccountSection({
           <PanelHeading icon={LogIn} title="Sign in" text="Use email and password now; Supabase Auth will replace this local preview step." />
           <form action={signInCompany} className="publish-form">
             <label className="wide-field">
-              <span>Email</span>
+              <span>{t("Email")}</span>
               <input name="email" type="email" defaultValue={account.email} required />
             </label>
             <label className="wide-field">
-              <span>Password</span>
+              <span>{t("Password")}</span>
               <input name="password" type="password" defaultValue={account.passwordHint} required />
             </label>
             <button className="button primary wide-field" type="submit">
               <LogIn size={18} />
-              Sign in locally
+              {t("Sign in locally")}
             </button>
           </form>
         </section>
@@ -2922,132 +3247,120 @@ function AccountSection({
           <PanelHeading icon={UserPlus} title="Sign up company or supplier" text="Collect the minimum details needed before license verification." />
           <form action={signUpCompany} className="publish-form expanded-form">
             <label>
-              <span>Account type</span>
+              <span>{t("Account type")}</span>
               <select name="accountType" defaultValue="Supplier">
-                <option>Supplier</option>
-                <option>Company</option>
+                <option value="Supplier">{t("Supplier")}</option>
+                <option value="Company">{t("Company")}</option>
               </select>
             </label>
             <label>
-              <span>Legal name</span>
-              <input name="legalName" required placeholder="Registered company name" />
+              <span>{t("Legal name")}</span>
+              <input name="legalName" required placeholder={t("Registered company name")} />
             </label>
             <label>
-              <span>Trade name</span>
-              <input name="tradeName" required placeholder="Public supplier name" />
+              <span>{t("Trade name")}</span>
+              <input name="tradeName" required placeholder={t("Public supplier name")} />
             </label>
             <label>
-              <span>Email</span>
+              <span>{t("Email")}</span>
               <input name="email" type="email" required placeholder="admin@company.ae" />
             </label>
             <label>
-              <span>Password</span>
-              <input name="password" type="password" required minLength={8} placeholder="Minimum 8 characters" />
+              <span>{t("Password")}</span>
+              <input name="password" type="password" required minLength={8} placeholder={t("Minimum 8 characters")} />
             </label>
             <label>
-              <span>Phone</span>
+              <span>{t("Phone")}</span>
               <input name="phone" required placeholder="+971..." />
             </label>
             <label>
-              <span>Emirate</span>
+              <span>{t("Emirate")}</span>
               <select name="emirate" defaultValue="Dubai">
-                <option>Dubai</option>
-                <option>Abu Dhabi</option>
-                <option>Sharjah</option>
-                <option>Ajman</option>
-                <option>Ras Al Khaimah</option>
-                <option>Fujairah</option>
-                <option>Umm Al Quwain</option>
+                {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
               </select>
             </label>
             <label>
-              <span>City</span>
+              <span>{t("City")}</span>
               <input name="city" defaultValue="Dubai" required />
             </label>
             <label>
-              <span>TRN</span>
-              <input name="trn" placeholder="VAT TRN if applicable" />
+              <span>{t("TRN")}</span>
+              <input name="trn" placeholder={t("VAT TRN if applicable")} />
             </label>
             <label>
-              <span>Business category</span>
+              <span>{t("Business category")}</span>
               <select name="businessCategory" defaultValue="Commercial trading">
                 {dubaiBusinessCategories.map((item) => (
-                  <option key={item.name}>{item.name}</option>
+                  <option key={item.name} value={item.name}>{t(item.name)}</option>
                 ))}
               </select>
             </label>
             <label>
-              <span>Business subcategory</span>
+              <span>{t("Business subcategory")}</span>
               <select name="businessSubcategory" defaultValue="Foodstuff trading">
                 {dubaiBusinessCategories.map((category) => (
-                  <optgroup label={category.name} key={category.name}>
+                  <optgroup label={t(category.name)} key={category.name}>
                     {category.subcategories.map((subcategory) => (
-                      <option key={`${category.name}-${subcategory}`}>{subcategory}</option>
+                      <option key={`${category.name}-${subcategory}`} value={subcategory}>{t(subcategory)}</option>
                     ))}
                   </optgroup>
                 ))}
               </select>
             </label>
             <label className="wide-field">
-              <span>Business activity</span>
-              <input name="businessActivity" required placeholder="Food supplier, hotel operator, warehouse distributor..." />
+              <span>{t("Business activity")}</span>
+              <input name="businessActivity" required placeholder={t("Food supplier, hotel operator, warehouse distributor...")} />
             </label>
             <label className="wide-field">
-              <span>Address</span>
-              <textarea name="address" rows={3} required placeholder="Registered UAE address" />
+              <span>{t("Address")}</span>
+              <textarea name="address" rows={3} required placeholder={t("Registered UAE address")} />
             </label>
             <label>
-              <span>License type</span>
+              <span>{t("License type")}</span>
               <select name="licenseType" defaultValue="Trade License">
-                <option>Trade License</option>
-                <option>VAT/TRN</option>
-                <option>Food Permit</option>
-                <option>Storage Permit</option>
-                <option>NGO License</option>
-                <option>Government Authorization</option>
-                <option>Other</option>
+                {requiredVerificationDocuments.map((document) => <option key={document} value={document}>{t(document)}</option>)}
               </select>
             </label>
             <label>
-              <span>License number</span>
+              <span>{t("License number")}</span>
               <input name="licenseNumber" required />
             </label>
             <label>
-              <span>Issuing authority</span>
-              <input name="issuingAuthority" required placeholder="DED, ADDED, SEDD..." />
+              <span>{t("Issuing authority")}</span>
+              <input name="issuingAuthority" required placeholder={t("DED, ADDED, SEDD...")} />
             </label>
             <label>
-              <span>Issue date</span>
+              <span>{t("Issue date")}</span>
               <input name="licenseIssueDate" type="date" />
             </label>
             <label>
-              <span>Expiry date</span>
+              <span>{t("Expiry date")}</span>
               <input name="licenseExpiry" type="date" required />
             </label>
             <label>
-              <span>Document reference</span>
+              <span>{t("Document reference")}</span>
               <input name="licenseDocument" placeholder="trade-license.pdf" />
             </label>
             <label>
-              <span>Authorized person</span>
-              <input name="authorizedPerson" required placeholder="Full name" />
+              <span>{t("Authorized person")}</span>
+              <input name="authorizedPerson" required placeholder={t("Full name")} />
             </label>
             <label>
-              <span>Role</span>
-              <input name="authorizedRole" required placeholder="Owner, GM, operations manager" />
+              <span>{t("Role")}</span>
+              <input name="authorizedRole" required placeholder={t("Owner, GM, operations manager")} />
             </label>
             <label>
-              <span>Authorized email</span>
-              <input name="authorizedEmail" type="email" placeholder="Optional if same as account email" />
+              <span>{t("Authorized email")}</span>
+              <input name="authorizedEmail" type="email" placeholder={t("Optional if same as account email")} />
             </label>
             <label>
-              <span>Authorized phone</span>
+              <span>{t("Authorized phone")}</span>
               <input name="authorizedPhone" placeholder="+971..." />
             </label>
             <RequiredDocumentsField selectedDocuments={requiredVerificationDocuments.slice(0, 6)} />
             <button className="button primary wide-field" type="submit">
               <UserPlus size={18} />
-              Create company profile
+              {t("Create company profile")}
             </button>
           </form>
         </section>
@@ -3552,7 +3865,7 @@ function PilotWorkspaceSection({
               <article className={`pilot-org-card ${organization.status}`} key={organization.id}>
                 <div className="pilot-org-header">
                   <div>
-                    <strong>{organization.name}</strong>
+                    <strong>{t(organization.name)}</strong>
                     <span>{t(organization.type)} · {t(organization.city)}</span>
                   </div>
                   <span className={`status-pill ${organization.status === "active" ? "success" : organization.status === "attention" ? "warning" : "info"}`}>
@@ -3609,36 +3922,25 @@ function PilotWorkspaceSection({
             <label>
               <span>{t("Organization")}</span>
               <select name="organization">
-                {organizations.map((organization) => <option key={organization.id}>{organization.name}</option>)}
+                {organizations.map((organization) => <option key={organization.id} value={organization.name}>{t(organization.name)}</option>)}
               </select>
             </label>
             <label>
               <span>{t("Type")}</span>
               <select name="type" defaultValue="Suggestion">
-                <option>Suggestion</option>
-                <option>Bug</option>
-                <option>Feature request</option>
+                {["Suggestion", "Bug", "Feature request"].map((type) => <option key={type} value={type}>{t(type)}</option>)}
               </select>
             </label>
             <label>
               <span>{t("Priority")}</span>
               <select name="priority" defaultValue="Medium">
-                <option>Low</option>
-                <option>Medium</option>
-                <option>High</option>
-                <option>Critical</option>
+                {["Low", "Medium", "High", "Critical"].map((priority) => <option key={priority} value={priority}>{t(priority)}</option>)}
               </select>
             </label>
             <label>
               <span>{t("Category")}</span>
               <select name="category" defaultValue="Onboarding">
-                <option>Onboarding</option>
-                <option>Verification</option>
-                <option>Listings</option>
-                <option>Requests</option>
-                <option>Handover</option>
-                <option>Impact</option>
-                <option>Certificate</option>
+                {["Onboarding", "Verification", "Listings", "Requests", "Handover", "Impact", "Certificate"].map((category) => <option key={category} value={category}>{t(category)}</option>)}
               </select>
             </label>
             <label className="wide-field">
@@ -3670,14 +3972,12 @@ function PilotWorkspaceSection({
                   <span className={`status-pill ${item.priority === "Critical" || item.priority === "High" ? "danger" : item.priority === "Medium" ? "warning" : "info"}`}>
                     {t(item.priority)}
                   </span>
-                  <strong>{item.title}</strong>
-                  <p>{item.detail}</p>
-                  <small>{item.organization} · {t(item.type)} · {t(item.category)} · {item.createdAt}</small>
+                  <strong>{t(item.title)}</strong>
+                  <p>{t(item.detail)}</p>
+                  <small>{t(item.organization)} · {t(item.type)} · {t(item.category)} · {item.createdAt}</small>
                 </div>
                 <select value={item.status} onChange={(event) => updatePilotFeedbackStatus(item.id, event.target.value as PilotFeedback["status"])} aria-label={`Update ${item.title} status`}>
-                  <option>Open</option>
-                  <option>Reviewing</option>
-                  <option>Resolved</option>
+                  {["Open", "Reviewing", "Resolved"].map((status) => <option key={status} value={status}>{t(status)}</option>)}
                 </select>
               </article>
             ))}
@@ -3860,6 +4160,8 @@ function ImpactLeaderboard({
   title: string;
   items: Array<{ label: string; meta: string; value: string }>;
 }) {
+  const { t } = useI18n();
+
   return (
     <section className="dashboard-card impact-leaderboard">
       <PanelHeading icon={Award} title={title} text="Pilot leaderboard generated from validated impact scenarios." />
@@ -4427,6 +4729,7 @@ function PublishSection({
   locations: OrganizationLocation[];
   publishListing: (formData: FormData) => void;
 }) {
+  const { t } = useI18n();
   const defaultCategory = categories[0]?.name ?? "";
   const [selectedCategoryName, setSelectedCategoryName] = useState(defaultCategory);
   const selectedCategory = categories.find((item) => item.name === selectedCategoryName) ?? categories[0];
@@ -4443,11 +4746,11 @@ function PublishSection({
       <PanelHeading icon={PackagePlus} title="Publish inventory" text="Create a safe, non-regulated item listing." />
       <form action={publishListing} className="publish-form expanded-form">
         <label className="wide-field">
-          <span>Item name</span>
-          <input name="title" required minLength={3} placeholder="Prepared meals, boxes, chairs..." />
+          <span>{t("Item name")}</span>
+          <input name="title" required minLength={3} placeholder={t("Prepared meals, boxes, chairs...")} />
         </label>
         <label>
-          <span>Category</span>
+          <span>{t("Category")}</span>
           <select
             name="category"
             value={selectedCategoryName}
@@ -4455,75 +4758,70 @@ function PublishSection({
             onChange={(event) => setSelectedCategoryName(event.target.value)}
           >
             {categories.map((item) => (
-              <option key={item.id}>{item.name}</option>
+              <option key={item.id} value={item.name}>{t(item.name)}</option>
             ))}
           </select>
         </label>
         <label>
-          <span>Subcategory</span>
+          <span>{t("Subcategory")}</span>
           <select name="subcategory" disabled={!availableSubcategories.length}>
             {availableSubcategories.map((item) => (
-              <option key={item}>{item}</option>
+              <option key={item} value={item}>{t(item)}</option>
             ))}
           </select>
         </label>
         <label>
-          <span>Offer type</span>
+          <span>{t("Offer type")}</span>
           <select name="offerType" defaultValue="Free">
-            <option>Free</option>
-            <option>For sale</option>
-            <option>Exchange</option>
+            {["Free", "For sale", "Exchange"].map((offer) => <option key={offer} value={offer}>{t(offer)}</option>)}
           </select>
         </label>
         <label>
-          <span>Reason</span>
+          <span>{t("Reason")}</span>
           <select name="reason" defaultValue="Excess stock">
-            <option>Excess stock</option>
-            <option>Near expiry</option>
-            <option>Slow moving</option>
-            <option>Other</option>
+            {["Excess stock", "Near expiry", "Slow moving", "Other"].map((reason) => <option key={reason} value={reason}>{t(reason)}</option>)}
           </select>
         </label>
         <label>
-          <span>City</span>
+          <span>{t("City")}</span>
           <input name="city" defaultValue={city} required />
         </label>
         <label>
-          <span>Area</span>
+          <span>{t("Area")}</span>
           <select name="area" defaultValue={locations.find((location) => location.emirate === city)?.area ?? locations[0]?.area}>
             {locations.map((location) => (
-              <option key={location.id} value={location.area}>{location.emirate} / {location.area}</option>
+              <option key={location.id} value={location.area}>{t(location.emirate)} / {t(location.area)}</option>
             ))}
           </select>
         </label>
         <label>
-          <span>Quantity</span>
+          <span>{t("Quantity")}</span>
           <input name="quantity" type="number" min={1} defaultValue={50} required />
         </label>
         <label>
-          <span>Unit</span>
+          <span>{t("Unit")}</span>
           <input name="unit" defaultValue="units" required />
         </label>
         <label>
-          <span>Expiry date</span>
+          <span>{t("Expiry date")}</span>
           <input name="expiryDate" type="date" />
         </label>
         <label className="wide-field">
-          <span>Description</span>
-          <textarea name="description" rows={4} placeholder="Condition, pickup time, storage notes, and handover details." />
+          <span>{t("Description")}</span>
+          <textarea name="description" rows={4} placeholder={t("Condition, pickup time, storage notes, and handover details.")} />
         </label>
         <fieldset className="handover-options wide-field">
-          <legend>Handover methods</legend>
+          <legend>{t("Handover methods")}</legend>
           {(["Pickup", "Delivery by owner", "Requester delivery", "Courier coordination"] as HandoverMethod[]).map((method) => (
             <label key={method}>
               <input name="handoverMethods" type="checkbox" value={method} defaultChecked={method === "Pickup"} />
-              <span>{method}</span>
+              <span>{t(method)}</span>
             </label>
           ))}
         </fieldset>
         <button className="button primary wide-field" type="submit" disabled={!categories.length}>
           <PackagePlus size={18} />
-          {categories.length ? "Publish local listing" : "Show at least one category first"}
+          {categories.length ? t("Publish local listing") : t("Show at least one category first")}
         </button>
       </form>
     </section>
@@ -4545,6 +4843,7 @@ function CategoriesSection({
   removeSubcategory: (id: string, subcategory: string) => void;
   resetCategories: () => void;
 }) {
+  const { t, n } = useI18n();
   const visibleCount = categories.filter((item) => !item.hidden && !item.restricted).length;
 
   return (
@@ -4556,34 +4855,34 @@ function CategoriesSection({
             title="UAE category control"
             text="Suggested starter categories for UAE redistribution. Arrange or hide categories any time."
           />
-          <button className="button secondary" onClick={resetCategories} type="button">Reset UAE list</button>
+          <button className="button secondary" onClick={resetCategories} type="button">{t("Reset UAE list")}</button>
         </div>
         <div className="category-summary">
-          <Metric label="visible MVP categories" value={visibleCount} />
-          <Metric label="hidden or restricted" value={categories.length - visibleCount} />
-          <Metric label="total suggested" value={categories.length} />
+          <Metric label="visible MVP categories" value={n(visibleCount)} />
+          <Metric label="hidden or restricted" value={n(categories.length - visibleCount)} />
+          <Metric label="total suggested" value={n(categories.length)} />
         </div>
         <p className="category-note">
-          Medicines, pharmaceuticals, hazardous materials, and other regulated items stay hidden for the MVP until UAE-specific licensing, storage, transport, verification, and audit controls are ready.
+          {t("Medicines, pharmaceuticals, hazardous materials, and other regulated items stay hidden for the MVP until UAE-specific licensing, storage, transport, verification, and audit controls are ready.")}
         </p>
       </div>
 
       <div className="category-list">
         {categories.map((category, index) => (
           <article className={category.hidden ? "category-row hidden-category" : "category-row"} key={category.id}>
-            <div className="category-order">{index + 1}</div>
+            <div className="category-order">{n(index + 1)}</div>
             <div className="category-main">
               <div className="category-title-line">
-                <h3>{category.name}</h3>
-                {category.restricted && <span className="restricted-pill">Restricted</span>}
-                {category.hidden && <span className="hidden-pill">Hidden</span>}
+                <h3>{t(category.name)}</h3>
+                {category.restricted && <span className="restricted-pill">{t("Restricted")}</span>}
+                {category.hidden && <span className="hidden-pill">{t("Hidden")}</span>}
               </div>
-              <p>{category.description}</p>
-              <small>{category.examples}</small>
+              <p>{t(category.description)}</p>
+              <small>{t(category.examples)}</small>
               <div className="subcategory-list">
                 {category.subcategories.map((subcategory) => (
                   <span className="subcategory-chip" key={subcategory}>
-                    {subcategory}
+                    {t(subcategory)}
                     <button
                       onClick={() => removeSubcategory(category.id, subcategory)}
                       type="button"
@@ -4595,8 +4894,8 @@ function CategoriesSection({
                 ))}
               </div>
               <form action={(formData) => addSubcategory(category.id, formData)} className="subcategory-form">
-                <input name="subcategory" placeholder="Add subcategory" />
-                <button className="mini-action muted" type="submit">Add</button>
+                <input name="subcategory" placeholder={t("Add subcategory")} />
+                <button className="mini-action muted" type="submit">{t("Add")}</button>
               </form>
             </div>
             <div className="category-actions">
@@ -4619,7 +4918,7 @@ function CategoriesSection({
                 <ChevronDown size={18} />
               </button>
               <button className="mini-action muted" onClick={() => toggleCategoryHidden(category.id)} type="button">
-                {category.hidden ? "Show" : "Hide"}
+                {category.hidden ? t("Show") : t("Hide")}
               </button>
             </div>
           </article>
@@ -5049,6 +5348,8 @@ function GroupsSection(props: {
   listings: Listing[];
   toggleFollowGroup: (id: string) => void;
 }) {
+  const { t, n } = useI18n();
+
   return (
     <section className="workspace-grid two-column">
       <div className="workspace-panel">
@@ -5057,12 +5358,12 @@ function GroupsSection(props: {
           {props.groups.map((group) => (
             <article className="request-card" key={group.id}>
               <div>
-                <h3>{group.name}</h3>
-                <p>{group.category} · {group.city} · {group.members} members</p>
-                <span>{props.listings.filter((listing) => listing.groupIds.includes(group.id)).length} linked listings</span>
+                <h3>{t(group.name)}</h3>
+                <p>{t(group.category)} · {t(group.city)} · {n(group.members)} {t("members")}</p>
+                <span>{t(`${props.listings.filter((listing) => listing.groupIds.includes(group.id)).length} linked listings`)}</span>
               </div>
               <button className="mini-action" onClick={() => props.toggleFollowGroup(group.id)} type="button">
-                {group.following ? "Following" : "Follow"}
+                {group.following ? t("Following") : t("Follow")}
               </button>
             </article>
           ))}
@@ -5072,7 +5373,7 @@ function GroupsSection(props: {
         <PanelHeading icon={Bookmark} title="Saved searches" text="Local saved filters for notification rules later." />
         <div className="workspace-list">
           {props.savedSearches.map((search) => (
-            <div className="saved-search" key={search}>{search}</div>
+            <div className="saved-search" key={search}>{t(search)}</div>
           ))}
         </div>
       </div>
@@ -5084,17 +5385,19 @@ function NotificationsSection(props: {
   notifications: NotificationRecord[];
   markNotificationsRead: () => void;
 }) {
+  const { t } = useI18n();
+
   return (
     <section className="workspace-panel">
       <div className="panel-toolbar">
         <PanelHeading icon={Bell} title="Notifications" text="Local notification center for important workflow activity." />
-        <button className="button secondary" onClick={props.markNotificationsRead} type="button">Mark all read</button>
+        <button className="button secondary" onClick={props.markNotificationsRead} type="button">{t("Mark all read")}</button>
       </div>
       <div className="workspace-list">
         {props.notifications.map((notification) => (
           <article className={notification.read ? "notification-card read" : "notification-card"} key={notification.id}>
-            <strong>{notification.title}</strong>
-            <p>{notification.body}</p>
+            <strong>{t(notification.title)}</strong>
+            <p>{t(notification.body)}</p>
           </article>
         ))}
       </div>
@@ -5107,23 +5410,25 @@ function ModerationSection(props: {
   listings: Listing[];
   resolveReport: (id: string) => void;
 }) {
+  const { t } = useI18n();
+
   return (
     <section className="workspace-panel">
       <PanelHeading icon={Flag} title="Moderation" text="Review reports and flagged listings before production admin tools." />
       <div className="workspace-list">
         {props.reports.length === 0 ? (
-          <div className="empty-workspace-state">No reports. Use Report from a listing detail to test moderation.</div>
+          <div className="empty-workspace-state">{t("No reports. Use Report from a listing detail to test moderation.")}</div>
         ) : props.reports.map((report) => {
           const listing = props.listings.find((item) => item.id === report.listingId);
           return (
             <article className="request-card" key={report.id}>
               <div>
-                <h3>{listing?.title ?? "Listing removed"}</h3>
-                <p>{report.reason}</p>
-                <span>{report.status}</span>
+                <h3>{listing ? t(listing.title) : t("Listing removed")}</h3>
+                <p>{t(report.reason)}</p>
+                <span>{t(report.status)}</span>
               </div>
               {report.status !== "resolved" && (
-                <button className="mini-action" onClick={() => props.resolveReport(report.id)} type="button">Resolve</button>
+                <button className="mini-action" onClick={() => props.resolveReport(report.id)} type="button">{t("Resolve")}</button>
               )}
             </article>
           );
@@ -5285,6 +5590,7 @@ function DocumentStatusCard({ document }: { document: ReturnType<typeof document
 }
 
 function AuditTimeline({ auditEvents, filterVerification = true }: { auditEvents: AuditEvent[]; filterVerification?: boolean }) {
+  const { t } = useI18n();
   const events = filterVerification
     ? auditEvents.filter((event) => event.action.startsWith("verification") || event.action.startsWith("license"))
     : auditEvents;
@@ -5304,9 +5610,9 @@ function AuditTimeline({ auditEvents, filterVerification = true }: { auditEvents
         <article key={event.id}>
           <span aria-hidden="true" />
           <div>
-            <strong>{event.action}</strong>
-            <p>{event.detail}</p>
-            <small>{event.actor} · {event.at}</small>
+            <strong>{t(event.action)}</strong>
+            <p>{t(event.detail)}</p>
+            <small>{t(event.actor)} · {t(event.at)}</small>
           </div>
         </article>
       ))}
@@ -5325,6 +5631,7 @@ function VerificationDashboardSection({
   submitVerification: () => void;
   trustScore: TrustScore;
 }) {
+  const { t } = useI18n();
   const stats = verificationSummaryStats(account);
   const documents = documentRecords(account);
   const expiring = documents.filter((document) => document.status === "Expired" || (document.expiry && expiryStatus(document.expiry).urgent));
@@ -5333,9 +5640,9 @@ function VerificationDashboardSection({
     <section className="workspace-section-stack">
       <div className="verification-hero-panel">
         <div>
-          <span className="eyebrow">Trust and verification</span>
+          <span className="eyebrow">{t("Trust and verification")}</span>
           <h2>{account.tradeName}</h2>
-          <p>Production-shaped verification workspace for UAE launch readiness, document review, and audit history.</p>
+          <p>{t("Production-shaped verification workspace for UAE launch readiness, document review, and audit history.")}</p>
         </div>
         <div className="hero-badge-stack">
           <VerificationBadge level={account.verificationLevel} status={account.verificationStatus} />
@@ -5365,7 +5672,7 @@ function VerificationDashboardSection({
         <section className="workspace-panel">
           <div className="panel-toolbar">
             <PanelHeading icon={History} title="Verification history" text="Audit events relevant to submission, review, rejection, and expiry." />
-            <button className="button secondary" onClick={submitVerification} type="button">Submit review</button>
+            <button className="button secondary" onClick={submitVerification} type="button">{t("Submit review")}</button>
           </div>
           <AuditTimeline auditEvents={auditEvents} />
         </section>
@@ -5381,6 +5688,7 @@ function VerificationDocumentsSection({
   account: CompanyProfile;
   addLicenseRecord: (formData: FormData) => void;
 }) {
+  const { t } = useI18n();
   const documents = documentRecords(account);
   const stats = verificationSummaryStats(account);
 
@@ -5409,28 +5717,28 @@ function VerificationDocumentsSection({
         <PanelHeading icon={PackagePlus} title="Add document metadata" text="Local preview only. Upload screens and private storage policies remain future work." />
         <form action={addLicenseRecord} className="publish-form">
           <label>
-            <span>Document type</span>
+            <span>{t("Document type")}</span>
             <select name="licenseType" defaultValue="Trade License">
-              {requiredVerificationDocuments.map((document) => <option key={document}>{document}</option>)}
+              {requiredVerificationDocuments.map((document) => <option key={document} value={document}>{t(document)}</option>)}
             </select>
           </label>
           <label>
-            <span>Number</span>
+            <span>{t("Number")}</span>
             <input name="number" required />
           </label>
           <label>
-            <span>Issuing authority</span>
+            <span>{t("Issuing authority")}</span>
             <input name="issuingAuthority" required />
           </label>
           <label>
-            <span>Expiry date</span>
+            <span>{t("Expiry date")}</span>
             <input name="expiryDate" type="date" required />
           </label>
           <label className="wide-field">
-            <span>Document reference</span>
+            <span>{t("Document reference")}</span>
             <input name="documentName" placeholder="trade-license.pdf" />
           </label>
-          <button className="button primary wide-field" type="submit">Add document for review</button>
+          <button className="button primary wide-field" type="submit">{t("Add document for review")}</button>
         </form>
       </section>
     </section>
@@ -5454,15 +5762,16 @@ function OrganizationProfileSection({
   trustScore: TrustScore;
   certificates: TransferCertificateRecord[];
 }) {
+  const { t, n } = useI18n();
   const stats = verificationSummaryStats(account);
 
   return (
     <section className="workspace-section-stack">
       <section className="organization-profile-hero">
         <div>
-          <span className="eyebrow">Organization profile</span>
+          <span className="eyebrow">{t("Organization profile")}</span>
           <h2>{organization}</h2>
-          <p>{account.businessActivity}</p>
+          <p>{t(account.businessActivity)}</p>
         </div>
         <div className="hero-badge-stack">
           <VerificationBadge level={account.verificationLevel} status={account.verificationStatus} />
@@ -5475,10 +5784,10 @@ function OrganizationProfileSection({
           <PanelHeading icon={Building2} title="Verification summary" text="Public-safe organization trust context for listings and workspace decisions." />
           <VerificationSummary account={account} />
           <div className="profile-facts">
-            <span>{account.accountType}</span>
-            <span>{account.emirate} / {city}</span>
-            <span>{stats.approved} approved documents</span>
-            <span>{stats.pending} pending reviews</span>
+            <span>{t(account.accountType)}</span>
+            <span>{t(account.emirate)} / {t(city)}</span>
+            <span>{t(`${stats.approved} approved documents`)}</span>
+            <span>{t(`${stats.pending} pending reviews`)}</span>
           </div>
         </section>
 
@@ -5496,14 +5805,14 @@ function OrganizationProfileSection({
           <div className="workspace-list">
             {locations.map((location) => (
               <article className="setting-row" key={location.id}>
-                <strong>{location.label}</strong>
-                <span>{location.emirate} / {location.area}</span>
+                <strong>{t(location.label)}</strong>
+                <span>{t(location.emirate)} / {t(location.area)}</span>
               </article>
             ))}
             {team.map((member) => (
               <article className="setting-row" key={member.id}>
-                <strong>{member.name}</strong>
-                <span>{member.role} · {member.status}</span>
+                <strong>{t(member.name)}</strong>
+                <span>{t(member.role)} · {t(member.status)}</span>
               </article>
             ))}
           </div>
@@ -5515,10 +5824,10 @@ function OrganizationProfileSection({
         <section className="workspace-panel">
           <PanelHeading icon={QrCode} title="Certificate readiness" text="Completed transfers create immutable QR-verifiable proof." />
           <div className="profile-facts">
-            <span>{certificates.length} issued certificates</span>
-            <span>PDF layout ready</span>
-            <span>Public QR verification</span>
-            <span>Audit history enabled</span>
+            <span>{t(`${n(certificates.length)} issued certificates`)}</span>
+            <span>{t("PDF layout ready")}</span>
+            <span>{t("Public QR verification")}</span>
+            <span>{t("Audit history enabled")}</span>
           </div>
         </section>
       </div>
@@ -5533,6 +5842,7 @@ function AdminVerificationReviewSection({
   account: CompanyProfile;
   auditEvents: AuditEvent[];
 }) {
+  const { t } = useI18n();
   const documents = documentRecords(account);
   const queue = [
     { label: "Pending reviews", status: "Pending Review", documents: documents.filter((document) => document.status === "Pending Review") },
@@ -5545,11 +5855,11 @@ function AdminVerificationReviewSection({
     <section className="workspace-section-stack">
       <div className="verification-hero-panel">
         <div>
-          <span className="eyebrow">Admin review queue</span>
-          <h2>Verification review</h2>
-          <p>First review queue for pending, approved, rejected, and expired verification records.</p>
+          <span className="eyebrow">{t("Admin review queue")}</span>
+          <h2>{t("Verification review")}</h2>
+          <p>{t("First review queue for pending, approved, rejected, and expired verification records.")}</p>
         </div>
-        <span className="status-pill info">Reviewer preview</span>
+        <span className="status-pill info">{t("Reviewer preview")}</span>
       </div>
 
       <div className="admin-review-grid">
@@ -5559,7 +5869,7 @@ function AdminVerificationReviewSection({
             <div className="document-card-list">
               {group.documents.length ? group.documents.map((document) => (
                 <DocumentStatusCard document={document} key={document.documentType} />
-              )) : <div className="empty-workspace-state">No records in this queue.</div>}
+              )) : <div className="empty-workspace-state">{t("No records in this queue.")}</div>}
             </div>
           </section>
         ))}
@@ -5582,6 +5892,7 @@ function AdminTrustOverviewSection({
   currentOrganization: string;
   currentScore: TrustScore;
 }) {
+  const { t } = useI18n();
   const organizations = [
     { id: "current", organization: currentOrganization, score: currentScore, history: [{ label: "Current", score: currentScore.score, at: "Now" }, { label: "Previous", score: Math.max(0, currentScore.score - 4), at: "Last review" }] },
     ...scenarios,
@@ -5593,11 +5904,11 @@ function AdminTrustOverviewSection({
     <section className="workspace-section-stack">
       <div className="verification-hero-panel">
         <div>
-          <span className="eyebrow">Admin trust overview</span>
-          <h2>Trust score monitoring</h2>
-          <p>Platform-wide reputation view for top performers, lowest trust organizations, and score movement.</p>
+          <span className="eyebrow">{t("Admin trust overview")}</span>
+          <h2>{t("Trust score monitoring")}</h2>
+          <p>{t("Platform-wide reputation view for top performers, lowest trust organizations, and score movement.")}</p>
         </div>
-        <span className="status-pill info">Score engine preview</span>
+        <span className="status-pill info">{t("Score engine preview")}</span>
       </div>
 
       <div className="workspace-grid two-column">
@@ -5606,7 +5917,7 @@ function AdminTrustOverviewSection({
           <div className="trust-admin-list">
             {topOrganizations.map((item) => (
               <article key={item.id}>
-                <strong>{item.organization}</strong>
+                <strong>{t(item.organization)}</strong>
                 <TrustBadge score={item.score} />
               </article>
             ))}
@@ -5618,7 +5929,7 @@ function AdminTrustOverviewSection({
           <div className="trust-admin-list">
             {lowestOrganizations.map((item) => (
               <article key={item.id}>
-                <strong>{item.organization}</strong>
+                <strong>{t(item.organization)}</strong>
                 <TrustBadge score={item.score} />
               </article>
             ))}
@@ -5632,15 +5943,15 @@ function AdminTrustOverviewSection({
           {organizations.map((item) => (
             <article className="trust-history-card" key={item.id}>
               <div>
-                <strong>{item.organization}</strong>
+                <strong>{t(item.organization)}</strong>
                 <TrustBadge score={item.score} compact />
               </div>
               <div className="trust-history-bars">
                 {item.history.map((entry) => (
                   <span key={`${item.id}-${entry.label}`} style={{ "--score": `${entry.score}%` } as CSSProperties}>
-                    <em>{entry.label}</em>
+                    <em>{t(entry.label)}</em>
                     <b>{entry.score}</b>
-                    <small>{entry.at}</small>
+                    <small>{t(entry.at)}</small>
                   </span>
                 ))}
               </div>
@@ -5673,108 +5984,104 @@ function SettingsSection({
   addLocation: (formData: FormData) => void;
   inviteTeamMember: (formData: FormData) => void;
 }) {
+  const { t } = useI18n();
+
   return (
     <section className="workspace-section-stack">
       <section className="workspace-panel">
         <div className="panel-toolbar">
           <PanelHeading icon={ShieldCheck} title="Company verification profile" text="Maintain the company or supplier details required for approval." />
-          <button className="button secondary" onClick={submitVerification} type="button">Submit verification</button>
+          <button className="button secondary" onClick={submitVerification} type="button">{t("Submit verification")}</button>
         </div>
         <VerificationSummary account={account} />
         <form action={updateCompanyProfile} className="publish-form expanded-form">
           <label>
-            <span>Account type</span>
+            <span>{t("Account type")}</span>
             <select name="accountType" defaultValue={account.accountType}>
-              <option>Supplier</option>
-              <option>Company</option>
+              <option value="Supplier">{t("Supplier")}</option>
+              <option value="Company">{t("Company")}</option>
             </select>
           </label>
           <label>
-            <span>Legal name</span>
+            <span>{t("Legal name")}</span>
             <input name="legalName" defaultValue={account.legalName} required />
           </label>
           <label>
-            <span>Trade name</span>
+            <span>{t("Trade name")}</span>
             <input name="tradeName" defaultValue={account.tradeName} required />
           </label>
           <label>
-            <span>Email</span>
+            <span>{t("Email")}</span>
             <input name="email" type="email" defaultValue={account.email} required />
           </label>
           <label>
-            <span>Phone</span>
+            <span>{t("Phone")}</span>
             <input name="phone" defaultValue={account.phone} required />
           </label>
           <label>
-            <span>Website</span>
+            <span>{t("Website")}</span>
             <input name="website" type="url" defaultValue={account.website} placeholder="https://..." />
           </label>
           <label>
-            <span>Emirate</span>
+            <span>{t("Emirate")}</span>
             <select name="emirate" defaultValue={account.emirate}>
-              <option>Dubai</option>
-              <option>Abu Dhabi</option>
-              <option>Sharjah</option>
-              <option>Ajman</option>
-              <option>Ras Al Khaimah</option>
-              <option>Fujairah</option>
-              <option>Umm Al Quwain</option>
+              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
             </select>
           </label>
           <label>
-            <span>City</span>
+            <span>{t("City")}</span>
             <input name="city" defaultValue={account.city} required />
           </label>
           <label>
-            <span>TRN</span>
+            <span>{t("TRN")}</span>
             <input name="trn" defaultValue={account.trn} />
           </label>
           <label>
-            <span>Business category</span>
+            <span>{t("Business category")}</span>
             <select name="businessCategory" defaultValue={account.businessCategory}>
               {dubaiBusinessCategories.map((item) => (
-                <option key={item.name}>{item.name}</option>
+                <option key={item.name} value={item.name}>{t(item.name)}</option>
               ))}
             </select>
           </label>
           <label>
-            <span>Business subcategory</span>
+            <span>{t("Business subcategory")}</span>
             <select name="businessSubcategory" defaultValue={account.businessSubcategory}>
               {dubaiBusinessCategories.map((category) => (
-                <optgroup label={category.name} key={category.name}>
+                <optgroup label={t(category.name)} key={category.name}>
                   {category.subcategories.map((subcategory) => (
-                    <option key={`${category.name}-${subcategory}`}>{subcategory}</option>
+                    <option key={`${category.name}-${subcategory}`} value={subcategory}>{t(subcategory)}</option>
                   ))}
                 </optgroup>
               ))}
             </select>
           </label>
           <label className="wide-field">
-            <span>Business activity</span>
+            <span>{t("Business activity")}</span>
             <input name="businessActivity" defaultValue={account.businessActivity} required />
           </label>
           <label className="wide-field">
-            <span>Registered address</span>
+            <span>{t("Registered address")}</span>
             <textarea name="address" rows={3} defaultValue={account.address} required />
           </label>
           <label>
-            <span>Authorized person</span>
+            <span>{t("Authorized person")}</span>
             <input name="authorizedPerson" defaultValue={account.authorizedPerson} required />
           </label>
           <label>
-            <span>Role</span>
+            <span>{t("Role")}</span>
             <input name="authorizedRole" defaultValue={account.authorizedRole} required />
           </label>
           <label>
-            <span>Authorized email</span>
+            <span>{t("Authorized email")}</span>
             <input name="authorizedEmail" type="email" defaultValue={account.authorizedEmail} required />
           </label>
           <label>
-            <span>Authorized phone</span>
+            <span>{t("Authorized phone")}</span>
             <input name="authorizedPhone" defaultValue={account.authorizedPhone} required />
           </label>
           <RequiredDocumentsField selectedDocuments={account.documents} />
-          <button className="button primary wide-field" type="submit">Save verification profile</button>
+          <button className="button primary wide-field" type="submit">{t("Save verification profile")}</button>
         </form>
       </section>
 
@@ -5783,42 +6090,36 @@ function SettingsSection({
           <PanelHeading icon={FileText} title="Licenses and permits" text="Add trade, food, municipality, warehouse, or charity approvals." />
           <form action={addLicenseRecord} className="publish-form">
             <label className="wide-field">
-              <span>License or permit type</span>
+              <span>{t("License or permit type")}</span>
               <select name="licenseType" defaultValue="Trade License">
-                <option>Trade License</option>
-                <option>VAT/TRN</option>
-                <option>Food Permit</option>
-                <option>Storage Permit</option>
-                <option>NGO License</option>
-                <option>Government Authorization</option>
-                <option>Other</option>
+                {requiredVerificationDocuments.map((document) => <option key={document} value={document}>{t(document)}</option>)}
               </select>
             </label>
             <label>
-              <span>Number</span>
+              <span>{t("Number")}</span>
               <input name="number" required />
             </label>
             <label>
-              <span>Issuing authority</span>
-              <input name="issuingAuthority" required placeholder="DED, Municipality, FTA..." />
+              <span>{t("Issuing authority")}</span>
+              <input name="issuingAuthority" required placeholder={t("DED, Municipality, FTA...")} />
             </label>
             <label>
-              <span>Issue date</span>
+              <span>{t("Issue date")}</span>
               <input name="issueDate" type="date" />
             </label>
             <label>
-              <span>Expiry date</span>
+              <span>{t("Expiry date")}</span>
               <input name="expiryDate" type="date" required />
             </label>
             <label className="wide-field">
-              <span>Document file</span>
+              <span>{t("Document file")}</span>
               <input name="documentFile" type="file" accept=".pdf,.png,.jpg,.jpeg" />
             </label>
             <label className="wide-field">
-              <span>Document reference</span>
-              <input name="documentName" placeholder="Use when a file is not attached in local preview" />
+              <span>{t("Document reference")}</span>
+              <input name="documentName" placeholder={t("Use when a file is not attached in local preview")} />
             </label>
-            <button className="button primary wide-field" type="submit">Add license for review</button>
+            <button className="button primary wide-field" type="submit">{t("Add license for review")}</button>
           </form>
         </section>
 
@@ -5827,7 +6128,7 @@ function SettingsSection({
           <LicenseList licenses={account.licenses} />
           <div className="document-checklist">
             {account.documents.map((document) => (
-              <span key={document}>{document}</span>
+              <span key={document}>{t(document)}</span>
             ))}
           </div>
         </section>
@@ -5838,32 +6139,26 @@ function SettingsSection({
           <PanelHeading icon={MapPin} title="UAE locations" text="Manage pickup and handover points for listings." />
           <form action={addLocation} className="publish-form">
             <label className="wide-field">
-              <span>Location label</span>
-              <input name="label" placeholder="Dubai central warehouse" />
+              <span>{t("Location label")}</span>
+              <input name="label" placeholder={t("Dubai central warehouse")} />
             </label>
             <label>
-              <span>Emirate</span>
+              <span>{t("Emirate")}</span>
               <select name="emirate" defaultValue="Dubai">
-                <option>Dubai</option>
-                <option>Abu Dhabi</option>
-                <option>Sharjah</option>
-                <option>Ajman</option>
-                <option>Ras Al Khaimah</option>
-                <option>Fujairah</option>
-                <option>Umm Al Quwain</option>
+                {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
               </select>
             </label>
             <label>
-              <span>Area</span>
-              <input name="area" placeholder="Al Quoz, Mussafah, JLT..." />
+              <span>{t("Area")}</span>
+              <input name="area" placeholder={t("Al Quoz, Mussafah, JLT...")} />
             </label>
-            <button className="button primary wide-field" type="submit">Add location</button>
+            <button className="button primary wide-field" type="submit">{t("Add location")}</button>
           </form>
           <div className="workspace-list">
             {locations.map((location) => (
               <article className="setting-row" key={location.id}>
-                <strong>{location.label}</strong>
-                <span>{location.emirate} / {location.area}</span>
+                <strong>{t(location.label)}</strong>
+                <span>{t(location.emirate)} / {t(location.area)}</span>
               </article>
             ))}
           </div>
@@ -5873,25 +6168,22 @@ function SettingsSection({
           <PanelHeading icon={Users} title="Team and roles" text="Preview organization permissions before Supabase auth." />
           <form action={inviteTeamMember} className="publish-form">
             <label className="wide-field">
-              <span>Name</span>
-              <input name="name" placeholder="Team member name" />
+              <span>{t("Name")}</span>
+              <input name="name" placeholder={t("Team member name")} />
             </label>
             <label className="wide-field">
-              <span>Role</span>
+              <span>{t("Role")}</span>
               <select name="role" defaultValue="Inventory manager">
-                <option>Owner admin</option>
-                <option>Inventory manager</option>
-                <option>Requester</option>
-                <option>Moderator</option>
+                {["Owner admin", "Inventory manager", "Requester", "Moderator"].map((role) => <option key={role} value={role}>{t(role)}</option>)}
               </select>
             </label>
-            <button className="button primary wide-field" type="submit">Invite locally</button>
+            <button className="button primary wide-field" type="submit">{t("Invite locally")}</button>
           </form>
           <div className="workspace-list">
             {team.map((member) => (
               <article className="setting-row" key={member.id}>
-                <strong>{member.name}</strong>
-                <span>{member.role} · {member.status}</span>
+                <strong>{t(member.name)}</strong>
+                <span>{t(member.role)} · {t(member.status)}</span>
               </article>
             ))}
           </div>
@@ -5904,6 +6196,8 @@ function SettingsSection({
 }
 
 function AuditPanel({ auditEvents }: { auditEvents: AuditEvent[] }) {
+  const { t } = useI18n();
+
   return (
     <section className="workspace-panel">
       <PanelHeading icon={ShieldCheck} title="Audit trail" text="Local activity history for controlled workflow decisions." />
@@ -5911,10 +6205,10 @@ function AuditPanel({ auditEvents }: { auditEvents: AuditEvent[] }) {
         {auditEvents.map((event) => (
           <article className="audit-row" key={event.id}>
             <div>
-              <strong>{event.action}</strong>
-              <p>{event.detail}</p>
+              <strong>{t(event.action)}</strong>
+              <p>{t(event.detail)}</p>
             </div>
-            <span>{event.actor} · {event.at}</span>
+            <span>{t(event.actor)} · {t(event.at)}</span>
           </article>
         ))}
       </div>
@@ -5923,6 +6217,7 @@ function AuditPanel({ auditEvents }: { auditEvents: AuditEvent[] }) {
 }
 
 function VerificationSummary({ account }: { account: CompanyProfile }) {
+  const { t } = useI18n();
   const required = [
     account.legalName,
     account.tradeName,
@@ -5942,10 +6237,10 @@ function VerificationSummary({ account }: { account: CompanyProfile }) {
   return (
     <div className="verification-summary">
       <div>
-        <span className={`verification-status ${statusClass}`}>{account.verificationStatus}</span>
+        <span className={`verification-status ${statusClass}`}>{t(account.verificationStatus)}</span>
         <strong>{account.legalName}</strong>
-        <p>{account.businessCategory} / {account.businessSubcategory}</p>
-        <p>{account.verificationNotes}</p>
+        <p>{t(account.businessCategory)} / {t(account.businessSubcategory)}</p>
+        <p>{t(account.verificationNotes)}</p>
       </div>
       <div className="verification-metrics">
         <Metric label="profile fields" value={`${completeProfile}/${required.length}`} />
@@ -5957,9 +6252,11 @@ function VerificationSummary({ account }: { account: CompanyProfile }) {
 }
 
 function RequiredDocumentsField({ selectedDocuments }: { selectedDocuments: string[] }) {
+  const { t } = useI18n();
+
   return (
     <fieldset className="required-documents wide-field">
-      <legend>Required verification documents</legend>
+      <legend>{t("Required verification documents")}</legend>
       {requiredVerificationDocuments.map((document) => (
         <label key={document}>
           <input
@@ -5968,7 +6265,7 @@ function RequiredDocumentsField({ selectedDocuments }: { selectedDocuments: stri
             value={document}
             defaultChecked={selectedDocuments.includes(document)}
           />
-          <span>{document}</span>
+          <span>{t(document)}</span>
         </label>
       ))}
     </fieldset>
@@ -5976,20 +6273,22 @@ function RequiredDocumentsField({ selectedDocuments }: { selectedDocuments: stri
 }
 
 function LicenseList({ licenses }: { licenses: LicenseRecord[] }) {
+  const { t } = useI18n();
+
   return (
     <div className="license-list">
       {licenses.length === 0 ? (
-        <div className="empty-workspace-state">No license records yet.</div>
+        <div className="empty-workspace-state">{t("No license records yet.")}</div>
       ) : licenses.map((license) => (
         <article className="license-card" key={license.id}>
           <div>
-            <strong>{license.licenseType}</strong>
-            <p>{license.number} · {license.issuingAuthority}</p>
+            <strong>{t(license.licenseType)}</strong>
+            <p>{license.number} · {t(license.issuingAuthority)}</p>
             <span>{license.documentName}</span>
           </div>
           <div>
-            <em>{license.status}</em>
-            <span>Expires {license.expiryDate || "not set"}</span>
+            <em>{t(license.status)}</em>
+            <span>{t("Expires")} {license.expiryDate || t("not set")}</span>
           </div>
         </article>
       ))}
