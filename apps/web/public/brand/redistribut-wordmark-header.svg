@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 190" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist header wordmark</title>
+  <desc id="desc">A compact balanced ReDist wordmark with a leaf accent inside the D for website navigation.</desc>
+  <defs>
+    <linearGradient id="leaf" x1="176" y1="62" x2="235" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b7d96a"/>
+      <stop offset="0.62" stop-color="#178a5f"/>
+      <stop offset="1" stop-color="#0f4a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="190" rx="24" fill="#fbfdfb"/>
+  <g transform="translate(34 28)">
+    <text x="0" y="106" fill="#10231f" font-family="Inter, Arial, Helvetica, sans-serif" font-size="100" font-weight="850" letter-spacing="-4">ReDist</text>
+    <path d="M158 88c13-7 21-20 24-37-15 2-27 10-35 23-5 9-5 18-3 28 5-1 9-4 14-14Z" fill="url(#leaf)"/>
+    <path d="M154 99c4-16 12-29 25-42" fill="none" stroke="#f8fff9" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

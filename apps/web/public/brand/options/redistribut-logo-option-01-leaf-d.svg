@@ -1,19 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="title desc">
-  <title id="title">ReDist balanced leaf wordmark</title>
-  <desc id="desc">A balanced ReDist wordmark with a leaf accent inside the D and a clear tagline.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist logo option 01 - leaf D</title>
+  <desc id="desc">A refined ReDist wordmark with a leaf inside the D and a dignity-focused tagline.</desc>
   <defs>
-    <linearGradient id="leaf" x1="214" y1="82" x2="288" y2="166" gradientUnits="userSpaceOnUse">
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#b7d96a"/>
       <stop offset="0.62" stop-color="#178a5f"/>
       <stop offset="1" stop-color="#0f4a3f"/>
     </linearGradient>
   </defs>
-  <rect width="760" height="360" rx="34" fill="#fbfdfb"/>
+  <rect width="1200" height="360" rx="34" fill="#fbfdfb"/>
   <g transform="translate(64 58)">
     <text x="0" y="132" fill="#10231f" font-family="Inter, Arial, Helvetica, sans-serif" font-size="124" font-weight="850" letter-spacing="-5">ReDist</text>
     <path d="M196 113c16-9 26-24 29-44-18 3-33 12-42 28-6 10-6 22-3 34 6-1 11-5 16-18Z" fill="url(#leaf)"/>
     <path d="M191 126c5-20 15-35 31-51" fill="none" stroke="#f8fff9" stroke-width="5" stroke-linecap="round"/>
     <path d="M4 222h596" stroke="#d8eadc" stroke-width="3" stroke-linecap="round"/>
     <text x="4" y="272" fill="#31433f" font-family="Inter, Arial, Helvetica, sans-serif" font-size="25" font-weight="760">Redistribute. Reduce Waste. Restore Dignity.</text>
+  </g>
+  <g transform="translate(905 88)">
+    <circle cx="82" cy="82" r="82" fill="#eff9ef" stroke="#d7ead9" stroke-width="3"/>
+    <path d="M48 90c37-42 78-58 124-50-7 49-35 86-78 107-22 11-45 14-67 9 1-22 7-44 21-66Z" fill="url(#leaf)"/>
+    <path d="M55 146c24-45 58-78 105-100" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
   </g>
 </svg>

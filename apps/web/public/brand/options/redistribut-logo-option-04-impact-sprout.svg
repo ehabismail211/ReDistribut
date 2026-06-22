@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist logo option 04 - impact sprout</title>
+  <desc id="desc">A ReDist logo using a sprout and redistribution path to show waste reduction and social value.</desc>
+  <defs>
+    <linearGradient id="sprout" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8db67"/>
+      <stop offset="0.5" stop-color="#178a5f"/>
+      <stop offset="1" stop-color="#0d3f35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="34" fill="#fffdf8"/>
+  <g transform="translate(84 54)">
+    <circle cx="126" cy="126" r="118" fill="#f1f8e9" stroke="#dfeecb" stroke-width="4"/>
+    <path d="M126 185c0-52 0-93 0-127" stroke="#0d5f4c" stroke-width="14" stroke-linecap="round"/>
+    <path d="M126 94c-36-33-70-45-104-35 7 42 33 70 79 82 12-13 20-28 25-47Z" fill="url(#sprout)"/>
+    <path d="M126 95c37-34 75-46 115-33-7 43-36 72-86 86-14-13-23-31-29-53Z" fill="url(#sprout)"/>
+    <path d="M51 199c48 35 103 35 150 0" fill="none" stroke="#0d5f4c" stroke-width="14" stroke-linecap="round"/>
+    <path d="M191 181l25 23-32 14" fill="none" stroke="#0d5f4c" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(396 88)">
+    <text x="0" y="98" fill="#11231f" font-family="Inter, Arial, Helvetica, sans-serif" font-size="130" font-weight="900" letter-spacing="-5">ReDist</text>
+    <text x="5" y="155" fill="#8a6d10" font-family="Inter, Arial, Helvetica, sans-serif" font-size="27" font-weight="800">Turn surplus into verified social and environmental value.</text>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist logo option 02 - circular handover</title>
+  <desc id="desc">A ReDist wordmark paired with a circular handover and verification symbol.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b332d"/>
+      <stop offset="0.58" stop-color="#087e61"/>
+      <stop offset="1" stop-color="#a6c957"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dff4e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="34" fill="#f7fbf9"/>
+  <g transform="translate(78 56)">
+    <rect width="242" height="242" rx="64" fill="url(#bg)"/>
+    <path d="M77 86c34-34 90-43 133-19l15-15c7-7 18-3 19 7l11 70c1 9-7 17-16 16l-70-11c-10-1-14-13-7-19l15-15c-24-13-55-9-75 11-19 19-25 48-16 72" fill="none" stroke="url(#line)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M165 156c-34 34-90 43-133 19l-15 15c-7 7-18 3-19-7l-11-70c-1-9 7-17 16-16l70 11c10 1 14 13 7 19l-15 15c24 13 55 9 75-11 19-19 25-48 16-72" fill="none" stroke="#d8f2df" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+    <circle cx="121" cy="121" r="43" fill="#ffffff"/>
+    <path d="M102 120l15 15 31-36" fill="none" stroke="#087e61" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(365 91)">
+    <text x="0" y="96" fill="#10231f" font-family="Inter, Arial, Helvetica, sans-serif" font-size="126" font-weight="900" letter-spacing="-5">ReDist</text>
+    <text x="6" y="151" fill="#126a59" font-family="Inter, Arial, Helvetica, sans-serif" font-size="27" font-weight="850" letter-spacing="2">VERIFIED SURPLUS REDISTRIBUTION</text>
+  </g>
+</svg>

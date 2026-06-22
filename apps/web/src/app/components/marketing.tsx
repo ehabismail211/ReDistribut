@@ -170,8 +170,8 @@ export function MarketingHeader() {
   return (
     <header className="mkt-header">
       <a className="mkt-brand" href="/" aria-label="ReDist home">
-        <img src="/brand/redistribut-mark.svg" alt="" />
-        <span>ReDist</span>
+        <img className="mkt-brand-wordmark" src="/brand/redistribut-wordmark-header.svg" alt="" />
+        <span className="visually-hidden">ReDist</span>
       </a>
       <nav className="mkt-nav" aria-label="Primary navigation">
         {siteNav.slice(1).map((item) => (
@@ -191,8 +191,8 @@ export function MarketingFooter() {
     <footer className="mkt-footer">
       <div>
         <a className="mkt-brand" href="/" aria-label="ReDist home">
-          <img src="/brand/redistribut-mark.svg" alt="" />
-          <span>ReDist</span>
+          <img className="mkt-brand-wordmark" src="/brand/redistribut-wordmark-header.svg" alt="" />
+          <span className="visually-hidden">ReDist</span>
         </a>
         <p>UAE-first redistribution management for verified organizations. Founder-guided pilot preparation is underway.</p>
       </div>

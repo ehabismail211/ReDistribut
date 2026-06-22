@@ -79,6 +79,23 @@
   object-fit: contain;
 }
 
+.mkt-brand img.mkt-brand-wordmark {
+  width: clamp(130px, 14vw, 185px);
+  height: auto;
+  max-height: 58px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .mkt-nav {
   display: flex;
   justify-content: center;
