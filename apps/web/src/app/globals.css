@@ -477,6 +477,33 @@
   margin-top: 2px;
 }
 
+.mkt-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.mkt-form-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 14px;
+  color: #8b2f2f;
+  background: #fff0f0;
+  border: 1px solid #f2c4c4;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.mkt-contact-form button:disabled,
+.lead-status-actions select:disabled {
+  cursor: wait;
+  opacity: 0.68;
+}
+
 .mkt-form-success {
   display: grid;
   gap: 14px;
@@ -1728,6 +1755,162 @@ code {
 .status-pill.info {
   color: var(--info-600);
   background: var(--info-100);
+}
+
+.lead-review-shell .workspace-header p {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--dashboard-muted);
+}
+
+.lead-review-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.lead-status-column {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+}
+
+.lead-status-column > .dashboard-card-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.lead-status-column > .dashboard-card-header p {
+  margin: 4px 0 0;
+  color: var(--dashboard-muted);
+}
+
+.lead-card-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.lead-card h2 {
+  margin: 4px 0;
+  font-size: 20px;
+}
+
+.lead-card p {
+  margin: 0;
+}
+
+.lead-reference {
+  color: var(--brand-700);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.lead-contact-grid,
+.lead-meta-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.lead-contact-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.lead-contact-grid span,
+.lead-meta-grid span {
+  min-width: 0;
+  color: var(--dashboard-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lead-contact-grid span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.lead-contact-grid svg {
+  flex: 0 0 auto;
+  color: var(--brand-700);
+}
+
+.lead-message {
+  padding: 14px;
+  color: var(--dashboard-text);
+  background: var(--dashboard-card-soft);
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.lead-meta-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lead-meta-grid strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--dashboard-text);
+}
+
+.lead-status-actions {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.lead-status-actions label {
+  display: grid;
+  gap: 6px;
+  min-width: min(260px, 100%);
+}
+
+.lead-status-actions label span {
+  color: var(--dashboard-muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.lead-status-actions select {
+  min-height: 40px;
+  padding: 0 12px;
+  color: var(--dashboard-text);
+  background: #ffffff;
+  border: 1px solid var(--dashboard-border);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.lead-status-actions small {
+  color: var(--brand-700);
+  font-weight: 800;
+}
+
+.lead-setup-card {
+  max-width: 760px;
+}
+
+.lead-setup-card svg {
+  color: var(--brand-700);
+}
+
+@media (max-width: 860px) {
+  .lead-contact-grid,
+  .lead-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-status-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
 }
 
 .dashboard-empty {

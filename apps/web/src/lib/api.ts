@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { ZodError, type ZodSchema } from "zod";
+import { ZodError, type ZodType, type ZodTypeDef } from "zod";
 
-export async function parseJson<T>(request: Request, schema: ZodSchema<T>): Promise<T> {
+export async function parseJson<T>(request: Request, schema: ZodType<T, ZodTypeDef, unknown>): Promise<T> {
   const body = await request.json().catch(() => ({}));
   return schema.parse(body);
 }

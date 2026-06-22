@@ -9,6 +9,11 @@ const protectedRoutes: Array<{ pattern: RegExp; permission: Permission; label: s
     label: "founder pilot monitoring route",
   },
   {
+    pattern: /^\/app\/leads(?:\/)?$/,
+    permission: "founder.route.access",
+    label: "founder lead review route",
+  },
+  {
     pattern: /^\/api\/v1\/organizations\/[^/]+\/trust-score\/recalculate(?:\/)?$/,
     permission: "trust.recalculate",
     label: "trust recalculation API",
@@ -53,6 +58,7 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     "/app/pilot-monitoring",
+    "/app/leads",
     "/api/v1/audit",
     "/api/v1/verifications/:path*/review",
     "/api/v1/organizations/:path*/trust-score/recalculate",

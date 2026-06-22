@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 const intentLabels: Record<string, string> = {
   pilot: "Pilot interest",
@@ -15,26 +15,63 @@ const intentLabels: Record<string, string> = {
 
 export function ContactForm({ initialIntent = "pilot" }: { initialIntent?: string }) {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [renderedAt] = useState(() => new Date().toISOString());
   const safeIntent = useMemo(() => intentLabels[initialIntent] ? initialIntent : "pilot", [initialIntent]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const lead = Object.fromEntries(formData.entries());
-    const existing = JSON.parse(window.localStorage.getItem("redistMarketingLeads") ?? "[]") as unknown[];
-    window.localStorage.setItem("redistMarketingLeads", JSON.stringify([...existing, { ...lead, capturedAt: new Date().toISOString() }]));
-    setSubmitted(true);
-    event.currentTarget.reset();
+    setError(null);
+    setIsSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      organization: String(formData.get("organization") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      role: String(formData.get("role") ?? ""),
+      city: String(formData.get("city") ?? ""),
+      inquiryType: String(formData.get("intent") ?? safeIntent),
+      organizationType: String(formData.get("organizationType") ?? ""),
+      timeline: String(formData.get("timeline") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      consent: formData.get("consent") === "on",
+      website: String(formData.get("website") ?? ""),
+      renderedAt,
+    };
+
+    try {
+      const response = await fetch("/api/v1/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null) as { error?: { message?: string } } | null;
+        throw new Error(result?.error?.message ?? "Inquiry could not be submitted.");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "Inquiry could not be submitted.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
     return (
       <div className="mkt-form-success" role="status">
         <CheckCircle2 size={32} aria-hidden />
-        <h2>Inquiry captured for founder review.</h2>
+        <h2>Inquiry sent to founder review.</h2>
         <p>
-          This MVP form stores the inquiry in this browser for soft-launch testing. Connect the form to the approved
-          founder inbox or CRM before public promotion.
+          Your inquiry has been captured as a ReDist lead record. The founder will review pilot fit before any
+          workspace access is shared.
         </p>
         <button className="mkt-button mkt-button-primary" type="button" onClick={() => setSubmitted(false)}>Submit another inquiry</button>
       </div>
@@ -51,6 +88,10 @@ export function ContactForm({ initialIntent = "pilot" }: { initialIntent?: strin
         <label>
           <span>Work email</span>
           <input name="email" type="email" required autoComplete="email" />
+        </label>
+        <label>
+          <span>Phone</span>
+          <input name="phone" type="tel" autoComplete="tel" placeholder="+971..." />
         </label>
         <label>
           <span>Organization</span>
@@ -101,7 +142,19 @@ export function ContactForm({ initialIntent = "pilot" }: { initialIntent?: strin
         <input name="consent" type="checkbox" required />
         <span>I consent to ReDist contacting me about this inquiry. I understand this form should not be used to submit sensitive documents.</span>
       </label>
-      <button className="mkt-button mkt-button-primary" type="submit">Submit inquiry</button>
+      <label className="mkt-honeypot" aria-hidden="true">
+        <span>Website</span>
+        <input name="website" tabIndex={-1} autoComplete="off" />
+      </label>
+      {error ? (
+        <p className="mkt-form-error" role="alert">
+          <AlertCircle size={18} aria-hidden />
+          {error}
+        </p>
+      ) : null}
+      <button className="mkt-button mkt-button-primary" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : "Submit inquiry"}
+      </button>
     </form>
   );
 }
