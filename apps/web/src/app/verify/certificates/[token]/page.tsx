@@ -35,7 +35,7 @@ export default async function CertificateVerificationPage({ params, searchParams
     <main className="public-certificate-page" dir={dir} lang={locale}>
       <section className="public-certificate-card">
         <div className="public-certificate-header">
-          <span className="proto-mark">RD</span>
+          <span className="proto-mark" aria-hidden="true"><img src="/brand/redistribut-mark.svg" alt="" /></span>
           <div>
             <span className="eyebrow">{t(locale, "QR verification")}</span>
             <h1>{valid ? t(locale, "Certificate valid") : t(locale, "Certificate invalid")}</h1>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist redistribution mark</title>
+  <desc id="desc">A circular verified handover symbol showing surplus moving between organizations.</desc>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="56" x2="440" y2="456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f3c35"/>
+      <stop offset="0.58" stop-color="#087e61"/>
+      <stop offset="1" stop-color="#b7d96a"/>
+    </linearGradient>
+    <linearGradient id="loop" x1="110" y1="128" x2="402" y2="386" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.48" stop-color="#dff4e8"/>
+      <stop offset="1" stop-color="#cbe76a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#052f27" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect x="28" y="28" width="456" height="456" rx="112" fill="url(#bg)"/>
+  <g filter="url(#softShadow)">
+    <path
+      d="M161 159c37-37 96-51 146-35 21 7 41 19 58 35l18-18c8-8 22-3 23 8l14 86c2 11-8 20-19 18l-86-14c-11-1-16-15-8-23l18-18c-12-11-25-18-40-23-31-10-68-1-91 22-22 22-30 55-22 84 3 10-2 21-12 25l-29 13c-13 6-28-1-32-15-14-50 0-107 42-145Z"
+      fill="url(#loop)"
+    />
+    <path
+      d="M351 353c-37 37-96 51-146 35-21-7-41-19-58-35l-18 18c-8 8-22 3-23-8l-14-86c-2-11 8-20 19-18l86 14c11 1 16 15 8 23l-18 18c12 11 25 18 40 23 31 10 68 1 91-22 22-22 30-55 22-84-3-10 2-21 12-25l29-13c13-6 28 1 32 15 14 50 0 107-42 145Z"
+      fill="url(#loop)"
+      opacity="0.92"
+    />
+  </g>
+  <circle cx="256" cy="256" r="78" fill="#f8fff9" stroke="#d7ebdf" stroke-width="10"/>
+  <path d="M221 257l25 25 49-56" fill="none" stroke="#087e61" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="156" cy="256" r="20" fill="#f8fff9"/>
+  <circle cx="356" cy="256" r="20" fill="#f8fff9"/>
+</svg>

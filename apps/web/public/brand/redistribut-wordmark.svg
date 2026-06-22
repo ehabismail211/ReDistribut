@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img" aria-labelledby="title desc">
+  <title id="title">ReDist wordmark</title>
+  <desc id="desc">ReDist wordmark with verified redistribution loop symbol.</desc>
+  <defs>
+    <linearGradient id="markBg" x1="12" y1="18" x2="170" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f3c35"/>
+      <stop offset="0.62" stop-color="#087e61"/>
+      <stop offset="1" stop-color="#b7d96a"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(18 20)">
+    <rect width="180" height="180" rx="46" fill="url(#markBg)"/>
+    <path d="M59 61c24-24 64-31 95-12l10-10c5-5 14-2 15 6l8 52c1 7-5 13-12 12l-52-8c-8-1-11-10-6-15l10-10c-16-8-37-5-50 8-12 12-16 30-11 45 2 7-1 13-8 16l-18 8c-9 4-19-1-21-11-9-29-1-60 40-81Z" fill="#f8fff9"/>
+    <path d="M121 119c-24 24-64 31-95 12l-10 10c-5 5-14 2-15-6l-8-52c-1-7 5-13 12-12l52 8c8 1 11 10 6 15l-10 10c16 8 37 5 50-8 12-12 16-30 11-45-2-7 1-13 8-16l18-8c9-4 19 1 21 11 9 29 1 60-40 81Z" fill="#dff4e8" opacity="0.92" transform="translate(0 0)"/>
+    <circle cx="90" cy="90" r="34" fill="#f8fff9"/>
+    <path d="M74 90l12 12 22-26" fill="none" stroke="#087e61" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="230" y="124" fill="#102a2a" font-family="Inter, Arial, Helvetica, sans-serif" font-size="88" font-weight="900" letter-spacing="-2">ReDist</text>
+  <text x="235" y="166" fill="#28756b" font-family="Inter, Arial, Helvetica, sans-serif" font-size="25" font-weight="800" letter-spacing="1.4">VERIFIED SURPLUS REDISTRIBUTION</text>
+</svg>

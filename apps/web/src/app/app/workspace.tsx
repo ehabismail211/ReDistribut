@@ -2910,7 +2910,7 @@ export function Workspace() {
     <div className={`workspace-layout ${dir === "rtl" ? "rtl" : "ltr"}`} dir={dir} lang={locale}>
       <aside className="workspace-nav" aria-label="Workspace sections">
         <div className="workspace-brand">
-          <span className="proto-mark">RD</span>
+          <span className="proto-mark" aria-hidden="true"><img src="/brand/redistribut-mark.svg" alt="" /></span>
           <div>
             <strong>ReDist</strong>
             <small>{state.account.signedIn ? state.account.tradeName : localization.t("Sign in required")}</small>
@@ -4322,7 +4322,7 @@ function CertificatePdfLayout({ certificate }: { certificate: TransferCertificat
     <section className="certificate-pdf-layout">
       <div className="certificate-pdf-header">
         <div>
-          <span className="proto-mark">RD</span>
+          <span className="proto-mark" aria-hidden="true"><img src="/brand/redistribut-mark.svg" alt="" /></span>
           <strong>{t("ReDist Transfer Certificate")}</strong>
           <small>{certificate.certificate_number}</small>
         </div>
