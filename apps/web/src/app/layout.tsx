@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
+const publicSiteUrl = siteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://redistribut.com"),
+  metadataBase: new URL(publicSiteUrl),
   title: {
     default: "ReDist | Trusted surplus redistribution for UAE organizations",
     template: "%s | ReDist",
@@ -26,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://redistribut.com",
+    url: publicSiteUrl,
     siteName: "ReDist",
     title: "ReDist | Trusted surplus redistribution for UAE organizations",
     description: "Move usable surplus through verified organization workflows with handover evidence and impact visibility.",
@@ -54,7 +58,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

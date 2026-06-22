@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site-url";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://redistribut.com";
+  const baseUrl = siteUrl();
   const now = new Date();
   const pages = [
     ["", 1],
