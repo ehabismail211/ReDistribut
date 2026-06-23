@@ -2899,6 +2899,56 @@ code {
   grid-column: 1 / -1;
 }
 
+.form-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.workflow-help-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  color: var(--green-dark);
+  background: #eef7f1;
+  border: 1px solid #d8ece1;
+  border-radius: 14px;
+}
+
+.workflow-help-callout svg {
+  flex: 0 0 auto;
+  color: var(--green);
+}
+
+.workflow-help-callout div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  margin-inline-end: auto;
+}
+
+.workspace-layout[dir="rtl"] .workflow-help-callout div {
+  margin-inline: auto 0;
+}
+
+.workflow-help-callout strong {
+  font-size: 14px;
+}
+
+.workflow-help-callout p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.workflow-help-callout .mini-action {
+  white-space: nowrap;
+}
+
 .workspace-panel label span {
   color: var(--muted);
   font-size: 11px;
@@ -5938,6 +5988,15 @@ body[data-locale="ar"],
     align-items: stretch;
     grid-template-columns: 1fr;
     flex-direction: column;
+  }
+
+  .workflow-help-callout {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .workflow-help-callout .mini-action {
+    justify-content: center;
   }
 
   .message {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MarketingShell, PageHero, SectionIntro } from "../components/marketing";
 import { ContactForm } from "./contact-form";
 
@@ -36,6 +37,11 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
               <li>Potential pilot participants are assessed for safe category fit.</li>
               <li>Protected pilot access is shared only after qualification.</li>
             </ol>
+            <p>
+              Need guidance before contacting us? Open the{" "}
+              <Link href="/help">ReDist Help Center</Link>{" "}
+              for quick-start, supplier, recipient, and FAQ guidance.
+            </p>
             <p>No public self-serve launch, real pilot results, or audited ESG impact claims are implied by this form.</p>
           </aside>
         </div>

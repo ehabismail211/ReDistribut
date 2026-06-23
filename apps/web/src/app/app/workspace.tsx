@@ -307,13 +307,131 @@ const arabicTranslations: Record<string, string> = {
   "Community supplies": "مستلزمات مجتمعية",
   "Community Supplies": "مستلزمات مجتمعية",
   "Office supplies": "مستلزمات مكتبية",
+  "Furniture": "الأثاث",
+  "Office equipment": "معدات مكتبية",
+  "Shelving and storage": "الرفوف والتخزين",
+  "Warehouse stock": "مخزون المستودعات",
+  "Linens and textiles": "البياضات والمنسوجات",
+  "Kitchen and non-food equipment": "معدات المطبخ غير الغذائية",
+  "Electronics and accessories": "الإلكترونيات والملحقات",
+  "School and community supplies": "مستلزمات المدارس والمجتمع",
+  "Maintenance and tools": "الصيانة والأدوات",
+  "Event and exhibition materials": "مواد الفعاليات والمعارض",
+  "Other category": "فئة أخرى",
+  "Other subcategory": "فئة فرعية أخرى",
+  "Chairs": "كراسي",
+  "Tables": "طاولات",
+  "Shelving units": "وحدات رفوف",
+  "Storage bins": "صناديق تخزين",
+  "Pallets and cartons": "منصات وكراتين",
+  "Manual category review required": "تتطلب مراجعة يدوية للفئة",
   "Dubai": "دبي",
   "Abu Dhabi": "أبوظبي",
   "Sharjah": "الشارقة",
+  "Ajman": "عجمان",
+  "Umm Al Quwain": "أم القيوين",
+  "Ras Al Khaimah": "رأس الخيمة",
+  "Fujairah": "الفجيرة",
   "Jebel Ali": "جبل علي",
   "Dubai Marina": "دبي مارينا",
+  "Dubai City": "مدينة دبي",
+  "Abu Dhabi City": "مدينة أبوظبي",
+  "Sharjah City": "مدينة الشارقة",
   "Industrial Area": "المنطقة الصناعية",
   "Mussafah": "مصفح",
+  "Al Quoz": "القوز",
+  "Deira": "ديرة",
+  "Business Bay": "الخليج التجاري",
+  "Dubai Investment Park": "مجمع دبي للاستثمار",
+  "Khalifa City": "مدينة خليفة",
+  "Al Ain": "العين",
+  "ICAD": "آيكاد",
+  "Hamriyah Free Zone": "المنطقة الحرة بالحمرية",
+  "Ajman Industrial Area": "منطقة عجمان الصناعية",
+  "Al Jurf": "الجرف",
+  "Ajman Corniche": "كورنيش عجمان",
+  "UAQ Industrial Area": "منطقة أم القيوين الصناعية",
+  "Umm Al Quwain City": "مدينة أم القيوين",
+  "Al Hamra": "الحمرا",
+  "RAK City": "مدينة رأس الخيمة",
+  "Al Nakheel": "النخيل",
+  "Fujairah City": "مدينة الفجيرة",
+  "Dibba": "دبا",
+  "Fujairah Port": "ميناء الفجيرة",
+  "Other UAE location": "موقع آخر في الإمارات",
+  "Manual address required": "العنوان اليدوي مطلوب",
+  "Simulated/demo": "محاكاة/تجريبي",
+  "Simulated validation organization": "مؤسسة تحقق افتراضية",
+  "Virtual Hotel Supplier": "مورد فندقي افتراضي",
+  "Virtual Warehouse Supplier": "مورد مستودعات افتراضي",
+  "Virtual NGO Recipient": "مستفيد جمعية افتراضي",
+  "Virtual School Recipient": "مستفيد مدرسة افتراضي",
+  "Virtual Founder Admin": "مشرف مؤسس افتراضي",
+  "Demo banquet chairs": "كراسي قاعة تجريبية",
+  "Demo folding tables": "طاولات قابلة للطي تجريبية",
+  "Demo shelving units": "وحدات رفوف تجريبية",
+  "Demo storage bins": "صناديق تخزين تجريبية",
+  "Demo pallets and cartons": "منصات وكراتين تجريبية",
+  "Reusable furniture for offices, hospitality spaces, schools, NGOs, and community facilities.": "أثاث قابل لإعادة الاستخدام للمكاتب والضيافة والمدارس والجمعيات والمرافق المجتمعية.",
+  "Chairs, tables, cabinets, sofas, desks": "كراسي، طاولات، خزائن، أرائك، مكاتب",
+  "Hospitality furniture": "أثاث الضيافة",
+  "Cabinets": "خزائن",
+  "Workplace equipment and non-sensitive office assets suitable for controlled redistribution.": "معدات مكتبية وأصول عمل غير حساسة مناسبة لإعادة توزيع مضبوطة.",
+  "Printers, monitors, whiteboards, office tools": "طابعات، شاشات، ألواح بيضاء، أدوات مكتبية",
+  "Printers": "طابعات",
+  "Monitors": "شاشات",
+  "Whiteboards": "ألواح بيضاء",
+  "Storage fixtures and reusable organization equipment for warehouses, schools, and NGOs.": "تجهيزات تخزين ومعدات تنظيم قابلة لإعادة الاستخدام للمستودعات والمدارس والجمعيات.",
+  "Shelving units, storage bins, racks, cabinets": "وحدات رفوف، صناديق تخزين، حوامل، خزائن",
+  "Racks": "حوامل",
+  "Non-regulated surplus stock and reusable warehouse items ready for practical handover.": "مخزون فائض غير منظم وعناصر مستودعات قابلة لإعادة الاستخدام وجاهزة للتسليم العملي.",
+  "Pallets, bins, shelving, consumables, slow-moving stock": "منصات، صناديق، رفوف، مستهلكات، مخزون بطيء الحركة",
+  "Warehouse consumables": "مستهلكات المستودعات",
+  "Slow-moving stock": "مخزون بطيء الحركة",
+  "Clean reusable textile items from hotels, facilities, offices, and community programs.": "منسوجات نظيفة قابلة لإعادة الاستخدام من الفنادق والمرافق والمكاتب والبرامج المجتمعية.",
+  "Sheets, towels, curtains, uniforms, fabric rolls": "مفارش، مناشف، ستائر، زي موحد، لفائف قماش",
+  "Towels": "مناشف",
+  "Curtains": "ستائر",
+  "Fabric rolls": "لفائف قماش",
+  "Non-food kitchen tools and equipment that can be safely reused after owner verification.": "أدوات ومعدات مطبخ غير غذائية يمكن إعادة استخدامها بأمان بعد تحقق المالك.",
+  "Shelving, trays, carts, utensils, small non-food equipment": "رفوف، صواني، عربات، أدوات، معدات صغيرة غير غذائية",
+  "Trays": "صواني",
+  "Carts": "عربات",
+  "Utensils": "أدوات",
+  "Small equipment": "معدات صغيرة",
+  "Supplies suitable for schools, NGOs, community centers, and support programs.": "مستلزمات مناسبة للمدارس والجمعيات والمراكز المجتمعية وبرامج الدعم.",
+  "Stationery, books, classroom furniture, activity materials": "قرطاسية، كتب، أثاث صفوف، مواد أنشطة",
+  "Books": "كتب",
+  "Classroom supplies": "مستلزمات صفية",
+  "Activity materials": "مواد أنشطة",
+  "Non-hazardous maintenance tools, fittings, and facility materials.": "أدوات صيانة ووصلات ومواد مرافق غير خطرة.",
+  "Hand tools, fixtures, spare fittings, non-hazardous materials": "أدوات يدوية، تجهيزات، قطع إضافية، مواد غير خطرة",
+  "Reusable event, exhibition, display, and temporary fit-out materials.": "مواد فعاليات ومعارض وعرض وتجهيزات مؤقتة قابلة لإعادة الاستخدام.",
+  "Display stands, banners, booth materials, signage": "حوامل عرض، لافتات، مواد أجنحة، لوحات إرشادية",
+  "Signage": "لوحات إرشادية",
+  "Booth materials": "مواد الأجنحة",
+  "Temporary fixtures": "تجهيزات مؤقتة",
+  "Use this when the resource does not fit an existing safe category and needs manual review.": "استخدمها عندما لا يناسب المورد فئة آمنة موجودة ويحتاج إلى مراجعة يدوية.",
+  "Simulated/demo listing for launch validation. Stackable banquet chairs ready for a controlled handover.": "عرض محاكاة/تجريبي للتحقق قبل الإطلاق. كراسي قاعة قابلة للتكديس وجاهزة لتسليم مضبوط.",
+  "Simulated/demo listing for workflow validation. Folding tables suitable for school or community use.": "عرض محاكاة/تجريبي للتحقق من سير العمل. طاولات قابلة للطي مناسبة للاستخدام المدرسي أو المجتمعي.",
+  "Simulated/demo listing for validation. Metal shelving units ready for warehouse or community storage.": "عرض محاكاة/تجريبي للتحقق. وحدات رفوف معدنية جاهزة لتخزين مستودعي أو مجتمعي.",
+  "Simulated/demo listing for validation. Clean reusable storage bins for community or school programs.": "عرض محاكاة/تجريبي للتحقق. صناديق تخزين نظيفة قابلة لإعادة الاستخدام للبرامج المجتمعية أو المدرسية.",
+  "Simulated/demo listing for validation. Mixed pallets and cartons for non-food redistribution workflows.": "عرض محاكاة/تجريبي للتحقق. منصات وكراتين متنوعة لمسارات إعادة توزيع غير غذائية.",
+  "tables": "طاولات",
+  "chairs": "كراسي",
+  "bins": "صناديق",
+  "items": "عناصر",
+  "Furniture redistribution UAE": "إعادة توزيع الأثاث في الإمارات",
+  "Warehouse stock reuse UAE": "إعادة استخدام مخزون المستودعات في الإمارات",
+  "How to use ReDist": "كيفية استخدام ReDist",
+  "Register/Login": "التسجيل/تسجيل الدخول",
+  "Create listing": "إنشاء عرض",
+  "Submit request": "إرسال طلب",
+  "Approve request": "الموافقة على الطلب",
+  "Download/review certificate": "تنزيل/مراجعة الشهادة",
+  "Open the bilingual manual for this workflow.": "افتح الدليل ثنائي اللغة لهذا المسار.",
+  "Open help guide": "فتح دليل المساعدة",
+  "If your location is not listed, choose Other UAE location and describe the exact address in the notes.": "إذا لم يكن موقعك مدرجا، اختر موقعا آخر في الإمارات واكتب العنوان التفصيلي في الملاحظات.",
   "Dashboard action center": "مركز إجراءات لوحة التحكم",
   "What should move today?": "ما الذي يجب تحريكه اليوم؟",
   "Start with surplus listings, resource requests, handovers, and review queues.": "ابدأ بعروض الفائض وطلبات الموارد والتسليمات وقوائم المراجعة.",
@@ -1133,7 +1251,7 @@ type Report = {
 type PilotOrganization = {
   id: string;
   name: string;
-  type: "Restaurant" | "Hotel" | "Warehouse" | "NGO";
+  type: "Restaurant" | "Hotel" | "Warehouse" | "NGO" | "School" | "Founder/Admin";
   city: string;
   status: "invited" | "onboarding" | "active" | "attention";
   invited: boolean;
@@ -1223,6 +1341,33 @@ const verificationLevels: VerificationLevel[] = [
   "Government Verified",
 ];
 
+const uaeEmirates = [
+  "Abu Dhabi",
+  "Dubai",
+  "Sharjah",
+  "Ajman",
+  "Umm Al Quwain",
+  "Ras Al Khaimah",
+  "Fujairah",
+  "Other UAE location",
+];
+
+const uaeLocationOptions: OrganizationLocation[] = [
+  { id: "loc-abu-dhabi-city", label: "Abu Dhabi City handover point", emirate: "Abu Dhabi", area: "Abu Dhabi City" },
+  { id: "loc-abu-dhabi-mussafah", label: "Mussafah warehouse", emirate: "Abu Dhabi", area: "Mussafah" },
+  { id: "loc-abu-dhabi-khalifa", label: "Khalifa City collection point", emirate: "Abu Dhabi", area: "Khalifa City" },
+  { id: "loc-dubai-marina", label: "Dubai Marina kitchen", emirate: "Dubai", area: "Dubai Marina" },
+  { id: "loc-dubai-jebel-ali", label: "Jebel Ali logistics point", emirate: "Dubai", area: "Jebel Ali" },
+  { id: "loc-dubai-al-quoz", label: "Al Quoz storage point", emirate: "Dubai", area: "Al Quoz" },
+  { id: "loc-sharjah-industrial", label: "Sharjah warehouse", emirate: "Sharjah", area: "Industrial Area" },
+  { id: "loc-sharjah-hamriyah", label: "Hamriyah Free Zone depot", emirate: "Sharjah", area: "Hamriyah Free Zone" },
+  { id: "loc-ajman-industrial", label: "Ajman Industrial Area depot", emirate: "Ajman", area: "Ajman Industrial Area" },
+  { id: "loc-uaq-industrial", label: "UAQ Industrial Area handover point", emirate: "Umm Al Quwain", area: "UAQ Industrial Area" },
+  { id: "loc-rak-city", label: "RAK City collection point", emirate: "Ras Al Khaimah", area: "RAK City" },
+  { id: "loc-fujairah-port", label: "Fujairah Port handover point", emirate: "Fujairah", area: "Fujairah Port" },
+  { id: "loc-other-uae", label: "Other UAE location", emirate: "Other UAE location", area: "Manual address required" },
+];
+
 const pilotOrganizations: PilotOrganization[] = [
   {
     id: "pilot-restaurant",
@@ -1299,6 +1444,101 @@ const pilotOrganizations: PilotOrganization[] = [
     transactionsCompleted: 2,
     issuesReported: 1,
     trustScore: 68,
+  },
+  {
+    id: "virtual-hotel-supplier",
+    name: "Virtual Hotel Supplier",
+    type: "Hotel",
+    city: "Abu Dhabi",
+    status: "active",
+    invited: true,
+    registrationCompleted: true,
+    verificationSubmitted: true,
+    verificationApproved: true,
+    firstListingCreated: true,
+    firstRequestCreated: false,
+    firstTransactionCompleted: false,
+    listingsCreated: 2,
+    requestsCreated: 0,
+    transactionsCompleted: 0,
+    issuesReported: 0,
+    trustScore: 74,
+  },
+  {
+    id: "virtual-warehouse-supplier",
+    name: "Virtual Warehouse Supplier",
+    type: "Warehouse",
+    city: "Jebel Ali",
+    status: "active",
+    invited: true,
+    registrationCompleted: true,
+    verificationSubmitted: true,
+    verificationApproved: true,
+    firstListingCreated: true,
+    firstRequestCreated: false,
+    firstTransactionCompleted: false,
+    listingsCreated: 3,
+    requestsCreated: 0,
+    transactionsCompleted: 0,
+    issuesReported: 0,
+    trustScore: 78,
+  },
+  {
+    id: "virtual-ngo-recipient",
+    name: "Virtual NGO Recipient",
+    type: "NGO",
+    city: "Dubai",
+    status: "onboarding",
+    invited: true,
+    registrationCompleted: true,
+    verificationSubmitted: true,
+    verificationApproved: false,
+    firstListingCreated: false,
+    firstRequestCreated: true,
+    firstTransactionCompleted: false,
+    listingsCreated: 0,
+    requestsCreated: 2,
+    transactionsCompleted: 0,
+    issuesReported: 0,
+    trustScore: 66,
+  },
+  {
+    id: "virtual-school-recipient",
+    name: "Virtual School Recipient",
+    type: "School",
+    city: "Sharjah",
+    status: "onboarding",
+    invited: true,
+    registrationCompleted: true,
+    verificationSubmitted: false,
+    verificationApproved: false,
+    firstListingCreated: false,
+    firstRequestCreated: true,
+    firstTransactionCompleted: false,
+    listingsCreated: 0,
+    requestsCreated: 1,
+    transactionsCompleted: 0,
+    issuesReported: 0,
+    trustScore: 58,
+  },
+  {
+    id: "virtual-founder-admin",
+    name: "Virtual Founder Admin",
+    type: "Founder/Admin",
+    city: "Dubai",
+    status: "active",
+    invited: true,
+    registrationCompleted: true,
+    verificationSubmitted: true,
+    verificationApproved: true,
+    firstListingCreated: true,
+    firstRequestCreated: true,
+    firstTransactionCompleted: true,
+    listingsCreated: 5,
+    requestsCreated: 4,
+    transactionsCompleted: 1,
+    issuesReported: 0,
+    trustScore: 90,
   },
 ];
 
@@ -1523,93 +1763,143 @@ const uaeStarterCategories: Category[] = [
     hidden: false,
     restricted: false,
     examples: "Meals, rice, canned goods, bottled drinks",
-    subcategories: ["Prepared meals", "Packaged food", "Beverages", "Bakery", "Catering surplus", "Pantry staples"],
+    subcategories: ["Prepared meals", "Packaged food", "Beverages", "Bakery", "Catering surplus", "Pantry staples", "Other subcategory"],
+  },
+  {
+    id: "furniture",
+    name: "Furniture",
+    description: "Reusable furniture for offices, hospitality spaces, schools, NGOs, and community facilities.",
+    order: 2,
+    hidden: false,
+    restricted: false,
+    examples: "Chairs, tables, cabinets, sofas, desks",
+    subcategories: ["Chairs", "Tables", "Office furniture", "Hospitality furniture", "Cabinets", "Other subcategory"],
+  },
+  {
+    id: "office-equipment",
+    name: "Office equipment",
+    description: "Workplace equipment and non-sensitive office assets suitable for controlled redistribution.",
+    order: 3,
+    hidden: false,
+    restricted: false,
+    examples: "Printers, monitors, whiteboards, office tools",
+    subcategories: ["Printers", "Monitors", "Whiteboards", "Office tools", "Desk accessories", "Other subcategory"],
+  },
+  {
+    id: "shelving-storage",
+    name: "Shelving and storage",
+    description: "Storage fixtures and reusable organization equipment for warehouses, schools, and NGOs.",
+    order: 4,
+    hidden: false,
+    restricted: false,
+    examples: "Shelving units, storage bins, racks, cabinets",
+    subcategories: ["Shelving units", "Storage bins", "Racks", "Cabinets", "Display stands", "Other subcategory"],
   },
   {
     id: "packaging-materials",
     name: "Packaging materials",
     description: "Boxes, cartons, bags, labels, wrapping, pallets, and shipping consumables.",
-    order: 2,
+    order: 5,
     hidden: false,
     restricted: false,
     examples: "Cartons, paper bags, bubble wrap, pallets",
-    subcategories: ["Cartons and boxes", "Bags and pouches", "Labels", "Wrapping", "Pallets", "Shipping consumables"],
+    subcategories: ["Cartons and boxes", "Bags and pouches", "Labels", "Wrapping", "Pallets", "Pallets and cartons", "Shipping consumables", "Other subcategory"],
   },
   {
-    id: "office-supplies",
-    name: "Office supplies",
-    description: "Stationery, consumables, printers, small office tools, and workplace supplies.",
-    order: 3,
+    id: "warehouse-stock",
+    name: "Warehouse stock",
+    description: "Non-regulated surplus stock and reusable warehouse items ready for practical handover.",
+    order: 6,
     hidden: false,
     restricted: false,
-    examples: "Paper, files, ink, desk accessories",
-    subcategories: ["Stationery", "Printer supplies", "Files and folders", "Desk accessories", "Office tools"],
-  },
-  {
-    id: "furniture-fixtures",
-    name: "Furniture and fixtures",
-    description: "Office, retail, hospitality, and warehouse furniture or removable fixtures.",
-    order: 4,
-    hidden: false,
-    restricted: false,
-    examples: "Chairs, tables, shelving, display stands",
-    subcategories: ["Office furniture", "Retail fixtures", "Shelving", "Storage", "Display stands"],
+    examples: "Pallets, bins, shelving, consumables, slow-moving stock",
+    subcategories: ["Pallets", "Storage bins", "Warehouse consumables", "Slow-moving stock", "General merchandise", "Other subcategory"],
   },
   {
     id: "hospitality-supplies",
     name: "Hospitality supplies",
     description: "Hotel, restaurant, and event supplies that are safe to redistribute.",
-    order: 5,
-    hidden: false,
-    restricted: false,
-    examples: "Linens, uniforms, disposables, buffet tools",
-    subcategories: ["Linens", "Uniforms", "Event supplies", "Kitchen tools", "Safe disposables"],
-  },
-  {
-    id: "retail-inventory",
-    name: "Retail inventory",
-    description: "Slow-moving non-regulated stock from shops, distributors, and warehouses.",
-    order: 6,
-    hidden: false,
-    restricted: false,
-    examples: "Accessories, household items, seasonal stock",
-    subcategories: ["Household goods", "Accessories", "Seasonal stock", "Display stock", "General merchandise"],
-  },
-  {
-    id: "building-maintenance",
-    name: "Building and maintenance",
-    description: "Non-hazardous facility maintenance materials and spare parts.",
     order: 7,
     hidden: false,
     restricted: false,
-    examples: "Tiles, fixtures, tools, spare fittings",
-    subcategories: ["Tools", "Fixtures", "Spare parts", "Tiles", "Non-hazardous materials"],
+    examples: "Linens, uniforms, disposables, buffet tools",
+    subcategories: ["Linens", "Uniforms", "Event supplies", "Kitchen tools", "Safe disposables", "Other subcategory"],
   },
   {
-    id: "electronics-it",
-    name: "Electronics and IT",
-    description: "Working electronics, accessories, and office IT equipment.",
+    id: "linens-textiles",
+    name: "Linens and textiles",
+    description: "Clean reusable textile items from hotels, facilities, offices, and community programs.",
     order: 8,
     hidden: false,
     restricted: false,
-    examples: "Monitors, cables, routers, keyboards",
-    subcategories: ["Computers and monitors", "Cables", "Networking", "Peripherals", "Accessories"],
+    examples: "Sheets, towels, curtains, uniforms, fabric rolls",
+    subcategories: ["Linens", "Towels", "Uniforms", "Curtains", "Fabric rolls", "Other subcategory"],
   },
   {
-    id: "health-wellness-non-regulated",
-    name: "Health and wellness non-regulated",
-    description: "Non-prescription, non-medical, safe wellness and hygiene supplies.",
+    id: "kitchen-non-food-equipment",
+    name: "Kitchen and non-food equipment",
+    description: "Non-food kitchen tools and equipment that can be safely reused after owner verification.",
     order: 9,
     hidden: false,
     restricted: false,
-    examples: "Sanitizers, masks, hygiene packs",
-    subcategories: ["Hygiene supplies", "Sanitizers", "Masks", "Wellness packs", "Non-medical supplies"],
+    examples: "Shelving, trays, carts, utensils, small non-food equipment",
+    subcategories: ["Trays", "Carts", "Utensils", "Small equipment", "Kitchen tools", "Other subcategory"],
+  },
+  {
+    id: "electronics-accessories",
+    name: "Electronics and accessories",
+    description: "Working electronics, accessories, and office IT equipment.",
+    order: 10,
+    hidden: false,
+    restricted: false,
+    examples: "Monitors, cables, routers, keyboards",
+    subcategories: ["Computers and monitors", "Cables", "Networking", "Peripherals", "Accessories", "Other subcategory"],
+  },
+  {
+    id: "school-community-supplies",
+    name: "School and community supplies",
+    description: "Supplies suitable for schools, NGOs, community centers, and support programs.",
+    order: 11,
+    hidden: false,
+    restricted: false,
+    examples: "Stationery, books, classroom furniture, activity materials",
+    subcategories: ["Stationery", "Books", "Classroom supplies", "Activity materials", "Community supplies", "Other subcategory"],
+  },
+  {
+    id: "maintenance-tools",
+    name: "Maintenance and tools",
+    description: "Non-hazardous maintenance tools, fittings, and facility materials.",
+    order: 12,
+    hidden: false,
+    restricted: false,
+    examples: "Hand tools, fixtures, spare fittings, non-hazardous materials",
+    subcategories: ["Tools", "Fixtures", "Spare parts", "Non-hazardous materials", "Building supplies", "Other subcategory"],
+  },
+  {
+    id: "event-exhibition-materials",
+    name: "Event and exhibition materials",
+    description: "Reusable event, exhibition, display, and temporary fit-out materials.",
+    order: 13,
+    hidden: false,
+    restricted: false,
+    examples: "Display stands, banners, booth materials, signage",
+    subcategories: ["Display stands", "Signage", "Booth materials", "Event supplies", "Temporary fixtures", "Other subcategory"],
+  },
+  {
+    id: "other-category",
+    name: "Other category",
+    description: "Use this when the resource does not fit an existing safe category and needs manual review.",
+    order: 14,
+    hidden: false,
+    restricted: false,
+    examples: "Manual category review required",
+    subcategories: ["Other subcategory"],
   },
   {
     id: "medical-pharmaceutical",
     name: "Medical and pharmaceutical",
     description: "Restricted until licensing, storage, transport, verification, and audit controls are ready.",
-    order: 10,
+    order: 15,
     hidden: true,
     restricted: true,
     examples: "Medicines, prescription products, clinical supplies",
@@ -1619,7 +1909,7 @@ const uaeStarterCategories: Category[] = [
     id: "hazardous-regulated",
     name: "Hazardous or regulated materials",
     description: "Restricted until applicable UAE rules, approvals, transport, and disposal workflows are implemented.",
-    order: 11,
+    order: 16,
     hidden: true,
     restricted: true,
     examples: "Chemicals, batteries in bulk, flammables",
@@ -1632,9 +1922,7 @@ const initialState: WorkspaceState = {
   organization: "Demo Restaurant Group",
   city: "Dubai",
   locations: [
-    { id: "loc-dubai-marina", label: "Dubai Marina kitchen", emirate: "Dubai", area: "Dubai Marina" },
-    { id: "loc-sharjah-industrial", label: "Sharjah warehouse", emirate: "Sharjah", area: "Industrial Area" },
-    { id: "loc-abu-dhabi-mussafah", label: "Abu Dhabi store", emirate: "Abu Dhabi", area: "Mussafah" },
+    ...uaeLocationOptions,
   ],
   team: [
     { id: "member-owner", name: "Operations owner", role: "Owner admin", status: "active" },
@@ -1692,6 +1980,102 @@ const initialState: WorkspaceState = {
       saved: true,
       groupIds: ["packaging-uae"],
     },
+    {
+      id: "demo-banquet-chairs",
+      title: "Demo banquet chairs",
+      category: "Furniture",
+      subcategory: "Chairs",
+      offerType: "Free",
+      reason: "Excess stock",
+      city: "Abu Dhabi",
+      area: "Abu Dhabi City",
+      handoverMethods: ["Pickup", "Delivery by owner"],
+      quantityTotal: 40,
+      quantityAvailable: 40,
+      unit: "chairs",
+      owner: "Virtual Hotel Supplier",
+      description: "Simulated/demo listing for launch validation. Stackable banquet chairs ready for a controlled handover.",
+      status: "published",
+      saved: false,
+      groupIds: ["furniture-uae"],
+    },
+    {
+      id: "demo-folding-tables",
+      title: "Demo folding tables",
+      category: "Furniture",
+      subcategory: "Tables",
+      offerType: "Free",
+      reason: "Excess stock",
+      city: "Sharjah",
+      area: "Industrial Area",
+      handoverMethods: ["Pickup"],
+      quantityTotal: 18,
+      quantityAvailable: 18,
+      unit: "tables",
+      owner: "Virtual School Recipient",
+      description: "Simulated/demo listing for workflow validation. Folding tables suitable for school or community use.",
+      status: "published",
+      saved: false,
+      groupIds: ["furniture-uae"],
+    },
+    {
+      id: "demo-shelving-units",
+      title: "Demo shelving units",
+      category: "Shelving and storage",
+      subcategory: "Shelving units",
+      offerType: "Exchange",
+      reason: "Slow moving",
+      city: "Dubai",
+      area: "Jebel Ali",
+      handoverMethods: ["Pickup", "Courier coordination"],
+      quantityTotal: 12,
+      quantityAvailable: 12,
+      unit: "units",
+      owner: "Virtual Warehouse Supplier",
+      description: "Simulated/demo listing for validation. Metal shelving units ready for warehouse or community storage.",
+      status: "published",
+      saved: false,
+      groupIds: ["warehouse-uae"],
+    },
+    {
+      id: "demo-storage-bins",
+      title: "Demo storage bins",
+      category: "Shelving and storage",
+      subcategory: "Storage bins",
+      offerType: "Free",
+      reason: "Excess stock",
+      city: "Ajman",
+      area: "Ajman Industrial Area",
+      handoverMethods: ["Pickup"],
+      quantityTotal: 75,
+      quantityAvailable: 75,
+      unit: "bins",
+      owner: "Virtual Warehouse Supplier",
+      description: "Simulated/demo listing for validation. Clean reusable storage bins for community or school programs.",
+      status: "published",
+      saved: false,
+      groupIds: ["warehouse-uae"],
+    },
+    {
+      id: "demo-pallets-cartons",
+      title: "Demo pallets and cartons",
+      category: "Packaging materials",
+      subcategory: "Pallets and cartons",
+      offerType: "For sale",
+      reason: "Excess stock",
+      city: "Ras Al Khaimah",
+      area: "RAK City",
+      handoverMethods: ["Pickup", "Courier coordination"],
+      quantityTotal: 220,
+      quantityAvailable: 220,
+      unit: "items",
+      owner: "Virtual Warehouse Supplier",
+      description: "Simulated/demo listing for validation. Mixed pallets and cartons for non-food redistribution workflows.",
+      price: "AED 3 each",
+      status: "published",
+      saved: false,
+      groupIds: ["packaging-uae"],
+    },
   ],
   requests: [],
   conversations: [],
@@ -1699,6 +2083,8 @@ const initialState: WorkspaceState = {
     { id: "food-dubai", name: "Dubai food redistribution", category: "Food and beverage", city: "Dubai", members: 42, following: true },
     { id: "packaging-uae", name: "Packaging exchange UAE", category: "Packaging materials", city: "Sharjah", members: 18, following: false },
     { id: "office-supplies", name: "Office supplies circular group", category: "Office supplies", city: "Abu Dhabi", members: 26, following: false },
+    { id: "furniture-uae", name: "Furniture redistribution UAE", category: "Furniture", city: "Abu Dhabi", members: 31, following: true },
+    { id: "warehouse-uae", name: "Warehouse stock reuse UAE", category: "Warehouse stock", city: "Dubai", members: 24, following: true },
   ],
   notifications: [
     { id: "welcome", title: "Workspace ready", body: "Create listings, request stock, follow groups, and review reports locally.", read: false },
@@ -1724,12 +2110,12 @@ function useWorkspaceState() {
         ...parsed,
         account: mergeAccount(parsed.account),
         categories,
-        locations: parsed.locations?.length ? parsed.locations : initialState.locations,
+        locations: mergeLocations(parsed.locations),
         team: parsed.team?.length ? parsed.team : initialState.team,
         auditEvents: parsed.auditEvents?.length ? parsed.auditEvents : initialState.auditEvents,
         certificates: parsed.certificates ?? initialState.certificates,
         pilotFeedback: parsed.pilotFeedback?.length ? parsed.pilotFeedback : initialState.pilotFeedback,
-        listings: (parsed.listings ?? initialState.listings).map((listing) => ({
+        listings: mergeListings(parsed.listings).map((listing) => ({
           ...listing,
           subcategory:
             "subcategory" in listing && typeof listing.subcategory === "string"
@@ -1765,6 +2151,27 @@ function mergeAccount(account?: Partial<CompanyProfile>) {
     licenses: account.licenses?.length ? account.licenses : initialAccount.licenses,
     documents: account.documents?.length ? account.documents : initialAccount.documents,
   };
+}
+
+function mergeLocations(savedLocations?: OrganizationLocation[]) {
+  if (!savedLocations?.length) return initialState.locations;
+
+  const missingLocations = uaeLocationOptions.filter((starter) =>
+    !savedLocations.some((location) => location.id === starter.id || (location.emirate === starter.emirate && location.area === starter.area)),
+  );
+
+  return [...savedLocations, ...missingLocations];
+}
+
+function mergeListings(savedListings?: Listing[]) {
+  if (!savedListings?.length) return initialState.listings;
+
+  const requiredDemoListings = initialState.listings.filter((listing) => listing.description.includes("Simulated/demo listing"));
+  const missingDemoListings = requiredDemoListings.filter((demo) =>
+    !savedListings.some((listing) => listing.id === demo.id || listing.title === demo.title),
+  );
+
+  return [...savedListings, ...missingDemoListings];
 }
 
 function shortId(prefix: string) {
@@ -2147,13 +2554,19 @@ function pilotKpis(organizations: PilotOrganization[], feedback: PilotFeedback[]
 function mergeCategories(savedCategories?: Category[]) {
   if (!savedCategories?.length) return uaeStarterCategories;
 
-  return savedCategories.map((category) => {
+  const merged = savedCategories.map((category) => {
     const starter = uaeStarterCategories.find((item) => item.id === category.id);
     return {
       ...category,
       subcategories: category.subcategories?.length ? category.subcategories : starter?.subcategories ?? ["General"],
     };
   });
+
+  const missingStarters = uaeStarterCategories.filter((starter) =>
+    !merged.some((category) => category.id === starter.id),
+  );
+
+  return [...merged, ...missingStarters].sort((a, b) => a.order - b.order);
 }
 
 export function Workspace() {
@@ -2220,7 +2633,7 @@ export function Workspace() {
       : ["All", ...(visibleCategories.find((item) => item.name === category)?.subcategories ?? [])];
   const offers = ["All", "Free", "For sale", "Exchange"];
   const publishedListings = state.listings.filter((listing) => listing.status === "published");
-  const discoverCities = ["All", ...Array.from(new Set(publishedListings.map((listing) => listing.city)))];
+  const discoverCities = ["All", ...Array.from(new Set([...uaeEmirates, ...publishedListings.map((listing) => listing.city)]))];
   const discoverHandoverMethods = ["All", ...Array.from(new Set(publishedListings.flatMap((listing) => listing.handoverMethods)))];
   const openRequests = state.requests.filter((request) => request.status === "pending" || request.status === "accepted");
   const unreadNotifications = state.notifications.filter((notification) => !notification.read).length;
@@ -3249,6 +3662,23 @@ function LanguageSwitcher() {
   );
 }
 
+function HelpWorkflowCallout({ topic = "How to use ReDist" }: { topic?: string }) {
+  const { t } = useI18n();
+
+  return (
+    <div className="workflow-help-callout">
+      <HelpCircle size={18} aria-hidden />
+      <div>
+        <strong>{t(topic)}</strong>
+        <p>{t("Open the bilingual manual for this workflow.")}</p>
+      </div>
+      <Link className="mini-action muted" href="/app/help">
+        {t("Open help guide")}
+      </Link>
+    </div>
+  );
+}
+
 function AccountSection({
   account,
   signInCompany,
@@ -3293,6 +3723,7 @@ function AccountSection({
       <div className="workspace-grid two-column">
         <section className="workspace-panel">
           <PanelHeading icon={LogIn} title="Sign in" text="Use email and password now; Supabase Auth will replace this local preview step." />
+          <HelpWorkflowCallout topic="Register/Login" />
           <form action={signInCompany} className="publish-form">
             <label className="wide-field">
               <span>{t("Email")}</span>
@@ -3342,7 +3773,7 @@ function AccountSection({
             <label>
               <span>{t("Emirate")}</span>
               <select name="emirate" defaultValue="Dubai">
-                {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
+                {uaeEmirates.map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
               </select>
             </label>
             <label>
@@ -4483,6 +4914,7 @@ function CertificatesSection({ certificates, organization }: { certificates: Tra
         </div>
         <span className="status-pill success">{n(certificates.length)} {t("issued")}</span>
       </div>
+      <HelpWorkflowCallout topic="Download/review certificate" />
 
       {selected ? (
         <div className="workspace-grid two-column">
@@ -4714,6 +5146,7 @@ function DiscoverSection(props: {
 
         <div className="discover-detail-panel">
           <PanelHeading icon={ClipboardList} title={props.selectedListing.title} text={props.selectedListing.description} />
+          <HelpWorkflowCallout topic="Submit request" />
           <div className="listing-verification-strip">
             <VerificationBadge level={props.account.verificationLevel} status={props.account.verificationStatus} />
             <TrustBadge score={props.trustScore} />
@@ -4810,6 +5243,7 @@ function PublishSection({
   return (
     <section className="workspace-panel">
       <PanelHeading icon={PackagePlus} title="Publish inventory" text="Create a safe, non-regulated item listing." />
+      <HelpWorkflowCallout topic="Create listing" />
       <form action={publishListing} className="publish-form expanded-form">
         <label className="wide-field">
           <span>{t("Item name")}</span>
@@ -4850,7 +5284,9 @@ function PublishSection({
         </label>
         <label>
           <span>{t("City")}</span>
-          <input name="city" defaultValue={city} required />
+          <select name="city" defaultValue={city}>
+            {uaeEmirates.map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
+          </select>
         </label>
         <label>
           <span>{t("Area")}</span>
@@ -4860,6 +5296,7 @@ function PublishSection({
             ))}
           </select>
         </label>
+        <p className="form-help wide-field">{t("If your location is not listed, choose Other UAE location and describe the exact address in the notes.")}</p>
         <label>
           <span>{t("Quantity")}</span>
           <input name="quantity" type="number" min={1} defaultValue={50} required />
@@ -5033,6 +5470,7 @@ function RequestsSection(props: {
           ))}
         </div>
       </div>
+      <HelpWorkflowCallout topic="Approve request" />
 
       <RequestQueueSection
         title="Awaiting my action"
@@ -5227,6 +5665,7 @@ function TransfersSection(props: {
           ))}
         </div>
       </div>
+      <HelpWorkflowCallout topic="Verify transfer" />
 
       <TransferQueueSection
         title="Ready for handover"
@@ -6091,7 +6530,7 @@ function SettingsSection({
           <label>
             <span>{t("Emirate")}</span>
             <select name="emirate" defaultValue={account.emirate}>
-              {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
+              {uaeEmirates.map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
             </select>
           </label>
           <label>
@@ -6203,6 +6642,7 @@ function SettingsSection({
       <div className="workspace-grid two-column">
         <section className="workspace-panel">
           <PanelHeading icon={MapPin} title="UAE locations" text="Manage pickup and handover points for listings." />
+          <HelpWorkflowCallout topic="Create listing" />
           <form action={addLocation} className="publish-form">
             <label className="wide-field">
               <span>{t("Location label")}</span>
@@ -6211,13 +6651,14 @@ function SettingsSection({
             <label>
               <span>{t("Emirate")}</span>
               <select name="emirate" defaultValue="Dubai">
-                {["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain"].map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
+                {uaeEmirates.map((emirate) => <option key={emirate} value={emirate}>{t(emirate)}</option>)}
               </select>
             </label>
             <label>
               <span>{t("Area")}</span>
               <input name="area" placeholder={t("Al Quoz, Mussafah, JLT...")} />
             </label>
+            <p className="form-help wide-field">{t("If your location is not listed, choose Other UAE location and describe the exact address in the notes.")}</p>
             <button className="button primary wide-field" type="submit">{t("Add location")}</button>
           </form>
           <div className="workspace-list">

@@ -8,7 +8,7 @@ Founder leads URL: `https://www.redistribut.com/app/leads`
 Public Help Center URL: `https://www.redistribut.com/help`  
 Workspace Help Center URL: `https://www.redistribut.com/app/help`
 
-Update: 2026-06-23 - Help Center language UX cleanup and executive export handling.
+Update: 2026-06-23 - Final UAE launch coverage, visual QA, and production release sync.
 
 ## Summary
 
@@ -88,12 +88,23 @@ This release consolidates the pending founder-operations, lead-management, notif
 - Temporary generation folders `output/` and `outputs/` are ignored; official customer-facing exports should live in `docs/exports/`.
 - These are documentation/design assets only and do not change product behavior.
 
+### Final UAE Launch Coverage QA
+
+- Expanded workspace Arabic coverage for UAE locations, areas, category labels, help callouts, simulated organizations, and simulated listings.
+- Added all UAE emirates plus `Other UAE location` support for founder-guided pilot workflows.
+- Expanded safe redistribution categories for furniture, office equipment, shelving/storage, packaging, warehouse stock, hospitality supplies, textiles, kitchen equipment, electronics/accessories, school/community supplies, tools, event materials, and `Other category`.
+- Added `Other subcategory` fallback coverage while keeping regulated medical/pharmaceutical and hazardous categories restricted for the early pilot.
+- Added workflow help callouts for account setup, listing creation, resource discovery, requests, transfers, certificates, and UAE location settings.
+- Added clearly labeled virtual/test organizations and simulated listings for continued validation before real pilot organizations are active.
+- Added final coverage regression test `scripts/final-uae-launch-coverage.test.mjs`.
+- Added `docs/FINAL_UAE_LAUNCH_COVERAGE_QA_REPORT.md`.
+
 ## Validation Results
 
 Latest validation before release commit:
 
 ```bash
-./.tools/pnpm test       # 79/79 passed
+./.tools/pnpm test       # 84/84 passed
 ./.tools/pnpm typecheck  # passed
 ./.tools/pnpm build      # passed
 ./.tools/pnpm lint       # passed
@@ -118,7 +129,9 @@ Latest validation before release commit:
 - Lead email delivery requires production/staging email provider configuration and verified sender/domain settings.
 - Meeting and pilot tracking require the Supabase pipeline tracking migration to be applied in the target hosted environment.
 - Help Center screenshots are static documentation images and should be refreshed after major UI changes.
+- Public marketing localization still uses the current client-side language approach; dedicated localized routes remain a future improvement before broad paid acquisition.
+- Simulated/test organizations and listings must not be represented as real pilot evidence.
 
 ## Release Recommendation
 
-**Conditional Go** for founder-led outreach using the brand domain and founder-managed onboarding flow. Continue to avoid broad unguided public self-serve onboarding until legal pages are formally reviewed and production operations are staffed or scheduled.
+**Go** for founder-guided UAE outreach using the brand domain and founder-managed onboarding flow. Continue to avoid broad unguided public self-serve onboarding until legal pages are formally reviewed and production operations are staffed or scheduled.
