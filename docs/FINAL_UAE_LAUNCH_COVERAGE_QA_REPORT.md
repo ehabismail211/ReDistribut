@@ -152,6 +152,10 @@ Production URL:
 
 - `https://www.redistribut.com`
 
+Release commit:
+
+- `6cfe571` - `chore: finalize UAE launch coverage QA`
+
 Pages included in the Task 57 production QA pass:
 
 - Home
@@ -175,11 +179,12 @@ Arabic/mobile QA result:
 
 Launch coverage checks:
 
-- Contact and lead capture were checked on production.
+- Contact and lead capture were checked on production. Simulated QA lead `3b2aecc1-a4e8-43fa-9212-860fab1035d5` returned HTTP `201` and should be archived after founder review.
 - Help Center links are visible from public and workspace contexts.
 - Simulated/test data is labeled as demo, simulated, virtual, or validation content.
-- UAE emirates and `Other UAE location` are available in the workspace location coverage.
+- UAE emirates and the Arabic fallback option `موقع آخر في الإمارات` are available in workspace location dropdowns.
 - Expanded categories include `Other category` and `Other subcategory` fallback options.
+- Founder-only routes redirect unauthenticated users back to the workspace with a permission-denied route marker.
 
 ## Final Recommendation
 
