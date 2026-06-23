@@ -15,7 +15,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
 
     const { id } = await params;
     const input = await parseJson(request, updateLeadStatusSchema);
-    const data = await updateMarketingLeadStatus(id, input.status);
+    const data = await updateMarketingLeadStatus(id, input);
     return ok(data);
   } catch (error) {
     return handleError(error);

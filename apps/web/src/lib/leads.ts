@@ -39,6 +39,42 @@ export const leadInquiryLabels: Record<(typeof leadInquiryTypes)[number], string
   question: "General question",
 };
 
+export const meetingStatuses = [
+  "not_scheduled",
+  "scheduled",
+  "completed",
+  "follow_up_required",
+] as const;
+
+export type MeetingStatus = (typeof meetingStatuses)[number];
+
+export const meetingStatusLabels: Record<MeetingStatus, string> = {
+  not_scheduled: "Not scheduled",
+  scheduled: "Scheduled",
+  completed: "Completed",
+  follow_up_required: "Follow-up required",
+};
+
+export const pilotStatuses = [
+  "not_invited",
+  "invited",
+  "accepted",
+  "onboarding",
+  "active",
+  "completed",
+] as const;
+
+export type PilotStatus = (typeof pilotStatuses)[number];
+
+export const pilotStatusLabels: Record<PilotStatus, string> = {
+  not_invited: "Not invited",
+  invited: "Invited",
+  accepted: "Accepted",
+  onboarding: "Onboarding",
+  active: "Active",
+  completed: "Completed",
+};
+
 export const createLeadSchema = z.object({
   name: z.string().trim().min(2).max(120),
   organization: z.string().trim().min(2).max(160),
@@ -56,7 +92,11 @@ export const createLeadSchema = z.object({
 });
 
 export const updateLeadStatusSchema = z.object({
-  status: z.enum(leadStatuses),
+  status: z.enum(leadStatuses).optional(),
+  meetingStatus: z.enum(meetingStatuses).optional(),
+  pilotStatus: z.enum(pilotStatuses).optional(),
+}).refine((input) => input.status || input.meetingStatus || input.pilotStatus, {
+  message: "At least one lead, meeting, or pilot status is required.",
 });
 
 export type CreateLeadInput = z.infer<typeof createLeadSchema>;
@@ -70,6 +110,10 @@ export type MarketingLead = {
   inquiry_type: (typeof leadInquiryTypes)[number];
   message: string;
   status: LeadStatus;
+  meeting_status: MeetingStatus;
+  meeting_status_updated_at: string | null;
+  pilot_status: PilotStatus;
+  pilot_status_updated_at: string | null;
   organization_type: string | null;
   role_title: string | null;
   city: string | null;
@@ -122,10 +166,47 @@ export async function listMarketingLeads() {
   return data ?? [];
 }
 
-export async function updateMarketingLeadStatus(id: string, status: LeadStatus) {
+export async function updateMarketingLeadStatus(
+  id: string,
+  input: { status?: LeadStatus; meetingStatus?: MeetingStatus; pilotStatus?: PilotStatus },
+) {
   const supabase = serviceSupabase();
-  const patch: { status: LeadStatus; contacted_at?: string | null } = { status };
-  if (status === "contacted" || status === "meeting_booked" || status === "pilot_candidate") {
+  const now = new Date().toISOString();
+  const patch: {
+    status?: LeadStatus;
+    meeting_status?: MeetingStatus;
+    meeting_status_updated_at?: string;
+    pilot_status?: PilotStatus;
+    pilot_status_updated_at?: string;
+    contacted_at?: string | null;
+  } = {};
+
+  if (input.status) {
+    patch.status = input.status;
+  }
+
+  if (input.meetingStatus) {
+    patch.meeting_status = input.meetingStatus;
+    patch.meeting_status_updated_at = now;
+  }
+
+  if (input.pilotStatus) {
+    patch.pilot_status = input.pilotStatus;
+    patch.pilot_status_updated_at = now;
+  }
+
+  if (
+    input.status === "contacted" ||
+    input.status === "meeting_booked" ||
+    input.status === "pilot_candidate" ||
+    input.meetingStatus === "scheduled" ||
+    input.meetingStatus === "completed" ||
+    input.meetingStatus === "follow_up_required" ||
+    input.pilotStatus === "invited" ||
+    input.pilotStatus === "accepted" ||
+    input.pilotStatus === "onboarding" ||
+    input.pilotStatus === "active"
+  ) {
     patch.contacted_at = new Date().toISOString();
   }
 

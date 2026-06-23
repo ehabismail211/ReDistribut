@@ -22,7 +22,9 @@ import {
   Flag,
   Globe2,
   Handshake,
+  HelpCircle,
   History,
+  Inbox,
   LayoutDashboard,
   LogIn,
   MapPin,
@@ -76,6 +78,17 @@ const arabicTranslations: Record<string, string> = {
   "Verification, platform controls, proof, and reporting.": "التحقق وضوابط المنصة والإثبات والتقارير.",
   "Workspace settings": "إعدادات مساحة العمل",
   "Company access, organization profile, and local preferences.": "وصول المؤسسة وملفها والتفضيلات المحلية.",
+  "Founder operations": "عمليات المؤسس",
+  "Founder-only pipeline, lead review, and pilot monitoring.": "مسار المؤسس فقط لمراجعة العملاء المحتملين ومتابعة التجربة.",
+  "Founder Dashboard": "لوحة المؤسس",
+  "Leads": "العملاء المحتملون",
+  "Pilot Pipeline": "مسار التجربة",
+  "Support": "الدعم",
+  "Guides, FAQ, and founder support for pilot workflows.": "الأدلة والأسئلة الشائعة ودعم المؤسس لمسارات التجربة.",
+  "Help Center": "مركز المساعدة",
+  "FAQ": "الأسئلة الشائعة",
+  "Founder access required": "يتطلب وصول المؤسس",
+  "This area is restricted to founder and platform admin users. Sign in with an authorized account to continue.": "هذه المنطقة مقيدة بالمؤسس ومشرفي المنصة. سجل الدخول بحساب مصرح للمتابعة.",
   "Listings": "العروض",
   "Organizations": "المؤسسات",
   "Administration": "الإدارة",
@@ -2162,6 +2175,7 @@ export function Workspace() {
   const [requestQuantity, setRequestQuantity] = useState(10);
   const [requestMessage, setRequestMessage] = useState("We can collect today between 4-6 PM.");
   const [messageDraft, setMessageDraft] = useState("Confirmed, our team can bring insulated boxes.");
+  const [permissionDeniedRoute, setPermissionDeniedRoute] = useState<string | null>(null);
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   useEffect(() => {
@@ -2171,6 +2185,12 @@ export function Workspace() {
     document.body.dataset.dir = dir;
     window.localStorage.setItem(languageStorageKey, locale);
   }, [dir, locale]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.get("permission") !== "denied") return;
+    setPermissionDeniedRoute(searchParams.get("route") || "founder route");
+  }, []);
 
   const localization = useMemo<LocalizationContextValue>(() => ({
     locale,
@@ -2887,6 +2907,7 @@ export function Workspace() {
       ],
     },
   ];
+  const showFounderLinks = state.account.signedIn && state.team.some((member) => member.role === "Owner admin" && member.status === "active");
 
   function renderNavItem(item: NavItem) {
     return (
@@ -2925,6 +2946,40 @@ export function Workspace() {
           {primaryNavItems.map(renderNavItem)}
         </div>
         <div className="workspace-nav-secondary" aria-label={localization.t("Secondary workspace sections")}>
+          {showFounderLinks && (
+            <div className="workspace-nav-group">
+              <div className="workspace-nav-group-label">
+                <span>{localization.t("Founder operations")}</span>
+                <small>{localization.t("Founder-only pipeline, lead review, and pilot monitoring.")}</small>
+              </div>
+              <Link className="workspace-nav-item" href="/app/founder">
+                <LayoutDashboard size={18} />
+                <span>{localization.t("Founder Dashboard")}</span>
+              </Link>
+              <Link className="workspace-nav-item" href="/app/leads">
+                <Inbox size={18} />
+                <span>{localization.t("Leads")}</span>
+              </Link>
+              <Link className="workspace-nav-item" href="/app/pilot-monitoring">
+                <Handshake size={18} />
+                <span>{localization.t("Pilot Pipeline")}</span>
+              </Link>
+            </div>
+          )}
+          <div className="workspace-nav-group">
+            <div className="workspace-nav-group-label">
+              <span>{localization.t("Support")}</span>
+              <small>{localization.t("Guides, FAQ, and founder support for pilot workflows.")}</small>
+            </div>
+            <Link className="workspace-nav-item" href="/app/help">
+              <HelpCircle size={18} />
+              <span>{localization.t("Help Center")}</span>
+            </Link>
+            <Link className="workspace-nav-item" href="/faq">
+              <MessageSquare size={18} />
+              <span>{localization.t("FAQ")}</span>
+            </Link>
+          </div>
           {secondaryNavGroups.map((group) => (
             <div className="workspace-nav-group" key={group.title}>
               <div className="workspace-nav-group-label">
@@ -2939,6 +2994,17 @@ export function Workspace() {
       </aside>
 
       <div className="workspace-content">
+        {permissionDeniedRoute && (
+          <section className="dashboard-card permission-denied-card" role="alert">
+            <ShieldCheck size={24} aria-hidden />
+            <div>
+              <h2>{localization.t("Founder access required")}</h2>
+              <p>{localization.t("This area is restricted to founder and platform admin users. Sign in with an authorized account to continue.")}</p>
+              <small>{permissionDeniedRoute}</small>
+            </div>
+          </section>
+        )}
+
         {section === "account" && (
           <AccountSection
             account={state.account}

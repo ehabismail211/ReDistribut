@@ -2,7 +2,7 @@
 
 Status: Founder-operated CRM foundation  
 Scope: Marketing website inquiries, pilot fit review, and first-contact tracking  
-Implementation: Supabase-backed lead records with a protected founder review page
+Implementation: Supabase-backed lead records with protected founder review and pipeline pages
 
 ## Purpose
 
@@ -16,6 +16,7 @@ The ReDist marketing website now converts public inquiries into server-side lead
 4. Spam protection checks run before storage.
 5. A lead record is created in Supabase table `marketing_leads`.
 6. The lead appears in the protected founder review page at `/app/leads`.
+7. Meeting and pilot progress rolls up into `/app/founder`.
 
 ## Captured Fields
 
@@ -32,6 +33,8 @@ The ReDist marketing website now converts public inquiries into server-side lead
 - Created date
 - Source
 - Lead status
+- Meeting status
+- Pilot status
 
 ## Lead Statuses
 
@@ -43,6 +46,26 @@ The ReDist marketing website now converts public inquiries into server-side lead
 | Pilot candidate | Organization appears suitable for Founder-Guided UAE Pilot Wave 1. | Move into invitation/onboarding package. |
 | Archived | Inquiry is not active. | Keep as record; do not pursue now. |
 
+## Meeting Statuses
+
+| Status | Meaning | Founder action |
+| --- | --- | --- |
+| Not scheduled | No founder conversation is booked yet. | Qualify the lead or keep in outreach. |
+| Scheduled | Discovery, demo, or pilot fit conversation is booked. | Prepare the call and confirm attendee context. |
+| Completed | Founder conversation has happened. | Decide whether the lead should become a pilot candidate. |
+| Follow-up required | Founder owes follow-up after a conversation. | Send next steps, invitation materials, or clarification. |
+
+## Pilot Statuses
+
+| Status | Meaning | Founder action |
+| --- | --- | --- |
+| Not invited | Lead has not entered pilot invitation workflow. | Continue lead qualification. |
+| Invited | Organization has received a pilot invitation. | Track response and answer questions. |
+| Accepted | Organization accepted pilot participation. | Start onboarding. |
+| Onboarding | Organization is preparing account, verification, or first workflow. | Guide setup and remove blockers. |
+| Active | Organization is participating in pilot operations. | Monitor requests, transfers, issues, and feedback. |
+| Completed | Organization completed the agreed pilot workflow. | Capture evidence, feedback, and success story readiness. |
+
 ## Founder Review Routine
 
 Daily:
@@ -51,11 +74,15 @@ Daily:
 - Review all New leads.
 - Archive spam, irrelevant, unsafe, or non-UAE inquiries.
 - Move qualified leads to Contacted after first outreach.
-- Move scheduled leads to Meeting booked.
+- Move scheduled conversations to Meeting booked and set Meeting tracking to Scheduled.
+- After a founder conversation, set Meeting tracking to Completed or Follow-up required.
 - Move suitable organizations to Pilot candidate only after a founder review conversation.
+- Set Pilot tracking as Invited, Accepted, Onboarding, Active, or Completed as the organization progresses.
 
 Weekly:
 
+- Open `/app/founder`.
+- Review Upcoming meetings, Pilot candidates, Active pilots, and pilot conversion rate.
 - Compare Pilot candidate leads against the pilot participant selection guide.
 - Update outreach pipeline documents if a lead moves into active partner acquisition.
 - Review whether lead volume requires a dedicated CRM or support owner.
@@ -76,6 +103,7 @@ This is sufficient for private/low-volume launch readiness. If ReDist receives p
 - Public visitors can submit leads only through the API.
 - Public visitors cannot read lead records.
 - `/app/leads` is protected by founder route access.
+- `/app/founder` is protected by founder route access.
 - Lead review and status updates require an authenticated founder/platform role.
 - Supabase RLS allows lead select/update only for platform operator roles.
 
@@ -94,7 +122,13 @@ Server-side lead storage requires:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
 
-The service role key must never be committed, exposed to the browser, included in screenshots, or shared with pilot organizations.
+Founder email notifications require:
+
+- `RESEND_API_KEY`
+- `LEAD_NOTIFICATION_TO` or `FOUNDER_EMAIL`
+- `LEAD_NOTIFICATION_FROM`
+
+The service role key and email provider API key must never be committed, exposed to the browser, included in screenshots, or shared with pilot organizations.
 
 ## Next Upgrade Trigger
 

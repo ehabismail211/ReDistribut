@@ -1,14 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import { leadStatusLabels, leadStatuses, type LeadStatus } from "@/lib/leads";
+import {
+  leadStatusLabels,
+  leadStatuses,
+  meetingStatusLabels,
+  meetingStatuses,
+  pilotStatusLabels,
+  pilotStatuses,
+  type LeadStatus,
+  type MeetingStatus,
+  type PilotStatus,
+} from "@/lib/leads";
 
-export function LeadStatusActions({ leadId, currentStatus }: { leadId: string; currentStatus: LeadStatus }) {
+export function LeadStatusActions({
+  leadId,
+  currentStatus,
+  currentMeetingStatus,
+  currentPilotStatus,
+}: {
+  leadId: string;
+  currentStatus: LeadStatus;
+  currentMeetingStatus: MeetingStatus;
+  currentPilotStatus: PilotStatus;
+}) {
   const [status, setStatus] = useState<LeadStatus>(currentStatus);
+  const [meetingStatus, setMeetingStatus] = useState<MeetingStatus>(currentMeetingStatus);
+  const [pilotStatus, setPilotStatus] = useState<PilotStatus>(currentPilotStatus);
   const [message, setMessage] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
-  async function updateStatus(nextStatus: LeadStatus) {
+  async function updateStatus(payload: { status?: LeadStatus; meetingStatus?: MeetingStatus; pilotStatus?: PilotStatus }) {
     setIsSaving(true);
     setMessage(null);
 
@@ -16,7 +38,7 @@ export function LeadStatusActions({ leadId, currentStatus }: { leadId: string; c
       const response = await fetch(`/api/v1/leads/${leadId}`, {
         method: "PATCH",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ status: nextStatus }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -24,8 +46,10 @@ export function LeadStatusActions({ leadId, currentStatus }: { leadId: string; c
         throw new Error(result?.error?.message ?? "Lead status could not be updated.");
       }
 
-      setStatus(nextStatus);
-      setMessage(`Moved to ${leadStatusLabels[nextStatus].toLowerCase()}.`);
+      if (payload.status) setStatus(payload.status);
+      if (payload.meetingStatus) setMeetingStatus(payload.meetingStatus);
+      if (payload.pilotStatus) setPilotStatus(payload.pilotStatus);
+      setMessage("Pipeline status saved.");
     } catch (caught) {
       setMessage(caught instanceof Error ? caught.message : "Lead status could not be updated.");
     } finally {
@@ -40,10 +64,34 @@ export function LeadStatusActions({ leadId, currentStatus }: { leadId: string; c
         <select
           value={status}
           disabled={isSaving}
-          onChange={(event) => updateStatus(event.target.value as LeadStatus)}
+          onChange={(event) => updateStatus({ status: event.target.value as LeadStatus })}
         >
           {leadStatuses.map((value) => (
             <option value={value} key={value}>{leadStatusLabels[value]}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        <span>Meeting tracking</span>
+        <select
+          value={meetingStatus}
+          disabled={isSaving}
+          onChange={(event) => updateStatus({ meetingStatus: event.target.value as MeetingStatus })}
+        >
+          {meetingStatuses.map((value) => (
+            <option value={value} key={value}>{meetingStatusLabels[value]}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        <span>Pilot tracking</span>
+        <select
+          value={pilotStatus}
+          disabled={isSaving}
+          onChange={(event) => updateStatus({ pilotStatus: event.target.value as PilotStatus })}
+        >
+          {pilotStatuses.map((value) => (
+            <option value={value} key={value}>{pilotStatusLabels[value]}</option>
           ))}
         </select>
       </label>

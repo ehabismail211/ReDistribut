@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowLeft, CalendarDays, Inbox, Mail, Phone, ShieldCheck, Users } from "lucide-react";
 import {
   leadInquiryLabels,
+  meetingStatusLabels,
+  pilotStatusLabels,
   leadStatusLabels,
   leadStatuses,
   listMarketingLeads,
@@ -32,9 +34,9 @@ function statusTone(status: LeadStatus) {
   return "info";
 }
 
-function LeadCard({ lead }: { lead: MarketingLead }) {
+function LeadCard({ lead, highlighted = false }: { lead: MarketingLead; highlighted?: boolean }) {
   return (
-    <article className="dashboard-card lead-card">
+    <article className={`dashboard-card lead-card ${highlighted ? "highlighted" : ""}`} id={`lead-${lead.id}`}>
       <div className="dashboard-card-header">
         <div>
           <span className="lead-reference">{leadInquiryLabels[lead.inquiry_type]}</span>
@@ -57,14 +59,21 @@ function LeadCard({ lead }: { lead: MarketingLead }) {
         <span><strong>City</strong>{lead.city ?? "Not provided"}</span>
         <span><strong>Timeline</strong>{lead.timeline ?? "Not provided"}</span>
         <span><strong>Source</strong>{lead.source.replaceAll("_", " ")}</span>
+        <span><strong>Meeting</strong>{meetingStatusLabels[lead.meeting_status]}</span>
+        <span><strong>Pilot</strong>{pilotStatusLabels[lead.pilot_status]}</span>
       </div>
 
-      <LeadStatusActions leadId={lead.id} currentStatus={lead.status} />
+      <LeadStatusActions
+        leadId={lead.id}
+        currentStatus={lead.status}
+        currentMeetingStatus={lead.meeting_status}
+        currentPilotStatus={lead.pilot_status}
+      />
     </article>
   );
 }
 
-function StatusColumn({ status, leads }: { status: LeadStatus; leads: MarketingLead[] }) {
+function StatusColumn({ status, leads, highlightedLeadId }: { status: LeadStatus; leads: MarketingLead[]; highlightedLeadId?: string }) {
   return (
     <section className="lead-status-column" aria-labelledby={`lead-status-${status}`}>
       <div className="dashboard-card-header">
@@ -75,7 +84,7 @@ function StatusColumn({ status, leads }: { status: LeadStatus; leads: MarketingL
         <span className="dashboard-count">{leads.length}</span>
       </div>
       <div className="lead-card-stack">
-        {leads.length > 0 ? leads.map((lead) => <LeadCard lead={lead} key={lead.id} />) : (
+        {leads.length > 0 ? leads.map((lead) => <LeadCard lead={lead} highlighted={lead.id === highlightedLeadId} key={lead.id} />) : (
           <div className="dashboard-empty">
             No inquiries in this queue.
           </div>
@@ -85,9 +94,10 @@ function StatusColumn({ status, leads }: { status: LeadStatus; leads: MarketingL
   );
 }
 
-export default async function LeadsPage() {
+export default async function LeadsPage({ searchParams }: { searchParams?: Promise<{ lead?: string }> }) {
   let leads: MarketingLead[] = [];
   let setupError: string | null = null;
+  const highlightedLeadId = (await searchParams)?.lead;
 
   try {
     leads = await listMarketingLeads();
@@ -132,7 +142,7 @@ export default async function LeadsPage() {
 
           <section className="lead-review-grid" aria-label="Founder lead review queues">
             {leadStatuses.map((status) => (
-              <StatusColumn leads={grouped.get(status) ?? []} status={status} key={status} />
+              <StatusColumn leads={grouped.get(status) ?? []} status={status} highlightedLeadId={highlightedLeadId} key={status} />
             ))}
           </section>
         </>
