@@ -23,6 +23,7 @@ export const siteNav = [
   { href: "/how-it-works", label: "How It Works" },
   { href: "/suppliers", label: "Suppliers" },
   { href: "/recipients", label: "Recipients" },
+  { href: "/help", label: "Help Center" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

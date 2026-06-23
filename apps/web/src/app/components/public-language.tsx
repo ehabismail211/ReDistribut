@@ -11,6 +11,7 @@ const ar: Record<string, string> = {
   "How It Works": "كيف يعمل",
   "Suppliers": "للموردين",
   "Recipients": "للمستفيدين",
+  "Help Center": "مركز المساعدة",
   "FAQ": "الأسئلة الشائعة",
   "Contact": "تواصل معنا",
   "Workspace": "مساحة العمل",
