@@ -6,11 +6,15 @@ const paths = {
   lib: "apps/web/src/lib/leads.ts",
   api: "apps/web/src/app/api/v1/leads/route.ts",
   updateApi: "apps/web/src/app/api/v1/leads/[id]/route.ts",
+  notifications: "apps/web/src/lib/lead-notifications.ts",
   form: "apps/web/src/app/contact/contact-form.tsx",
   page: "apps/web/src/app/app/leads/page.tsx",
+  leadActions: "apps/web/src/app/app/leads/lead-status-actions.tsx",
   proxy: "apps/web/src/proxy.ts",
   migration: "supabase/migrations/202606220001_marketing_leads.sql",
+  pipelineMigration: "supabase/migrations/202606220002_marketing_lead_pipeline_tracking.sql",
   docs: "docs/LEAD_MANAGEMENT_WORKFLOW.md",
+  notificationDocs: "docs/LEAD_NOTIFICATION_WORKFLOW.md",
 };
 
 function file(path) {
@@ -61,10 +65,36 @@ test("lead API validates fields, applies spam controls, and uses server-side sto
   }
 });
 
+test("lead API sends founder notification after lead persistence without blocking saved leads", () => {
+  const api = file(paths.api);
+  const notifications = file(paths.notifications);
+  const docs = file(paths.notificationDocs);
+
+  for (const token of [
+    "sendLeadNotification",
+    "await createMarketingLead",
+    "Lead notification email failed after lead persistence.",
+    "RESEND_API_KEY",
+    "LEAD_NOTIFICATION_TO",
+    "LEAD_NOTIFICATION_FROM",
+    "FOUNDER_EMAIL",
+    "Name",
+    "Organization",
+    "Email",
+    "Phone",
+    "Interest Type",
+    "Message",
+    "/app/leads?lead=",
+  ]) {
+    assert.ok(`${api}\n${notifications}\n${docs}`.includes(token), `missing ${token}`);
+  }
+});
+
 test("founder lead review route is protected and exposes required statuses", () => {
   const page = file(paths.page);
   const proxy = file(paths.proxy);
   const updateApi = file(paths.updateApi);
+  const leadActions = file(paths.leadActions);
   const lib = file(paths.lib);
 
   for (const token of [
@@ -73,11 +103,45 @@ test("founder lead review route is protected and exposes required statuses", () 
     "Meeting booked",
     "Pilot candidate",
     "Archived",
+    "Meeting tracking",
+    "Pilot tracking",
+    "meetingStatus",
+    "pilotStatus",
     "LeadStatusActions",
+    "searchParams",
+    "highlightedLeadId",
+    "highlighted ? \"highlighted\"",
     "/app/leads",
     "founder.route.access",
   ]) {
-    assert.ok(`${page}\n${proxy}\n${updateApi}\n${lib}`.includes(token), `missing ${token}`);
+    assert.ok(`${page}\n${leadActions}\n${proxy}\n${updateApi}\n${lib}`.includes(token), `missing ${token}`);
+  }
+});
+
+test("lead management supports meeting and pilot pipeline tracking", () => {
+  const lib = file(paths.lib);
+  const updateApi = file(paths.updateApi);
+  const page = file(paths.page);
+  const pipelineMigration = file(paths.pipelineMigration);
+
+  for (const token of [
+    "marketing_lead_meeting_status",
+    "scheduled",
+    "completed",
+    "follow_up_required",
+    "marketing_lead_pilot_status",
+    "invited",
+    "accepted",
+    "onboarding",
+    "active",
+    "meeting_status_updated_at",
+    "pilot_status_updated_at",
+    "updateLeadStatusSchema",
+    "updateMarketingLeadStatus(id, input)",
+    "meetingStatusLabels",
+    "pilotStatusLabels",
+  ]) {
+    assert.ok(`${lib}\n${updateApi}\n${page}\n${pipelineMigration}`.includes(token), `missing ${token}`);
   }
 });
 

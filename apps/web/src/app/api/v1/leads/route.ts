@@ -1,4 +1,5 @@
 import { created, handleError, ok, parseJson } from "@/lib/api";
+import { sendLeadNotification } from "@/lib/lead-notifications";
 import { createLeadSchema, createMarketingLead, listMarketingLeads } from "@/lib/leads";
 import { requireRoutePermission } from "@/lib/permissions";
 import { requireUser } from "@/lib/supabase";
@@ -54,6 +55,13 @@ export async function POST(request: Request) {
       ip,
       userAgent: request.headers.get("user-agent"),
     });
+
+    try {
+      await sendLeadNotification({ leadId: data.id, lead: input });
+    } catch (notificationError) {
+      console.error("Lead notification email failed after lead persistence.", notificationError);
+    }
+
     return created(data);
   } catch (error) {
     return handleError(error);
