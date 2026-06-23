@@ -342,6 +342,7 @@
   padding: clamp(38px, 6vw, 72px) clamp(20px, 7vw, 104px);
 }
 
+.help-language-panel,
 .help-search-panel,
 .help-support-card {
   display: grid;
@@ -354,11 +355,44 @@
   border-radius: 8px;
 }
 
+.help-language-panel svg,
 .help-search-panel svg,
 .help-support-card svg {
   color: #0f8a63;
 }
 
+.help-language-panel {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.help-language-actions {
+  display: inline-flex;
+  gap: 8px;
+  padding: 6px;
+  background: #ffffff;
+  border: 1px solid #d9ded8;
+  border-radius: 8px;
+}
+
+.help-language-actions button {
+  min-width: 92px;
+  padding: 10px 14px;
+  color: #53605a;
+  font: inherit;
+  font-weight: 900;
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.help-language-actions button.active {
+  color: #ffffff;
+  background: #1f6b60;
+}
+
+.help-language-panel span,
 .help-search-panel span,
 .help-document-card span,
 .help-screenshot figcaption {
@@ -367,16 +401,17 @@
   font-weight: 850;
 }
 
+.help-language-panel strong,
 .help-search-panel strong {
   display: block;
   margin: 3px 0;
   font-size: 22px;
 }
 
+.help-language-panel p,
 .help-search-panel p,
 .help-support-card p,
-.help-guide-copy p,
-.help-arabic p {
+.help-guide-copy p {
   margin: 0;
   color: #53605a;
 }
@@ -426,14 +461,12 @@
   scroll-margin-top: 28px;
 }
 
-.help-guide-copy,
-.help-arabic {
+.help-guide-copy {
   display: grid;
   gap: 12px;
 }
 
 .help-guide-copy h2,
-.help-arabic h3,
 .help-faq-preview h2,
 .help-support-card h2 {
   margin: 0;
@@ -442,20 +475,12 @@
 }
 
 .help-guide-copy ol,
-.help-arabic ol,
 .help-support-card ul {
   margin: 0;
   padding-inline-start: 22px;
   color: #53605a;
   font-weight: 700;
   line-height: 1.65;
-}
-
-.help-arabic {
-  padding: 16px;
-  background: #f6faf7;
-  border: 1px solid #d9eadf;
-  border-radius: 8px;
 }
 
 .help-screenshot {
@@ -842,6 +867,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .help-language-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .help-language-actions {
+    justify-self: start;
+  }
+
   .help-guide-section {
     grid-template-columns: 1fr;
   }
@@ -882,8 +915,18 @@
   .mkt-form-grid,
   .help-document-grid,
   .help-support-card,
-  .help-search-panel {
+  .help-search-panel,
+  .help-language-panel {
     grid-template-columns: 1fr;
+  }
+
+  .help-language-actions {
+    width: 100%;
+  }
+
+  .help-language-actions button {
+    flex: 1;
+    min-width: 0;
   }
 
   .mkt-card-grid.three,

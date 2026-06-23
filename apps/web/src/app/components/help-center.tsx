@@ -1,5 +1,10 @@
-import { BookOpen, FileQuestion, LifeBuoy, Search, UserCheck } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
+import { BookOpen, FileQuestion, Languages, LifeBuoy, Search, UserCheck } from "lucide-react";
 import { faqGroups } from "./marketing";
+
+type Locale = "en" | "ar";
 
 type HelpSection = {
   id: string;
@@ -136,22 +141,48 @@ const helpSections: HelpSection[] = [
 ];
 
 const manualLinks = [
-  { label: "Quick Start Guide", href: "#quick-start", file: "docs/REDIST_QUICK_START_GUIDE_EN_AR.md" },
-  { label: "User Manual", href: "#user-manual", file: "docs/REDIST_USER_MANUAL_EN_AR.md" },
-  { label: "Supplier Guide", href: "#supplier-guide", file: "docs/REDIST_SUPPLIER_GUIDE_EN_AR.md" },
-  { label: "Recipient Guide", href: "#recipient-guide", file: "docs/REDIST_RECIPIENT_GUIDE_EN_AR.md" },
-  { label: "FAQ", href: "#faq", file: "Public FAQ" },
+  { label: "Quick Start Guide", arabicLabel: "دليل البدء السريع", href: "#quick-start", file: "docs/REDIST_QUICK_START_GUIDE_EN_AR.md" },
+  { label: "User Manual", arabicLabel: "دليل المستخدم", href: "#user-manual", file: "docs/REDIST_USER_MANUAL_EN_AR.md" },
+  { label: "Supplier Guide", arabicLabel: "دليل المورد", href: "#supplier-guide", file: "docs/REDIST_SUPPLIER_GUIDE_EN_AR.md" },
+  { label: "Recipient Guide", arabicLabel: "دليل المستفيد", href: "#recipient-guide", file: "docs/REDIST_RECIPIENT_GUIDE_EN_AR.md" },
+  { label: "FAQ", arabicLabel: "الأسئلة الشائعة", href: "#faq", file: "Public FAQ" },
 ];
 
 export function HelpCenterContent({ internal = false }: { internal?: boolean }) {
+  const [locale, setLocale] = useState<Locale>("en");
+  const isArabic = locale === "ar";
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem("redist-language");
+    if (stored === "ar" || stored === "en") setLocale(stored);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("redist-language", locale);
+    document.body.dataset.locale = locale;
+    document.body.dataset.dir = isArabic ? "rtl" : "ltr";
+  }, [isArabic, locale]);
+
   return (
-    <section className="help-center">
+    <section className="help-center" lang={locale} dir={isArabic ? "rtl" : "ltr"}>
+      <div className="help-language-panel" aria-label="Help Center language">
+        <Languages size={22} aria-hidden />
+        <div>
+          <span>{isArabic ? "لغة دليل المستخدم" : "User manual language"}</span>
+          <strong>{isArabic ? "اعرض التعليمات العربية فقط أو الإنجليزية فقط." : "Show either Arabic guidance or English guidance."}</strong>
+        </div>
+        <div className="help-language-actions">
+          <button className={!isArabic ? "active" : ""} onClick={() => setLocale("en")} type="button">English</button>
+          <button className={isArabic ? "active" : ""} onClick={() => setLocale("ar")} type="button">العربية</button>
+        </div>
+      </div>
+
       <div className="help-search-panel" role="search">
         <Search size={22} aria-hidden />
         <div>
-          <span>Searchable guide sections</span>
-          <strong>Use browser find to search English or Arabic terms.</strong>
-          <p>Try: listing, request, certificate, المورد, الطلبات, الشهادات.</p>
+          <span>{isArabic ? "أقسام الدليل القابلة للبحث" : "Searchable guide sections"}</span>
+          <strong>{isArabic ? "استخدم بحث المتصفح للعثور على المصطلحات العربية." : "Use browser find to search English terms."}</strong>
+          <p>{isArabic ? "جرّب: المورد، الطلبات، الشهادات، التحويلات." : "Try: listing, request, certificate, transfer."}</p>
         </div>
       </div>
 
@@ -159,7 +190,7 @@ export function HelpCenterContent({ internal = false }: { internal?: boolean }) 
         {manualLinks.map((link) => (
           <a className="help-document-card" href={link.href} key={link.label}>
             <BookOpen size={20} aria-hidden />
-            <strong>{link.label}</strong>
+            <strong>{isArabic ? link.arabicLabel : link.label}</strong>
             <span>{link.file}</span>
           </a>
         ))}
@@ -169,23 +200,16 @@ export function HelpCenterContent({ internal = false }: { internal?: boolean }) 
         {helpSections.map((section) => (
           <article className="help-guide-section" id={section.id} key={section.id}>
             <div className="help-guide-copy">
-              <span className="mkt-eyebrow">{section.title}</span>
-              <h2>{section.title}</h2>
-              <p>{section.description}</p>
+              <span className="mkt-eyebrow">{isArabic ? section.arabicTitle : section.title}</span>
+              <h2>{isArabic ? section.arabicTitle : section.title}</h2>
+              <p>{isArabic ? section.arabicDescription : section.description}</p>
               <ol>
-                {section.steps.map((step) => <li key={step}>{step}</li>)}
+                {(isArabic ? section.arabicSteps : section.steps).map((step) => <li key={step}>{step}</li>)}
               </ol>
-              <div className="help-arabic" lang="ar" dir="rtl">
-                <h3>{section.arabicTitle}</h3>
-                <p>{section.arabicDescription}</p>
-                <ol>
-                  {section.arabicSteps.map((step) => <li key={step}>{step}</li>)}
-                </ol>
-              </div>
             </div>
             <figure className="help-screenshot">
               <img src={section.screenshot} alt={`${section.title} screenshot`} />
-              <figcaption>{section.title} screenshot</figcaption>
+              <figcaption>{isArabic ? `لقطة شاشة: ${section.arabicTitle}` : `${section.title} screenshot`}</figcaption>
             </figure>
           </article>
         ))}
@@ -194,33 +218,46 @@ export function HelpCenterContent({ internal = false }: { internal?: boolean }) 
       <section className="help-faq-preview" id="faq">
         <div className="dashboard-card-header">
           <div>
-            <span className="mkt-eyebrow">FAQ</span>
-            <h2>Common pilot questions</h2>
-            <p>Selected questions from the public FAQ, with the full FAQ available as a dedicated page.</p>
+            <span className="mkt-eyebrow">{isArabic ? "الأسئلة الشائعة" : "FAQ"}</span>
+            <h2>{isArabic ? "أسئلة التجربة الشائعة" : "Common pilot questions"}</h2>
+            <p>{isArabic ? "افتح صفحة الأسئلة الشائعة الكاملة للإجابات العربية أو الإنجليزية." : "Selected questions from the public FAQ, with the full FAQ available as a dedicated page."}</p>
           </div>
-          <a className="mkt-button mkt-button-secondary" href="/faq">Open FAQ</a>
+          <a className="mkt-button mkt-button-secondary" href="/faq">{isArabic ? "فتح الأسئلة الشائعة" : "Open FAQ"}</a>
         </div>
-        <div className="mkt-faq-list">
-          {faqGroups.slice(0, 3).flatMap((group) => group.items.slice(0, 2)).map(([question, answer]) => (
-            <details key={question}>
-              <summary>{question}<FileQuestion size={18} aria-hidden /></summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
+        {isArabic ? (
+          <div className="help-faq-language-note">
+            <FileQuestion size={18} aria-hidden />
+            <p>تتوفر الأسئلة الشائعة الكاملة باللغة العربية عند استخدام زر اللغة في صفحة FAQ.</p>
+          </div>
+        ) : (
+          <div className="mkt-faq-list">
+            {faqGroups.slice(0, 3).flatMap((group) => group.items.slice(0, 2)).map(([question, answer]) => (
+              <details key={question}>
+                <summary>{question}<FileQuestion size={18} aria-hidden /></summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
+        )}
       </section>
 
       {internal ? (
         <section className="help-support-card">
           <LifeBuoy size={24} aria-hidden />
           <div>
-            <span className="mkt-eyebrow">Founder support</span>
-            <h2>Need help during the pilot?</h2>
-            <p>Contact the founder with the page name, organization, request or transfer reference, screenshot, and the next action you expected.</p>
+            <span className="mkt-eyebrow">{isArabic ? "دعم المؤسس" : "Founder support"}</span>
+            <h2>{isArabic ? "هل تحتاج إلى مساعدة أثناء التجربة؟" : "Need help during the pilot?"}</h2>
+            <p>{isArabic ? "تواصل مع المؤسس واذكر اسم الصفحة والمؤسسة ومرجع الطلب أو التحويل ولقطة الشاشة والإجراء المتوقع." : "Contact the founder with the page name, organization, request or transfer reference, screenshot, and the next action you expected."}</p>
             <ul>
-              <li>For access issues, include the email address and organization name.</li>
-              <li>For request or transfer issues, include the request reference and current status.</li>
-              <li>For certificate questions, include the certificate or transfer reference.</li>
+              {(isArabic ? [
+                "لمشكلات الوصول، أرفق البريد الإلكتروني واسم المؤسسة.",
+                "لمشكلات الطلب أو التحويل، أرفق مرجع الطلب والحالة الحالية.",
+                "لأسئلة الشهادة، أرفق مرجع الشهادة أو التحويل.",
+              ] : [
+                "For access issues, include the email address and organization name.",
+                "For request or transfer issues, include the request reference and current status.",
+                "For certificate questions, include the certificate or transfer reference.",
+              ]).map((item) => <li key={item}>{item}</li>)}
             </ul>
           </div>
           <UserCheck size={24} aria-hidden />

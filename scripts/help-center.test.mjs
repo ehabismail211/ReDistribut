@@ -64,7 +64,9 @@ test("help center exposes screenshots and simple searchable sections", () => {
 
   for (const token of [
     "Searchable guide sections",
-    "Use browser find to search English or Arabic terms.",
+    "Show either Arabic guidance or English guidance.",
+    "Use browser find to search English terms.",
+    "استخدم بحث المتصفح للعثور على المصطلحات العربية.",
     "/help/workspace-dashboard.png",
     "/help/workspace-discover.png",
     "/help/workspace-impact.png",
@@ -84,9 +86,10 @@ test("help center is linked from public and workspace navigation", () => {
 test("help center styling and release notes are present", () => {
   for (const token of [
     ".help-center",
+    ".help-language-panel",
+    ".help-language-actions",
     ".help-document-grid",
     ".help-guide-section",
-    ".help-arabic",
     ".help-support-card",
     ".workspace-standalone-page",
   ]) {

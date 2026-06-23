@@ -8,6 +8,8 @@ Founder leads URL: `https://www.redistribut.com/app/leads`
 Public Help Center URL: `https://www.redistribut.com/help`  
 Workspace Help Center URL: `https://www.redistribut.com/app/help`
 
+Update: 2026-06-23 - Help Center language UX cleanup and executive export handling.
+
 ## Summary
 
 This release consolidates the pending founder-operations, lead-management, notification, and Help Center work into a clean repository state before the next customer-facing release. It also includes the latest customer-facing portfolio and presentation documentation created after the Help Center work.
@@ -70,12 +72,20 @@ This release consolidates the pending founder-operations, lead-management, notif
 - Added Help Center links to public navigation, footer navigation, and workspace Support navigation.
 - Published user-manual screenshots under `/help/` for public and workspace documentation.
 - Added bilingual sections for Quick Start, User Manual, Supplier Guide, Recipient Guide, Requests/Transfers, Certificates/Impact, and FAQ access.
+- Updated the Help Center UX so English and Arabic manuals display one language at a time based on the selected `redist-language` preference, instead of showing both languages together in each section.
+- `/help` and `/app/help` now include an explicit manual language selector for English and Arabic guidance.
 - Added `docs/HELP_CENTER_RELEASE_NOTES.md`.
 
 ### Customer-Facing Portfolio And Presentation Docs
 
 - Added founder business portfolio, supplier/recipient/partner meeting packs, executive one-pager, discovery question library, meeting evaluation form, and pilot qualification checklist.
 - Added executive, supplier, recipient, and partnership deck structures plus printable meeting pack guidance.
+- Added official exported ReDist executive presentation assets under `docs/exports/`:
+  - `redist-executive-presentation.pptx`
+  - `redist-executive-presentation.pdf`
+  - `redist-executive-presentation-contact-sheet.png`
+- The older desktop `ReDistribution.pdf` was replaced manually with the updated executive PDF, with a timestamped local backup kept outside the repository.
+- Temporary generation folders `output/` and `outputs/` are ignored; official customer-facing exports should live in `docs/exports/`.
 - These are documentation/design assets only and do not change product behavior.
 
 ## Validation Results
